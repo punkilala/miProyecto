@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Conocimientos obtenidos";
+}
+<script src="~/Scripts/paginacion.js"></script>
+<div id="habilidades" class="page">
+
+    <h1 class="page-header remove-margin">
+        @Html.ActionLink("Agrega", "Acciones", null, new { @class = "btn btn-primary pull-right" })
+        @ViewBag.Title
+    </h1>
+    <div id="parcial" class="col-xs-12">
+        @Html.Action("_Listado", "Conocimiento")
+    </div>
+</div>

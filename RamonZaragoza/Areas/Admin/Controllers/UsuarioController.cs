@@ -129,5 +129,42 @@ namespace RamonZaragoza.Areas.Admin.Controllers
                
            return Json(mRespuestaAjax);
         }
+
+        public ActionResult CambioDePass()
+        {
+            // var usuarioActual = mUsuario.UsuarioActivo();
+            ViewBag.ID = SesionHelper.GetUser();
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult CambioDePass(int id, string PassActual, string PassNuevo)
+        {
+            int result;
+            mRespuestaAjax = new RespuestaServidor();
+            if (ModelState.IsValid)
+            {
+                result = mUsuario.CambiarPassword(id, PassActual, PassNuevo);
+                if (result == 0)
+                {
+                    mRespuestaAjax.SetResponse(false, "Contraseña Actual no coincide");
+                }
+                else if (result == 1)
+                {
+                    mRespuestaAjax.SetResponse(true, "Cambio realizado OK");
+                }
+                else
+                {
+                    mRespuestaAjax.SetResponse(false, "Error al grabar Password");
+                }
+            }
+            else
+            {
+                mRespuestaAjax.SetResponse(false, "Error inesplicable");
+            }
+            return Json(mRespuestaAjax);
+
+        }
     }
 }

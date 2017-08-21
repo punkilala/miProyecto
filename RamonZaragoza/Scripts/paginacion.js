@@ -63,11 +63,11 @@ $(document).ready(function () {
             switch ($('#' + campo).val()) {
                 case "":
                     $('#' + campo).val('Desc')
-                    clase = "glyphicon glyphicon-chevron-up";
+                    clase = "fa fa-arrow-down";
                     break;
                 case "Desc":
                     $('#' + campo).val('Asc')
-                    clase = "glyphicon glyphicon-chevron-down"
+                    clase = "fa fa-arrow-up"
                     break;
                 default:
                     $('#' + campo).val('');
