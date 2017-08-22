@@ -140,7 +140,7 @@
     <Compile Include="Areas\Admin\Controllers\ExperienciaController.cs" />
     <Compile Include="Areas\Admin\Controllers\ConocimientoController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
-    <Compile Include="Areas\Admin\Controllers\TestimoniosController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdjuntosController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsuarioController.cs" />
     <Compile Include="Areas\Admin\Filters\AdminFilters.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -163,6 +163,7 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\noAdjuntos.jpg" />
     <Content Include="Content\images\noFoto.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\themes\base\accordion.css" />
@@ -227,7 +228,7 @@
     <Content Include="Areas\Admin\Views\Conocimiento\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\Testimonios\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Adjuntos\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Usuario\Index.cshtml" />
     <Content Include="Areas\Admin\Views\_Viewstart.cshtml" />
     <Content Include="Areas\Admin\Content\bootstrap.min.css.map" />
@@ -238,6 +239,7 @@
     <Content Include="Areas\Admin\Views\Conocimiento\Acciones.cshtml" />
     <Content Include="Areas\Admin\Views\Experiencia\_Listado.cshtml" />
     <Content Include="Areas\Admin\Views\Experiencia\Acciones.cshtml" />
+    <Content Include="Areas\Admin\Views\Adjuntos\_Listado.cshtml" />
     <None Include="Scripts\jquery-1.11.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.11.3.js" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />

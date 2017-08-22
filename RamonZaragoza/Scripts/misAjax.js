@@ -45,7 +45,8 @@
                         else css = "alert-danger";
 
                         var mensaje = '<div class="alert ' + css + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + r.mensaje + '</div>';
-                        form.prepend(mensaje);
+                        if ($('#mensaje').length) $('#mensaje').html(mensaje);
+                        else form.prepend(mensaje); 
                     }
                 }
 
@@ -72,8 +73,7 @@
 })
 
 function onSuccess(r) {
-
-    if (r.mensaje != null) {
+    if (r.mensaje.length > 0) {
         if (r.respuesta) {
             var css = "alert-info";
         } else {
@@ -82,6 +82,10 @@ function onSuccess(r) {
         var alerta = '<div class="alert ' + css + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'
             + r.mensaje + '</div>';
         $('#mensaje').html(alerta);
+    }
+
+    if (r.funcion != null) {
+        setTimeout(r.funcion, 0);
     }
 
     if (r.href != null) {
