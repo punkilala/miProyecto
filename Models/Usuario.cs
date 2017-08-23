@@ -121,6 +121,9 @@ namespace Models
                     {
                         SesionHelper.AddUserASesion(usuario.id.ToString(),
                             usuario.Nombre, usuario.Foto, Convert.ToInt16(usuario.Rol_id));
+
+                        Mensaje alerta = new Mensaje();
+                        HttpContext.Current.Session.Add("MensajesSinLeer", alerta.GetSinLeer(usuario.id));
                     }
                 }
             }

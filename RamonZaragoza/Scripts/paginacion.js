@@ -1,11 +1,16 @@
 ﻿var enlace;
 var clase;
+var funcion;
 $(document).ready(function () {
 
     //escuchar botones
     $('body').on('click', 'button', function () {
         var url;
         var boton = $(this).attr('id');
+
+        //saber si tengo que ejecutar alguna funcion al acabar ajax
+        if ($(this).data('funcion') != undefined) funcion = $(this).data('funcion');
+
         //si se pulso el boton para borrar algun registro
         if (boton == "btnEliminar") {
             //comprobar si se seleccionaros registros
@@ -15,7 +20,7 @@ $(document).ready(function () {
             }
             if (!confirm('¿Esta seguro de realizar esta acción?')) return false;
         } else {
-            //es boton para borrar input
+            //es boton para borrar el valor del  input que utilizo para filtrar
             var elInput = $(this).attr('id').substring(4);
             $('#' + elInput).val('');
         }
@@ -31,8 +36,9 @@ $(document).ready(function () {
 
     //escuchar input
     $('body').on('change', 'input', function () {
+       
         //evito que se envie  si se clickea los checkbox... estos van por el boton eliminar
-        if ($(this).attr('name') == "idEliminar") return false;
+        if ($(this).attr('name') == "idEliminar" || ($(this).attr('name') == "todo")) return false;
         var form = $(this).closest('form');
         inicioAjax(form);
     });
@@ -99,6 +105,9 @@ var inicioAjax = function (form) {
             block.remove();
             $('#parcial').html(respuesta);
             $('#' + enlace).addClass(clase);
+
+            //ejecutar funcion si procede
+            if (funcion != undefined) setTimeout(funcion,0);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(textStatus + ' ' + errorThrown);

@@ -14,9 +14,11 @@
         {
             ViewBag.Foto = Url.Content(Helper.SubirArchivos.GetRutaFotoPerfil() + Session["foto"]);
         }
+        ViewBag.Alerta = Convert.ToInt32(Session["MensajesSinLeer"]);
 
     }
 }
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -33,7 +35,6 @@
 
 </head>
 <body>
-
     @if (controlador != "login")
     {
         <nav class="navbar navbar-default">
@@ -73,7 +74,15 @@
                             <a href="~/admin/Conocimiento">Candidaturas</a>
                         </li>
                         <li>
-                            <a href="~/admin/testimonios">Mensajes</a>
+                            @if (ViewBag.Alerta > 0)
+                            {
+                                <a id="alerta" style="color:red;" href="~/admin/Mensaje">Mensajes(@ViewBag.Alerta)</a>
+                            }
+                            else
+                            {
+                                <a href="~/admin/Mensaje">Mensajes</a>
+                            }
+                            
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">

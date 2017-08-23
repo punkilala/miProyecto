@@ -17,7 +17,7 @@ namespace RamonZaragoza.Areas.Admin.Controllers
         private Usuario mUsuario = new Usuario();
 
         public ActionResult Index()
-        {
+        {  
             return View(mUsuario.UsuarioActivo());
         }
 
