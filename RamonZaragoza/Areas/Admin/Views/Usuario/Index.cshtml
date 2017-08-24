@@ -8,9 +8,8 @@
 <script src="~/Scripts/jquery-ui-1.11.3.js"></script>
 <script src="~/Scripts/jquery.ui.datepicker-es.js"></script>
 <script src="~/Scripts/jquery.maskedinput.js"></script>
-
-<div id="yo" class="page">
-    <h1 class="page-header">Acerca de mí</h1>
+@Html.Hidden("MenuActivo")
+    <h3 class="page-header"><b>Acerca</b> de mí</h3>
 
     <!--INICIO FORMULARIO-->
     @using (Ajax.BeginForm("GuardarUsuario", "Usuario", new AjaxOptions()
@@ -134,7 +133,6 @@
 
     }<!--FIN FORMULARIO-->
 
-</div>
 <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
 <!--pidiendo una validacion de nuestro formulario en lado de cliente, esta validacion se hace conforme a las anotaciones-->
 

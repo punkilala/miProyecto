@@ -14,10 +14,10 @@ namespace RamonZaragoza.Areas.Admin.Controllers
     public class MensajeController : Controller
     {
         Mensaje mMensajes = new Mensaje();
-        RespuestaServidor mRespuestaAjax;
 
         public ActionResult Index()
         {
+            ViewBag.MenuActivo = 6;
             return View();
         }
         public PartialViewResult _Listado(int[] idEliminar, int? pagina, int ? estado_id)

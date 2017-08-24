@@ -2,13 +2,13 @@
 @{
     int tipo = ViewBag.Tipo;
 }
-
+@Html.Hidden("MenuActivo")
 <div id="experiencia" class="page">
 
-    <h1 class="page-header remove-margin">
+    <h3 class="page-header remove-margin">
         @Html.ActionLink("Agregar", "Acciones", "Experiencia", new { tipo = tipo }, new { @class = "btn btn-primary pull-right" })
         @ViewBag.Title
-    </h1>
+    </h3>
 
     <div id="parcial" class="col-xs-12">
 

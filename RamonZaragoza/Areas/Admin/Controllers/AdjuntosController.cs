@@ -17,6 +17,7 @@ namespace RamonZaragoza.Areas.Admin.Controllers
         
         public ActionResult Index()
         {
+            ViewBag.MenuActivo = 4;
             mAdjunto.Usuario_id = SesionHelper.GetUser();
             return View(mAdjunto);
         }

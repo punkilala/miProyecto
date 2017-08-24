@@ -49,6 +49,7 @@ namespace Helper
             HttpContext.Current.Session.Add("foto", foto);
             HttpContext.Current.Session.Add("rol", rol);
             HttpContext.Current.Session.Add("EstadoMensajes", "1");
+            HttpContext.Current.Session.Add("menuActivo", "0");
         }
     }
 }

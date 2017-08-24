@@ -18,6 +18,7 @@ namespace RamonZaragoza.Areas.Admin.Controllers
         RespuestaServidor mRespuestaAjax;
         public ActionResult Index(int tipo)
         {
+            ViewBag.MenuActivo = tipo == 1 ? 1 : 2;
             ViewBag.Tipo = tipo;
             ViewBag.Title = tipo == 1 ? "Experiencia Profesional" : "Estudios realizados";
             return View();

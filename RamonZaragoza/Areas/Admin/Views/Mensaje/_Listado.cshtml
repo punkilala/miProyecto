@@ -12,7 +12,7 @@
     {
         //IMPORTANTE PARA PODER PASAR DE PAGINA CON AJAX Y JQUERY
         @Html.Hidden("pagina", "")
-        <h3> 
+        <h4> 
             @ViewBag.Estado (@ViewBag.Cuantos)
             <span class="pull-right">
                 @Html.DropDownList("estado_id", new List<SelectListItem>
@@ -21,7 +21,7 @@
                     new SelectListItem { Text="Leidos", Value="2"}
                }, new { @class = "form-control input-sm" })      
             </span> 
-        </h3>
+        </h4>
         if (ViewBag.Cuantos == 0)
         {
                 <img class= "img-responsive" src = "../../../Content/images/noMensajes.jpg" />

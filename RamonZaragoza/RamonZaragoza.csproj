@@ -157,7 +157,7 @@
       <DependentUpon>proyecto.mdf</DependentUpon>
     </Content>
     <Content Include="Areas\Admin\Content\admin-estilo.css" />
-    <Content Include="Areas\Admin\Content\bootstrap.theme.min.css" />
+    <Content Include="Areas\Admin\script\ColoreaTop.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -235,7 +235,6 @@
     <Content Include="Areas\Admin\Views\Adjuntos\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Usuario\Index.cshtml" />
     <Content Include="Areas\Admin\Views\_Viewstart.cshtml" />
-    <Content Include="Areas\Admin\Content\bootstrap.min.css.map" />
     <Content Include="Areas\Admin\Views\Usuario\FotoPerfil.cshtml" />
     <Content Include="Areas\Admin\Views\Usuario\_CambiarFoto.cshtml" />
     <Content Include="Areas\Admin\Views\Usuario\CambioDePass.cshtml" />
@@ -247,6 +246,8 @@
     <Content Include="Areas\Admin\Views\Mensaje\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Mensaje\_Listado.cshtml" />
     <Content Include="Areas\Admin\Views\Mensaje\LeerMensaje.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Aside.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_MenuTop.cshtml" />
     <None Include="Scripts\jquery-1.11.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.11.3.js" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />
