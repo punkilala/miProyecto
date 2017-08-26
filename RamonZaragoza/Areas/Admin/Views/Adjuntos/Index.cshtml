@@ -6,6 +6,7 @@
 <div id="testimonios" class="page">
 
     <h3 class="page-header remove-margin">
+        <i class="fa fa-folder-open"> </i>
         @ViewBag.Title
     </h3>
     <div class="row">
@@ -35,6 +36,9 @@
 
 </div>
 <script>
+    $(document).ready(function () {
+        Colorea('@Session["menuActivo"]');
+    });
     function RecargarAdjuntos() {
         var url = "@Url.Action("_Listado", "Adjuntos")";
         $("#Adjuntos").load(url);

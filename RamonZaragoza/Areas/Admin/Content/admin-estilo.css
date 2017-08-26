@@ -1,24 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Francois+One');
 @import url('https://fonts.googleapis.com/css?family=Crafty+Girls');
-
+@import url('https://fonts.googleapis.com/css?family=Cabin:400,400i');
 /* varios*/
  html, body {margin:0; padding:0; height:100%;}
  body{background-color:#F2F2F2;}
  .page-header{ margin-top: 0;}
- nav-tab {
-    background-color: #CC1414;
-}
+ nav-tab {background-color: #CC1414;}
  thead{background-color: #e4e4e4;}
  .progress{margin-bottom: 0;}
  .jumbotron{
      padding: 20px;
      margin-top:0;
  }
-
+ h3{ font-family: 'Cabin', sans-serif; font-style:italic;}
 /* Menu Top*/
-h3{
-    font-family: 'Crafty Girls', cursive;
-}
+
 
 .navbar-inverse{
     background-color:#ccc;

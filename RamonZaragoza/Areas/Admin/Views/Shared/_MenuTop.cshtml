@@ -1,4 +1,23 @@
-﻿
+﻿@{
+    Layout = null;
+    //comprueebo que controldor actual
+    string controlador = ViewContext.RouteData.Values["Controller"].ToString().ToLower();
+    if (Session["nombre"] != null)
+    {
+        ViewBag.Usuario = Session["nombre"].ToString();
+        var foto = Session["foto"].ToString();
+        if (foto == "noFoto.jpg")
+        {
+            ViewBag.Foto = Url.Content("~/Content/images/noFoto.jpg");
+        }
+        else
+        {
+            ViewBag.Foto = Url.Content(Helper.SubirArchivos.GetRutaFotoPerfil() + Session["foto"]);
+        }
+        ViewBag.Alerta = Convert.ToInt32(Session["MensajesSinLeer"]);
+
+    }
+}
 <div class="container-fluid">
     <div class="navbar-header">
         <i class="fa fa-tachometer"> </i> Panel de Control V.1
@@ -8,10 +27,25 @@
             <!-- Alertas -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-envelope-o" style="font-size: 1.2em;"></i>
-              <span id="alertaMensajes" class="label label-danger"></span>
+              @if (ViewBag.Alerta > 0)
+              {
+                <span id="alerta" class="label label-danger">@ViewBag.Alerta</span>
+              }
+              else
+              {
+                <span id="alerta" class="label label-danger"></span>
+              }
             </a>
             <ul class="dropdown-menu">
-              <li id="alertaTexto" class="header"></li>
+                @if (ViewBag.Alerta > 0)
+                {
+                    <li id="alertaTexto" class="header">Tiene @ViewBag.Alerta mensaje(s) sin leer</li>
+                }
+                else
+                {
+                    <li id="alertaTexto" class="header"></li>
+                }
+
             </ul>
         </li>
         <!--MINI MENU-->   
@@ -25,16 +59,16 @@
                     <div class="navbar-content">
                         <div class="row">
                             <div class="col-md-5">
-                                <img src="http://placehold.it/120x120"
+                                <img id="user-pic" src="@ViewBag.Foto"
                                      alt="Alternate Text" class="img-responsive" />
                                 <p class="text-center small">
-                                    <a href="#">Change Photo</a>
+                                    <a style="color:black;" href="~/Admin/Usuario/FotoPerfil">Cambiar Foto</a>
                                 </p>
                             </div>
                             <div class="col-md-7">
-                                <span>Bhaumik Patel</span>
-                                <p class="text-muted small">
-                                    mail@gmail.com
+                                <span>Hola...</span>
+                                <p id="mi-nombre" class="text-muted small">
+                                    @ViewBag.Usuario
                                 </p>
                                 <div class="divider">
                                 </div>
@@ -46,10 +80,10 @@
                         <div class="navbar-footer-content">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <a href="#" class="btn btn-success btn-sm">Cambiar Passowrd</a>
+                                    <a href="~/Admin/Usuario/CambioDePass" class="btn btn-success btn-sm">Cambiar Passowrd</a>
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="http://www.jquery2dotnet.com" class="btn btn-danger btn-sm pull-right">Cerrar Sesion</a>
+                                    <a href="~/Admin/Usuario/Logout" class="btn btn-danger btn-sm pull-right">Cerrar Sesion</a>
                                 </div>
                             </div>
                         </div>

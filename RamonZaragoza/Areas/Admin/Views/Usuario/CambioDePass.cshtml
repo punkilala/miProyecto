@@ -3,8 +3,8 @@
     ViewBag.Title = "Cambiar Contraseña";
 }
 
-<h1 class="page-header">@ViewBag.Title</h1>
-@using (Ajax.BeginForm("CambioDePass", new AjaxOptions()
+<h3 class="page-header">@ViewBag.Title</h3>
+@using (Ajax.BeginForm("CambioDePass", null, new AjaxOptions()
 {
     HttpMethod = "POST",
     Confirm = "¿esta seguro que quiere cambiar la Contraseña?",
@@ -12,14 +12,14 @@
     UpdateTargetId = "mensaje",
     LoadingElementId = "cargando",
     OnSuccess = "onSuccess"
-}))
+},new { autocomplete = "off" }))
 {
     @Html.AntiForgeryToken()
     @Html.Hidden("id")
     <div class="form-group row">
         <div class="col-xs-12 col-sm-5">
-            <label>Contraseña Actual</label>
-            @Html.PasswordFor(u => u.PassActual, new { @class = "form-control", autocomplete = "off", placeholder = "Introduzca Contraseña Actual"})
+            <label>Actual</label>
+            @Html.TextBoxFor(u => u.PassActual, new { @class = "form-control", autocomplete = "off", placeholder = "Introduzca Contraseña Actual"})
             @Html.ValidationMessageFor(u => u.PassActual, null, new { @class = "label label-danger" })
         </div>
     </div>
@@ -48,10 +48,8 @@
 <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
 <script>
     $(document).ready(function () {
-        $('#PassActual').chage(function () {
-            $('#PassActual').val('');
-        });
-    })
+        $('#PassActual').val('');
+    });
 
 </script>
 

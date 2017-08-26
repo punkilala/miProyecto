@@ -8,8 +8,8 @@
 <script src="~/Scripts/jquery-ui-1.11.3.js"></script>
 <script src="~/Scripts/jquery.ui.datepicker-es.js"></script>
 <script src="~/Scripts/jquery.maskedinput.js"></script>
-@Html.Hidden("MenuActivo")
-    <h3 class="page-header"><b>Acerca</b> de mí</h3>
+
+    <h3 class="page-header"><i class="fa fa-info-circle"> </i><b> Acerca</b> de mí</h3>
 
     <!--INICIO FORMULARIO-->
     @using (Ajax.BeginForm("GuardarUsuario", "Usuario", new AjaxOptions()
@@ -141,8 +141,10 @@
 <script>
     $(document).ready(function () {
         $('#Nombre').change(function () {
+            //cambiar nombre en menu top
             $('#mi-nombre').text($('#Nombre').val());
         })
+        Colorea('@Session["menuActivo"]');
     })
     $("#FNacimiento").datepicker({ dateFormat: "dd/mm/yy" }).mask("99/99/9999");
     //Deshabilitar dias futuros

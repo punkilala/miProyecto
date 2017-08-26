@@ -5,8 +5,8 @@
 }
 
 <div class="jumbotron">
-    <h1 class="display-3">@Model.Asunto</h1>
-    <p class="lead"><b>Remite </b> @Model.Remitente</p>
+    <h1 class="display-3 ">@Model.Asunto</h1>
+    <p class="lead"><b>Remite </b>@Model.Remitente</p>
     <p class="lead">@Model.Fecha</p>
     <hr class="my-4">
     <p class="text-justify">@Model.Mensaje1</p>
@@ -23,6 +23,12 @@
     </p>
 
 </div>
+
+<script>
+    $(document).ready(function () {
+        Colorea('@Session["menuActivo"]');
+    })
+</script>
 
 
 

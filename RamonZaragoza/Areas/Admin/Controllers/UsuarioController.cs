@@ -18,7 +18,7 @@ namespace RamonZaragoza.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.MenuActivo = 0;
+            Session["menuActivo"] = 0;
             return View(mUsuario.UsuarioActivo());
         }
 

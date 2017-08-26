@@ -16,6 +16,28 @@
 
     <table class="table table-responsive table-striped  table-condensed table-hover">
         <thead>
+            <!--FILTRO-->
+            <tr>
+                <th>
+                    <div class="col-xs-10 input-group">
+                        @Html.TextBox("porNombre", null, new { @class = "form-control input-sm" })
+                        <span class="input-group-btn">
+                            <button id="btn-porNombre" class="btn btn-default btn-sm" type="button"><i class="fa fa-trash-o"></i></button>
+                        </span>
+                    </div>
+                </th>
+                <th>
+                    <div class="col-xs-10 input-group">
+                        @Html.TextBox("porTitulo", null, new { @class = "form-control input-sm" })
+                        <span class="input-group-btn">
+                            <button id="btn-porTitulo" class="btn btn-default btn-sm" type="button"><i class="fa fa-trash-o"></i></button>
+                        </span>
+                    </div>
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
             <!--ID miTabla se utilizara en jquery para seleccionar la ordenacion correcta-->
             <tr id="miTabla">
                 @if (tipo == 1)
@@ -30,30 +52,8 @@
                 }
                 <th class="text-center" style="width:5%;"><a href="#" class="filtro" id="desdeOrder">Desde</a></th>
                 <th class="text-center" style="width:5%;"><a href="#" class="filtro" id="hastaOrder">Hasta</a></th>
-                <th style="width:1%;"><button id="btnEliminar" type="button" class="btn btn-danger btn-xs">Eliminar</button></th>
-            </tr>
-            <!--FILTRO-->
-            <tr>
-                <th>
-                    <div class="col-xs-10 col-xs-offset-1 input-group text-center">
-                        @Html.TextBox("porNombre", null, new { @class = "form-control input-sm" })
-                        <span class="input-group-btn">
-                            <button id="btn-porNombre" class="btn btn-default btn-sm" type="button">X</button>
-                        </span>
-                    </div>
-                </th>
-                <th>
-                    <div class="col-xs-10 col-xs-offset-1 input-group text-center">
-                        @Html.TextBox("porTitulo", null, new { @class = "form-control input-sm" })
-                        <span class="input-group-btn">
-                            <button id="btn-porTitulo" class="btn btn-default btn-sm" type="button">X</button>
-                        </span>
-                    </div>
-                </th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
+                <th style="width:1%;"><button id="btnEliminar" type="button" class="btn btn-danger btn-xs fa fa-trash-o"></button></th>
+            </tr>   
         </thead>
         <tbody>
 

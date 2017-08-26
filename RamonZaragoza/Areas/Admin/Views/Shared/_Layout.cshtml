@@ -1,24 +1,4 @@
-﻿@{
-    Layout = null;
-    //comprueebo que controldor actual
-    string controlador = ViewContext.RouteData.Values["Controller"].ToString().ToLower();
-    if (Session["nombre"] != null)
-    {
-        ViewBag.Usuario = Session["nombre"].ToString();
-        var foto = Session["foto"].ToString();
-        if (foto == "noFoto.jpg")
-        {
-            ViewBag.Foto = Url.Content("~/Content/images/noFoto.jpg");
-        }
-        else
-        {
-            ViewBag.Foto = Url.Content(Helper.SubirArchivos.GetRutaFotoPerfil() + Session["foto"]);
-        }
-        ViewBag.Alerta = Convert.ToInt32(Session["MensajesSinLeer"]);
-
-    }
-}
-
+﻿
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -42,7 +22,7 @@
         @Html.Partial("~/areas/admin/views/shared/_Aside.cshtml")
     </nav>
         <div class="col-sm-9">
-            <section>
+            <section id="secPrincipal">
                 @RenderBody()
             </section>
         </div>

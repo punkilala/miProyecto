@@ -17,7 +17,7 @@ namespace RamonZaragoza.Areas.Admin.Controllers
         RespuestaServidor mRespuestaAjax;
         public ActionResult Index()
         {
-            ViewBag.MenuActivo = 3;
+            Session["menuActivo"] = 3;
             return View();
         }
         public ActionResult _Listado(Filtro filtro, int[] idEliminar, int? displayNum, int? pagina)

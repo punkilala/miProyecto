@@ -6,7 +6,15 @@
 <div id="experiencia" class="page">
 
     <h3 class="page-header remove-margin">
-        @Html.ActionLink("Agregar", "Acciones", "Experiencia", new { tipo = tipo }, new { @class = "btn btn-primary pull-right" })
+        @Html.ActionLink("Agregar", "Acciones", "Experiencia", new { tipo = tipo }, new { @class = "btn btn-primary pull-right", title="Agregar" })
+        @if (tipo == 1)
+        {
+            <i class="fa fa-briefcase"> </i>
+        }
+        else
+        {
+            <i class="fa fa-university"> </i>
+        } 
         @ViewBag.Title
     </h3>
 
@@ -16,3 +24,9 @@
     </div>
 
 </div>
+
+<script>
+    $(document).ready(function () {
+        Colorea('@Session["menuActivo"]');
+    });
+</script>
