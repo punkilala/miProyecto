@@ -159,6 +159,7 @@
     </Content>
     <Content Include="Areas\Admin\Content\admin-estilo.css" />
     <Content Include="Areas\Admin\Content\error.css" />
+    <Content Include="Areas\Admin\Content\login.css" />
     <Content Include="Areas\Admin\script\ColoreaTop.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -252,6 +253,7 @@
     <Content Include="Areas\Admin\Views\Shared\_MenuTop.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutError.cshtml" />
     <Content Include="Areas\Admin\Views\Error\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutLogin.cshtml" />
     <None Include="Scripts\jquery-1.11.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.11.3.js" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />

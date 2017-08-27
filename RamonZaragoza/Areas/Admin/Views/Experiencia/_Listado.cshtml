@@ -52,7 +52,9 @@
                 }
                 <th class="text-center" style="width:5%;"><a href="#" class="filtro" id="desdeOrder">Desde</a></th>
                 <th class="text-center" style="width:5%;"><a href="#" class="filtro" id="hastaOrder">Hasta</a></th>
-                <th style="width:1%;"><button id="btnEliminar" type="button" class="btn btn-danger btn-xs fa fa-trash-o"></button></th>
+                <th style="width:1%;"><button id="btnEliminar" type="button" value="1" class="btn btn-danger btn-xs fa fa-trash-o"></button></th>
+                <!--Solo elimnar si se pulsa el boton eliminar... este hidden se modifica desde paginacion.js-->
+                @Html.Hidden("Eliminar")
             </tr>   
         </thead>
         <tbody>

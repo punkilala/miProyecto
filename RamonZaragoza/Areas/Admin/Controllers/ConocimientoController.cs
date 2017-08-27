@@ -22,7 +22,7 @@ namespace RamonZaragoza.Areas.Admin.Controllers
         }
         public ActionResult _Listado(Filtro filtro, int[] idEliminar, int? displayNum, int? pagina)
         {
-            if (idEliminar != null)
+            if (filtro.Eliminar == 1)
             {
                 bool result = true;
                 for (int i = 0; i < idEliminar.Count() && result == true; i++)

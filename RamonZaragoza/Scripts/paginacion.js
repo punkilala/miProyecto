@@ -19,8 +19,10 @@ $(document).ready(function () {
                 return false;
             }
             if (!confirm('¿Esta seguro de realizar esta acción?')) return false;
+            else $('#Eliminar').val(1); //para detectar que he pulsado el boton eliminar
+            
         } else {
-            //es boton para borrar el valor del  input que utilizo para filtrar
+            //es el boton para borrar el valor del  input que utilizo para filtrar
             var elInput = $(this).attr('id').substring(4);
             $('#' + elInput).val('');
         }
@@ -107,7 +109,10 @@ var inicioAjax = function (form) {
             $('#' + enlace).addClass(clase);
 
             //ejecutar funcion si procede
-            if (funcion != undefined) setTimeout(funcion,0);
+            if (funcion != undefined) setTimeout(funcion, 0);
+
+            //inicializar el detector de eliminar
+            if ($('#Eliminar').val() == 1) $('#Eliminar').val(0); 
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(textStatus + ' ' + errorThrown);

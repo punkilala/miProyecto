@@ -14,5 +14,6 @@ namespace Helper
         public string tituloOrderBy { get; set; }
         public string desdeOrderBy { get; set; }
         public string hastaOrderBy { get; set; }
+        public int Eliminar { get; set; }
     }
 }

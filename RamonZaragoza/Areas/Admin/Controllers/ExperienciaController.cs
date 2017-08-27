@@ -27,16 +27,17 @@ namespace RamonZaragoza.Areas.Admin.Controllers
             return View();
         }
         public ActionResult _Listado(int tipo, int[] idEliminar, Filtro filtro,
-            int? displayNum, int? pagina)
+            int? displayNum, int? pagina, int? btnEliminar)
         {
             // ////////////opcion eliminar registros
-            if (idEliminar != null)
+            if (filtro.Eliminar == 1)
             {
                 bool result = true;
                 for (int i = 0; i < idEliminar.Count() && result == true; i++)
                 {
                     result = mExperiencia.EliminaExperiencia(idEliminar[i]);
                 }
+                ViewBag.Eliminar = 0;
             }
             // //////////////////paginacion
             int maxPag = displayNum ?? 5;

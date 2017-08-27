@@ -38,6 +38,8 @@
                 <th class="text-center" width="1%">%</th>
                 <th width="1%;">
                     <button type="button" id="btnEliminar" class="btn btn-danger btn-xs fa fa-trash-o"></button>
+                    <!--Solo elimnar si se pulsa el boton eliminar... este hidden se modifica desde paginacion.js-->
+                    @Html.Hidden("Eliminar")
                 </th>
             </tr>   
         </thead>
