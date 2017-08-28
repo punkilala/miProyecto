@@ -7,11 +7,15 @@
         <i class="fa fa-briefcase pull-right"></i>
         Experiencia profesional
     </h2>
-    foreach (var e in Model.Experiencia.Where(e => e.Tipo == 1))
+    foreach (var e in Model.Experiencia.Where(e => e.Tipo == 1).OrderByDescending(e=>e.Desde))
     {
         <div class="lista well well-sm">
             <div class="lista-cabecera">
-                @e.Nombre <small class="lista-cabecera-fecha">@string.Format("{0:d}",e.Desde) - @string.Format("{0:d}", e.Hasta)</small>
+                @e.Nombre 
+                <small class="lista-cabecera-fecha">
+                     @string.Format("{0:d}",e.Desde) - 
+                     @(e.Actual==true ? "ACTUALMENTE" : string.Format("{0:d}", e.Hasta))
+                </small>
                 <span class="lista-cabecera-subtitulos">@e.Titulo</span>
             </div>
             <div class="lista-descripcion">
@@ -28,12 +32,17 @@
         <i class="fa fa-university pull-right"></i>
         Estudios realizados
     </h2>
-    foreach (var e in Model.Experiencia.Where(e => e.Tipo == 2))
+    foreach (var e in Model.Experiencia.Where(e => e.Tipo == 2).OrderByDescending(e=>e.Desde))
     {
         <div class="lista well well-sm">
             <div class="lista-cabecera">
-                @e.Nombre <small class="lista-cabecera-fecha">@string.Format("{0:d}", e.Desde) - @string.Format("{0:d}", e.Hasta)</small>
-                <span class="lista-cabecera-subtitulos">@e.Titulo</span>
+                @e.Nombre 
+                <small class="lista-cabecera-fecha">
+                     @string.Format("{0:d}", e.Desde) -
+                     @(e.Actual==true ? "ACTUALMENTE" : string.Format("{0:d}", e.Hasta))
+                </small>
+                <span class="lista-cabecera-subtitulos">@e.Titulo
+                </span>
             </div>
             <div class="lista-descripcion">
                 <p>@e.Descripcion</p>

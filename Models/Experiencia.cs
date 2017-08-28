@@ -41,7 +41,12 @@ namespace Models
         [Required(ErrorMessage = "Campo requerido")]
         public string Descripcion { get; set; }
 
+        public bool Actual { get; set; }
+
         public virtual Usuario Usuario { get; set; }
+
+
+        //LOGICA DE NEGOCIO
 
         public List<Experiencia> Listado(int tipo, int usuario_id, Filtro filtro)
         {
@@ -51,7 +56,7 @@ namespace Models
                 using (var bbdd = new ProyectoContexto())
                 {
                     var consulta = from t in bbdd.Experiencia.Where(t => t.Tipo == tipo)
-                                  .Where(t => t.Usuario_id == usuario_id).OrderBy(t => t.Desde)
+                                  .Where(t => t.Usuario_id == usuario_id).OrderByDescending(t => t.Desde)
                                    select t;
 
                     //aplicar filtros

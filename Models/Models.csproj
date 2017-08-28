@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201708222007494_AsuntoEnMensajes.Designer.cs">
       <DependentUpon>201708222007494_AsuntoEnMensajes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708281908307_CampoActualEnExperiencia.cs" />
+    <Compile Include="Migrations\201708281908307_CampoActualEnExperiencia.Designer.cs">
+      <DependentUpon>201708281908307_CampoActualEnExperiencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OfertaEmpleo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708222007494_AsuntoEnMensajes.resx">
       <DependentUpon>201708222007494_AsuntoEnMensajes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708281908307_CampoActualEnExperiencia.resx">
+      <DependentUpon>201708281908307_CampoActualEnExperiencia.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

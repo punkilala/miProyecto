@@ -67,7 +67,14 @@
                     </td>
                     <td>@expe.Titulo</td>
                     <td class="text-center align-middle">@expe.Desde.ToString("dd/MM/yyyy")</td>
-                    <td class="text-center align-middle">@expe.Hasta.ToString("dd/MM/yyyy")</td>
+                    @if (expe.Actual == true)
+                    {
+                        <td class="label label-info" style="vertical-align: bottom;">Actualmente</td>
+                    }
+                    else
+                    {
+                        <td class="text-center align-middle">@expe.Hasta.ToString("dd/MM/yyyy")</td>
+                    }                    
                     <td class="text-center"><input type="checkbox" class="seleccion" name="idEliminar" value="@expe.id" /></td>
                 </tr>
             }
