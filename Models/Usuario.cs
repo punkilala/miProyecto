@@ -165,6 +165,7 @@ namespace Models
 
                     //El campo password decimos que no se modifica ya que no se lo pasamos.
                     usuario.Property(u => u.Password).IsModified = false;
+                    usuario.Property(u => u.Rol_id).IsModified = false;
 
                     //Para que no de error al grabar puesto que no pasamos Password
                     bbdd.Configuration.ValidateOnSaveEnabled = false;
@@ -236,6 +237,44 @@ namespace Models
                 return result;
             }
             return result;
+        }
+        public Usuario GetDatosPersonales (int id)
+        {
+            Usuario usuario=null;
+            try
+            {
+                using (var bbdd = new ProyectoContexto())
+                {
+                    usuario = bbdd.Usuario.Where(u => u.id == id).SingleOrDefault();
+                }
+                return usuario;
+            }
+            catch (Exception ex)
+            {
+
+                return usuario;
+            }
+        }
+        public Usuario GetDatosCv (int id)
+        {
+            Usuario usuario=null;
+            try
+            {
+                using (var bbdd = new ProyectoContexto())
+                {
+                    usuario = bbdd.Usuario
+                        .Include("Experiencia")
+                        .Include("Conocimiento")
+                        .Include("Adjuntos")
+                        .Where(u => u.id == id).SingleOrDefault();
+                    return usuario;
+                }
+            }
+            catch (Exception)
+            {
+
+                return usuario;
+            }
         }
 
     }

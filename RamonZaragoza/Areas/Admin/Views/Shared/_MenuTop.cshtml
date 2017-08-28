@@ -16,6 +16,10 @@
         }
         ViewBag.Alerta = Convert.ToInt32(Session["MensajesSinLeer"]);
 
+        //obtener id usuario
+        FormsAuthenticationTicket ticket = ((FormsIdentity)HttpContext.Current.User.Identity).Ticket;
+        ViewBag.idUsuario = ticket.UserData;
+
     }
 }
 <div class="container-fluid">
@@ -39,7 +43,7 @@
             <ul class="dropdown-menu">
                 @if (ViewBag.Alerta > 0)
                 {
-                    <li id="alertaTexto" class="header">Tiene @ViewBag.Alerta mensaje(s) sin leer</li>
+                    <li style="padding: 10px;"  id="alertaTexto" class="header">Tiene @ViewBag.Alerta mensaje(s) sin leer</li>
                 }
                 else
                 {
@@ -61,7 +65,7 @@
                             <div class="col-md-5">
                                 <img id="user-pic" src="@ViewBag.Foto"
                                      alt="Alternate Text" class="img-responsive" />
-                                <p class="text-center small">
+                                <p class="small">
                                     <a style="color:black;" href="~/Admin/Usuario/FotoPerfil">Cambiar Foto</a>
                                 </p>
                             </div>
@@ -72,7 +76,7 @@
                                 </p>
                                 <div class="divider">
                                 </div>
-                                <a href="#" class="btn btn-primary btn-sm active">Ver Perfil</a>
+                                <a href="~/perfil/Usuario/@ViewBag.idUsuario" target="_blank" class="btn btn-primary btn-sm active">Ver Perfil</a>
                             </div>
                         </div>
                     </div>

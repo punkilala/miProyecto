@@ -22,6 +22,7 @@ body{
 /* Datos Personales */
 #usuario{
     display:table-cell;
+    background-color:#DFDFDF;
     width:380px;
 }
 #usuario .usuario-container-fixed{
@@ -34,18 +35,24 @@ body{
 }
 #usuario .usuario-container h1{
     font-family:Russo One;
-    margin-bottom:30px;
+    font-size:1.4em;
 }
 #usuario .usuario-container .foto{
     width:180px;
     border:1px solid #ccc;
     padding:10px;
     background:#fff;
-    margin-bottom:30px;
 }
+#usuario p{
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    font-size: 1.2em;
+}
+
 #usuario .usuario-container .texto{
     display:block;
-    font-size:1.4em;
+    font-size:1.2em;
     font-family:Russo One;
 }
 #usuario .usuario-container .campo{
@@ -134,6 +141,11 @@ body{
     color:#444;}
 .lista .lista-descripcion{text-align:justify;}
 
+#adjuntos li{
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
 /* Font Awesome */
 .fa-facebook-official{color:#1534ba;}
 .fa-twitter{color:#1574ba;}
@@ -150,6 +162,7 @@ body{
     text-align:center;
     background:#222;
     color:#eee;
+    margin: 30px 0 auto;
 }
 #footer a{font-weight:bold;}
 
