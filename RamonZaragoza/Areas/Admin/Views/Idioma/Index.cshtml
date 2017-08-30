@@ -1,41 +1,24 @@
-﻿@model List<Models.Idioma>
+﻿
 
 @{
     ViewBag.Title = "Idiomas";
 }
-
 <h3 class="page-header">
     <i class="fa fa-language"> </i> @ViewBag.Title
-    @Html.ActionLink("Agregar", "Acciones", "Idioma",new object { }, new { @class = "btn btn-primary pull-right", title = "Agregar" })
+    @Html.ActionLink("Agregar", "Acciones", "Idioma", new object { }, new { @class = "btn btn-primary pull-right", title = "Agregar" })
 </h3>
-<table class="table table-condensed">
-    <thead>
-        <tr>
-            <th>Idioma</th>
-            <th>Hablado</th>
-            <th>Escrito</th>
-            <td>
-                <button id="btnEliminar" type="button" value="1" class="btn btn-danger btn-xs fa fa-trash-o"></button>
-                <!--Solo elimnar si se pulsa el boton eliminar... este hidden se modifica desde paginacion.js-->
-                @Html.Hidden("Eliminar")
-            </td>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var i in Model)
-        {
-            <tr>
-                <td>@Html.ActionLink(@i.Idiomas.Descripcion,"Acciones", new { id=i.id})</td>
-                <td>@i.Hablado</td>
-                <td>@i.Escrito</td>
-                <td><input type="checkbox" name="idioma_id" value="@i.id" /></td>
-            </tr>
-        }
-    </tbody>
-</table>
 
+<div id="parcial">
+    @Html.Action("_Listado")
+</div>
+
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
 <script>
     $(document).ready(function () {
         Colorea('@Session["menuActivo"]');
     });
+    function RecargarPagina() {
+        var url = "@Url.Action("_Listado", "Idioma")";
+        $("#parcial").load(url);
+    }
 </script>

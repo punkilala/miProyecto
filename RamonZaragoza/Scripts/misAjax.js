@@ -93,3 +93,10 @@ function onSuccess(r) {
         window.location = r.href;
     }
 }
+function CheckElementos() {
+    if ($(".seleccion:checked").length == 0) {
+        alert('Debe seleccionar algún registro');
+        return false;
+    }
+}
+

@@ -257,6 +257,7 @@
     <Content Include="Areas\Admin\Views\Shared\_LayoutLogin.cshtml" />
     <Content Include="Areas\Admin\Views\Idioma\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Idioma\Acciones.cshtml" />
+    <Content Include="Areas\Admin\Views\Idioma\_Listado.cshtml" />
     <None Include="Scripts\jquery-1.11.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.11.3.js" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,27 +62,53 @@ namespace Models
             }
             return idioma;
         }
-        public List<Idioma> GetMiIdioma(int idioma_id)
+
+        public bool Guardar()
         {
-            int usuario_id = SesionHelper.GetUser();
-            var miIdioma = new List<Idioma>();
+            bool result = false;
+            try
+            {
+                using (var bbdd= new ProyectoContexto())
+                {
+                    if (this.id == 0)
+                    {
+                        bbdd.Entry(this).State = EntityState.Added;  
+                    }
+                    else
+                    {
+                        bbdd.Entry(this).State = EntityState.Modified;
+                    }
+                    bbdd.SaveChanges();
+                    result = true;
+                }  
+            }
+            catch (Exception ex)
+            {
+
+                return result;
+            }
+            return result;
+        }
+        public bool Eliminar(int id)
+        {
+            bool result = false;
             try
             {
                 using(var bbdd= new ProyectoContexto())
                 {
-                    miIdioma = bbdd.Idioma.Include("Idiomas")
-                        .Where(i => i.Idiomas_id == Idiomas_id)
-                        .Where(i => i.Usuario_id == usuario_id).ToList();
-                    return miIdioma;
+                    var idioma= bbdd.Idioma.Where(i => i.id == id).SingleOrDefault();
+                    bbdd.Entry(idioma).State = EntityState.Deleted;
+                    bbdd.SaveChanges();
+                    result = true;
                 }
             }
             catch (Exception)
             {
 
-                return miIdioma;
+                return result;
             }
+            return result;
         }
-
 
     }
 

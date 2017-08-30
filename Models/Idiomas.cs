@@ -53,32 +53,6 @@ namespace Models
                 return lista;
             }       
         }
-       /* public List<Idioma> GetMiIdioma(int idioma_id)
-        {
-            int usuario_id = SesionHelper.GetUser();
-            var lista = new List<Idioma>();
-            try
-            {
-                using(var bbdd=new ProyectoContexto())
-                {
-                    lista = (
-                                from i in bbdd.Idioma
-                                join ii in bbdd.Idiomas
-                                on i.Idiomas_id equals ii.id
-                                where i.Usuario_id==usuario_id
-                                where i.Idiomas_id== idioma_id
-                                select (i)
-                            ).ToList();
-                    return lista;
-                }
-            }
-            catch (Exception)
-            {
-
-                return lista;
-            }
-        }*/
-
      }
 
  }
