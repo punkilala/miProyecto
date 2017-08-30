@@ -3,6 +3,7 @@
 
 }
 
+
 <h3 class="page-header">@ViewBag.title</h3>
 
 @using (Ajax.BeginForm("Acciones", new AjaxOptions()
@@ -28,10 +29,11 @@
     <div class="form-group col-xs-12 col-sm-3">
         <label>Dominio</label>
         <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-line-chart"></i></span>
-            @Html.EditorFor(h => h.Nivel, new { htmlAttributes = new { @class = "form-control" }, min = "1", max = "100", value = "1" })
+            <span class="input-group-addon"><i class="fa fa-line-chart"></i></span>   
+            @Html.EditorFor(h => h.Nivel, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
             @Html.ValidationMessageFor(h => h.Nivel, "", new { @class = "label label-danger" })
-        </div>
+            </div>
+        <div id="slider-range-min" style= "margin-top: 5px;"></div>
     </div>
 
     <div class="well well-sm col-xs-12">
@@ -48,5 +50,21 @@
     $(document).ready(function () {
         Colorea('@Session["menuActivo"]');
     });
+
+    $(function () {
+        var valorInicioal = $('#Nivel').val();
+        $("#slider-range-min").slider({
+            range: "min",
+            value: valorInicioal,
+            min: 1,
+            max: 100,
+            slide: function (event, ui) {
+                $("#Nivel").val(ui.value);
+            }
+        });
+       
+    });
 </script>
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-ui-1.11.3.js"></script>
 
