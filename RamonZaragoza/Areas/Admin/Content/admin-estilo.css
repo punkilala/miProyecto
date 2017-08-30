@@ -112,21 +112,27 @@ overflow: hidden;
      background-color:#DBBB51 !important;
      }
     nav.sidebar .navbar-nav > li:nth-child(5):hover{
-     background-color:#B93D68;
+     background-color:#906292;
     }
     .activo4{
+     background-color:#906292 !important;
+     }
+    nav.sidebar .navbar-nav > li:nth-child(6):hover{
+     background-color:#b93d68;
+    }
+    .activo5{
      background-color:#B93D68 !important;
      }
-     nav.sidebar .navbar-nav > li:nth-child(6):hover{
+     nav.sidebar .navbar-nav > li:nth-child(7):hover{
      background-color:#AFEEEE;
     }
-     .activo5{
+     .activo6{
      background-color:#AFEEEE !important;
      }
-    nav.sidebar .navbar-nav > li:nth-child(7):hover{
+    nav.sidebar .navbar-nav > li:nth-child(8):hover{
      background-color:#D8BFD8;
     }  
-    .activo6{
+    .activo7{
      background-color:#D8BFD8 !important;
      } 
     nav.sidebar .navbar-collapse, nav.sidebar .container-fluid{

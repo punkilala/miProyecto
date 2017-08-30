@@ -17,7 +17,7 @@ namespace RamonZaragoza.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            Session["menuActivo"] = 6;
+            Session["menuActivo"] = 7;
             return View();
         }
         public PartialViewResult _Listado(int[] idEliminar, int? pagina, int ? estado_id)

@@ -1,0 +1,31 @@
+﻿
+@model Models.Idioma
+
+<h3 class="page-header">@ViewBag.Title</h3>
+<div class="col-xs-12 col-md-3">
+    <div class="form-group">
+        <label>Idioma</label>
+        @if (Model.id == 0)
+        {
+            @Html.DropDownList("Idiomas_id", new SelectList(ViewBag.IdiomasDisponibles, "id", "descripcion"), new { @class = "form-control" })
+        }
+        else
+        {
+          <input type="text" class="form-control" value="@Model.Idiomas.Descripcion" readonly />
+        }
+    </div>
+</div>
+<div class="col-xs-12 col-md-3">
+    <div class="form-group">
+        <label>Hablado</label>
+      @Html.DropDownList("Hablado", new SelectList(ViewBag.Nivel, "descripcion", "descripcion"), new { @class = "form-control" })
+    </div>
+</div>
+<div class="col-xs-12 col-md-3">
+    <div class="form-group">
+        <label>Escrito</label>
+        @Html.DropDownList("Escrito", new SelectList(ViewBag.Nivel, "descripcion", "descripcion"), new { @class = "form-control" })
+    </div>
+</div>
+
+

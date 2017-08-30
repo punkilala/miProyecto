@@ -27,7 +27,7 @@
 <!--CONTENIDO-->
 <div id="contenido">
     <!--MENU TOP-->
-    @Html.Action("_MenuContacto")
+    @Html.Action("_MenuContacto", new { id = Model.id })
 
     <div class="cuerpo-container cuerpo-fluid">
         <!--DATOS PERFIL-->

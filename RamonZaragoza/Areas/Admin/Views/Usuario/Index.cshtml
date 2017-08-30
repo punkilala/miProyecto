@@ -28,6 +28,7 @@
                 <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab"><i class="fa fa-info-circle"> Información</i></a></li>
                 <li role="presentation"><a href="#ubicacion" aria-controls="ubicacion" role="tab" data-toggle="tab"><i class="fa fa-map-marker"> Ubicación</i></a></li>
                 <li role="presentation"><a href="#contacto" aria-controls="contacto" role="tab" data-toggle="tab"><i class="fa fa-address-book"></i> Contacto</a></li>
+                <li role="presentation"><a href="#social" aria-controls="social" role="tab" data-toggle="tab"><i class="fa fa-podcast"></i> Social</a></li>
             </ul>
 
             <div class="tab-content">
@@ -116,6 +117,39 @@
                             </span>
                         @Html.TextBoxFor(u => u.Email, new { @class = "form-control", @placeholder = "Ingrese su correo electrónico" })
                         @Html.ValidationMessageFor(u => u.Email, "", new { @class = "label label-danger" }) 
+                        </div>
+                    </div>
+                </div>
+                <!-- TAB  Social -->
+                <div role="tabpanel" class="tab-pane" id="social">
+                    <div class="form-group">
+                        <label>Facebook</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                            @Html.TextBoxFor(u => u.Facebook, new { @class = "form-control", @placeholder = "Ingrese su dirección de facebook" })
+                            @Html.ValidationMessageFor(u => u.Facebook, "", new { @class = "label label-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Twitter</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                            @Html.TextBoxFor(u => u.Twitter, new { @class = "form-control", @placeholder = "Ingrese su direción de Twitter" })
+                            @Html.ValidationMessageFor(u => u.Twitter, "", new { @class = "label label-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>LinkedIn</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-linkedin"></i>
+                            </span>
+                            @Html.TextBoxFor(u => u.Linkedin, new { @class = "form-control", @placeholder = "Ingrese su dirección de LinkedIn" })
+                            @Html.ValidationMessageFor(u => u.Linkedin, "", new { @class = "label label-danger" })
                         </div>
                     </div>
                 </div>

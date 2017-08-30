@@ -41,7 +41,7 @@ namespace RamonZaragoza.Areas.Admin.Controllers
         {
             if (id == 0)
             {
-                ViewBag.Title = "Nuev0 Conocimiento";
+                ViewBag.Title = "Nuevo Conocimiento";
                 mConocimiento.id = id;
                 mConocimiento.Usuario_id = SesionHelper.GetUser();
             }

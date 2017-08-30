@@ -23,7 +23,7 @@ namespace Models
             Inscritos1 = new HashSet<Inscritos>();
             Mensaje = new HashSet<Mensaje>();
             OfertaEmpleo = new HashSet<OfertaEmpleo>();
-            Social = new HashSet<Social>();
+            Idioma = new HashSet<Idioma>();
         }
 
         public int id { get; set; }
@@ -74,6 +74,10 @@ namespace Models
 
         public byte? Rol_id { get; set; }
 
+        public string Facebook { get; set; }
+        public string Twitter { get; set; }
+        public string Linkedin { get; set; }
+
         [NotMapped]
         [Required(ErrorMessage = "El campo es requerido")]
         [StringLength(32, ErrorMessage = "Maximo 32 caracteres")]
@@ -98,10 +102,10 @@ namespace Models
         public virtual ICollection<Inscritos> Inscritos1 { get; set; }
         public virtual ICollection<Mensaje> Mensaje { get; set; }
         public virtual ICollection<OfertaEmpleo> OfertaEmpleo { get; set; }
+        public virtual ICollection<Idioma> Idioma { get; set; }
 
         public virtual Rol Rol { get; set; }
 
-        public virtual ICollection<Social> Social { get; set; }
 
 
         // ///////LOGICA DE NEGOCIO
@@ -127,7 +131,7 @@ namespace Models
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 return usuario;
@@ -270,7 +274,7 @@ namespace Models
                     return usuario;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 return usuario;

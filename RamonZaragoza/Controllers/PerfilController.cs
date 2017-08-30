@@ -11,6 +11,7 @@ namespace RamonZaragoza.Controllers
     public class PerfilController : Controller
     {
         Usuario mUsuario = new Usuario();
+        Idioma mIdioma = new Idioma();
         public ActionResult Usuario(int id)
         {
             if (Convert.ToInt16(Session["Rol"]) == 1)
@@ -23,13 +24,17 @@ namespace RamonZaragoza.Controllers
             }
             return View(mUsuario.GetDatosPersonales(id));
         }
-        public PartialViewResult _MenuContacto()
+        public PartialViewResult _MenuContacto(int id)
         {
-            return PartialView();
+            return PartialView(mUsuario.GetDatosPersonales(id));
         }
         public PartialViewResult _MostrarCv(int id)
         {
             return PartialView(mUsuario.GetDatosCv(id));
+        }
+        public PartialViewResult _MostrarIdiomas (int id)
+        {
+            return PartialView(mIdioma.GetIdiomas(id));
         }
     }
 }

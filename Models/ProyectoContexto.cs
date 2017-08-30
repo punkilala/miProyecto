@@ -21,11 +21,13 @@ namespace Models
         public virtual DbSet<Mensaje> Mensaje { get; set; }
         public virtual DbSet<OfertaEmpleo> OfertaEmpleo { get; set; }
         public virtual DbSet<Rol> Rol { get; set; }
-        public virtual DbSet<Social> Social { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Idiomas> Idiomas { get; set; }
+        public virtual DbSet<Idioma> Idioma { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
             modelBuilder.Entity<Adjuntos>()
                 .Property(e => e.fichero)
                 .IsUnicode(false);
@@ -114,14 +116,6 @@ namespace Models
                 .HasMany(e => e.Usuario)
                 .WithOptional(e => e.Rol)
                 .HasForeignKey(e => e.Rol_id);
-
-            modelBuilder.Entity<Social>()
-                .Property(e => e.nombre)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Social>()
-                .Property(e => e.url)
-                .IsUnicode(false);
 
             modelBuilder.Entity<Usuario>()
                 .Property(e => e.Dni)
@@ -212,10 +206,16 @@ namespace Models
                 .WithRequired(e => e.Usuario)
                 .HasForeignKey(e => e.Usuario_id);
 
+
             modelBuilder.Entity<Usuario>()
-                .HasMany(e => e.Social)
-                .WithRequired(e => e.Usuario)
-                .HasForeignKey(e => e.Usuario_id);
+               .HasMany(e => e.Idioma)
+               .WithRequired(e => e.Usuario)
+               .HasForeignKey(e => e.Usuario_id);
+
+            modelBuilder.Entity<Idiomas>()
+              .HasMany(e => e.Idioma)
+              .WithRequired(e => e.Idiomas)
+              .HasForeignKey(e => e.Idiomas_id);
         }
     }
 }

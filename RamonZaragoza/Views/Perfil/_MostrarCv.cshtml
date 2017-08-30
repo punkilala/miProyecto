@@ -109,26 +109,31 @@
         }
     </ul>
 }
-<!--DOCUMENTOS ADJUNTOS-->
 
-@if (Model.Adjuntos.Count() > 0)
-{
-    <h2 class="titulos titulo-rojo">
-        <i class="fa fa-folder-open pull-right"></i>
-        Documentos Adjuntos
-    </h2>
+<!--IDIOMAS-->
+ @Html.Action("_MostrarIdiomas", new { id = Model.id })
 
-    <ul id="adjuntos" class="list-group">
-        @foreach (var adj in Model.Adjuntos.OrderBy(a=>a.fichero))
-        {
-            <li class="list-group-item col-xs-12">
-                <a href="~/Uploads/@Model.id/Adjuntos/@adj.fichero" target="_blank">@adj.fichero</a>
-                <i class="fa fa-paperclip pull-right"></i>
-            </li>
-        }
-    </ul>
-}
 
-<hr />
+ <!--DOCUMENTOS ADJUNTOS-->
+
+    @if (Model.Adjuntos.Count() > 0)
+    {
+        <h2 class="titulos titulo-rojo">
+            <i class="fa fa-folder-open pull-right"></i>
+            Documentos Adjuntos
+        </h2>
+
+        <ul id="adjuntos" class="list-group">
+            @foreach (var adj in Model.Adjuntos.OrderBy(a => a.fichero))
+            {
+                <li class="list-group-item col-xs-12">
+                    <a href="~/Uploads/@Model.id/Adjuntos/@adj.fichero" target="_blank">@adj.fichero</a>
+                    <i class="fa fa-paperclip pull-right"></i>
+                </li>
+            }
+        </ul>
+    }
+
+    <hr />
 
 

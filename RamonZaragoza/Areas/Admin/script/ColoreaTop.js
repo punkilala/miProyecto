@@ -1,5 +1,5 @@
 ﻿//Configuracin colores para el Menu Top
-var colorFondo = ['#ccc', '#51B6DB', '#68B93D', '#DBBB51', '#B93D68', '#AFEEEE', '#D8BFD8'];
+var colorFondo = ['#ccc', '#51B6DB', '#68B93D', '#DBBB51', '#906292', '#B93D68', '#AFEEEE', '#D8BFD8'];
 
 function Colorea(menuActivo) {
 

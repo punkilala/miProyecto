@@ -119,6 +119,11 @@ body{
     border-left:20px solid #67223a;
 
 }
+#contenido .cuerpo-container .titulo-Lila{
+    background:#906292;
+    border-left:20px solid #563b57;
+
+}
 
 /* Listas */
 .lista{margin-bottom:20px;}
@@ -146,10 +151,28 @@ body{
     margin-bottom: 5px;
 }
 
+/* Idiomas */
+.cabecera-idioma{
+    font-size: 1.6em;
+    font-weight: bold;
+    font-family: Russo One;
+}
+.idioma-titulo{
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #888;
+    text-transform: uppercase
+}
+.idioma-nivel{
+     font-size: 1.2em;
+    font-weight: normal;
+    text-transform: uppercase
+}
+
 /* Font Awesome */
 .fa-facebook-official{color:#1534ba;}
 .fa-twitter{color:#1574ba;}
-.fa-youtube{color:#ba1528;}
+.fa-linkedin{background-color:#0077B5; color:white}
 
 /* Fix */
 .btn{border-radius:0;}
