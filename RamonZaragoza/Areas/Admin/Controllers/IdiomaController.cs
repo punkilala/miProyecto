@@ -1,5 +1,6 @@
 ﻿using Helper;
 using Models;
+using RamonZaragoza.Areas.Admin.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace RamonZaragoza.Areas.Admin.Controllers
 {
+    [Autenticado]
     public class IdiomaController : Controller
     {
         Idioma mIdioma = new Idioma();

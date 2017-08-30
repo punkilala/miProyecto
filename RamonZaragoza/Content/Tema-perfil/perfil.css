@@ -200,6 +200,27 @@ form{position:relative;}
     opacity:0.4;
 }
 
+/*pdf*/
+.pdf{
+    background-color:#ccc;
+    width:100%;
+    height:300px;
+    padding:10px;
+    margin-bottom:20px;
+}
+.pdf .foto {
+    width: 180px;
+    padding: 10px;
+    background: #fff;
+}
+.pdf p{
+    font-size:20px;
+    margin-left:7%;
+}
+.pdf .dni, .pdf .texto{
+    font-weight:bold;
+}
+
 /* Responsive */
 @media (max-width: 992px){
 

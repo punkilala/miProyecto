@@ -165,3 +165,5 @@ C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\RamonZaragoza\
 C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\RamonZaragoza\bin\PagedList.Mvc.dll
 C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\RamonZaragoza\bin\PagedList.xml
 C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\RamonZaragoza\bin\PagedList.Mvc.xml
+C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\RamonZaragoza\bin\Rotativa.Core.dll
+C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\RamonZaragoza\bin\Rotativa.MVC.dll

@@ -36,5 +36,14 @@ namespace RamonZaragoza.Controllers
         {
             return PartialView(mIdioma.GetIdiomas(id));
         }
+
+        public ActionResult ExportaPdf(int id)
+        {
+            return new Rotativa.MVC.ActionAsPdf("PDF", new { id=id});
+        }
+        public ActionResult PDF(int id)
+        {
+            return View(mUsuario.GetDatosPersonales(id));
+        }
     }
 }
