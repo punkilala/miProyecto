@@ -10,6 +10,7 @@ using System.Web.Mvc;
 namespace RamonZaragoza.Areas.Admin.Controllers
 {
     [Autenticado]
+    [NoEmpresa]
     public class AdjuntosController : Controller
     {
         Adjuntos mAdjunto = new Adjuntos();

@@ -145,6 +145,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\OfertaEmpleoController.cs" />
     <Compile Include="Areas\Admin\Controllers\ErrorController.cs" />
     <Compile Include="Areas\Admin\Controllers\ExperienciaController.cs" />
     <Compile Include="Areas\Admin\Controllers\ConocimientoController.cs" />
@@ -177,6 +178,7 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\mini-load.gif" />
     <Content Include="Content\images\noAdjuntos.jpg" />
     <Content Include="Content\images\noFoto.jpg" />
     <Content Include="Content\images\noMensajes.jpg" />
@@ -268,6 +270,9 @@
     <Content Include="Areas\Admin\Views\Idioma\Acciones.cshtml" />
     <Content Include="Areas\Admin\Views\Idioma\_Listado.cshtml" />
     <Content Include="App_Browsers\qt.browser" />
+    <Content Include="Areas\Admin\Views\OfertaEmpleo\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\OfertaEmpleo\_Listado.cshtml" />
+    <Content Include="Areas\Admin\Views\OfertaEmpleo\Acciones.cshtml" />
     <None Include="Scripts\jquery-1.11.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.11.3.js" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />

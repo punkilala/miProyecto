@@ -62,4 +62,22 @@ namespace RamonZaragoza.Areas.Admin.Filters
             base.OnActionExecuting(filterContext);
         }
     }
+    //Denegar acceso a los controladores para el rol empresa
+    public class NoEmpresaAttribute : ActionFilterAttribute
+    {
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            base.OnActionExecuting(filterContext);
+
+            int rol = Convert.ToInt16(HttpContext.Current.Session["rol"]);
+            if (rol == 2)
+            {
+                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new
+                {
+                    controller = "Usuario",
+                    action = "Index"
+                }));
+            }
+        }
+    }
 }

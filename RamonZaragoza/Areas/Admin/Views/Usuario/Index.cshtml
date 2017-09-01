@@ -53,13 +53,19 @@
                         @Html.TextBoxFor(u => u.Nombre, new { @class = "form-control", @placeholder = "Ingrese su nombre" })
                         @Html.ValidationMessageFor(u => u.Nombre, "", new { @class = "label label-danger" })
                     </div>
+                    @if (ViewBag.Rol == 1)
+                    {
+                        <div class="form-group">
+                            <label>Apellido</label>
+                            @Html.TextBoxFor(u => u.Apellido, new { @class = "form-control", @placeholder = "Ingrese su Apellido" })
+                            @Html.ValidationMessageFor(u => u.Apellido, "", new { @class = "label label-danger" })
+                        </div>
+                    }
                     <div class="form-group">
-                        <label>Apellido</label>
-                        @Html.TextBoxFor(u => u.Apellido, new { @class = "form-control", @placeholder = "Ingrese su Apellido" })
-                        @Html.ValidationMessageFor(u => u.Apellido, "", new { @class = "label label-danger" })
-                    </div>
-                    <div class="form-group">
-                        <label>Fecha de Nacimiento</label>
+                        @if (ViewBag.Rol == 1)
+                         { <label>Fecha de Nacimiento *</label>}
+                        else
+                           { <label>Fecha Constitucion *</label>}
                         @Html.EditorFor(u => u.FNacimiento, new { htmlAttributes = new { @class = "form-control", @placeholder="Ingrese fecha nacimiento" } })
                         @Html.ValidationMessageFor(u => u.FNacimiento, "", new { @class = "label label-danger" })
                     </div>
@@ -171,35 +177,36 @@
 <!--pidiendo una validacion de nuestro formulario en lado de cliente, esta validacion se hace conforme a las anotaciones-->
 
 
-
-<script>
-    $(document).ready(function () {
-        $('#Nombre').change(function () {
-            //cambiar nombre en menu top
-            $('#mi-nombre').text($('#Nombre').val());
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#Nombre').change(function () {
+                //cambiar nombre en menu top
+                $('#mi-nombre').text($('#Nombre').val());
+            })
+            Colorea('@Session["menuActivo"]');
         })
-        Colorea('@Session["menuActivo"]');
-    })
-    $("#FNacimiento").datepicker({ dateFormat: "dd/mm/yy" }).mask("99/99/9999");
-    //Deshabilitar dias futuros
-    $("#FNacimiento").datepicker("option", "maxDate", "+0m +0d");
-    //Mostrar rango de 65 años
-    $("#FNacimiento").datepicker("option", "yearRange", "-65:+0");
+        $("#FNacimiento").datepicker({ dateFormat: "dd/mm/yy" }).mask("99/99/9999");
+        //Deshabilitar dias futuros
+        $("#FNacimiento").datepicker("option", "maxDate", "+0m +0d");
+        //Mostrar rango de 65 años
+        $("#FNacimiento").datepicker("option", "yearRange", "-65:+0");
 
-    //evitar que la validacion cliente de error ya que solo valida mm/dd/yyyy
-    // se hace uso de la libreria maskedinput para enmascarar los input de fecha y salvar la validacion
-    $.validator.addMethod('date',
-    function (value, element, params) {
-        if (this.optional(element)) {
-            return true;
-        }
-        var ok = true;
-        try {
-            $.datepicker.parseDate('dd/mm/yy', value);
-        }
-        catch (err) {
-            ok = false;
-        }
-        return ok;
-    });
-</script>
+        //evitar que la validacion cliente de error ya que solo valida mm/dd/yyyy
+        // se hace uso de la libreria maskedinput para enmascarar los input de fecha y salvar la validacion
+        $.validator.addMethod('date',
+        function (value, element, params) {
+            if (this.optional(element)) {
+                return true;
+            }
+            var ok = true;
+            try {
+                $.datepicker.parseDate('dd/mm/yy', value);
+            }
+            catch (err) {
+                ok = false;
+            }
+            return ok;
+        });
+    </script>
+ }

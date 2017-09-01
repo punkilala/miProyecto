@@ -11,6 +11,7 @@ using System.Web.Mvc;
 namespace RamonZaragoza.Areas.Admin.Controllers
 {
     [Autenticado]
+    [NoEmpresa]
     public class ConocimientoController : Controller
     {
         Conocimiento mConocimiento = new Conocimiento();

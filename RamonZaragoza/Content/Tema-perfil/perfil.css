@@ -24,6 +24,7 @@ body{
     display:table-cell;
     background-color:#DFDFDF;
     width:380px;
+    height: 46em;
 }
 #usuario .usuario-container-fixed{
     position:fixed;
@@ -235,6 +236,7 @@ form{position:relative;}
         display:block;
         position:static;
         width:100%;
+        height: auto;
     }
     #usuario .usuario-container-fixed{
         width:inherit;

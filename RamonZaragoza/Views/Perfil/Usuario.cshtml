@@ -10,7 +10,14 @@
         <div class="usuario-container">
             <h1>@Model.Nombre <br /> @Model.Apellido</h1>
             <p>@Model.Dni</p>
-            <img class="foto" src="~/uploads/@Model.id/FotoPerfil/@Model.Foto" title="@Model.Nombre" />   
+            @if (Model.Foto=="noFoto.jpg")
+            {
+                <img class="foto" src="~/Content/images/noFoto.jpg" title="@Model.Nombre" />
+            }
+            else
+            {
+                <img class="foto" src="~/uploads/@Model.id/FotoPerfil/@Model.Foto" title="@Model.Nombre" />
+            }
             <span class="texto">Fecha Nacimiento</span>
             <span class="campo">@fNacimiento</span> 
             <span class="texto">Dirección</span>

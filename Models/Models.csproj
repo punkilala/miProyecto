@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Adjuntos.cs" />
     <Compile Include="Categoria.cs" />
+    <Compile Include="ClasesAnonimas\ListadoOfertas.cs" />
     <Compile Include="Conocimiento.cs" />
     <Compile Include="Estado.cs" />
     <Compile Include="Experiencia.cs" />
@@ -84,6 +85,10 @@
     <Compile Include="Migrations\201708291239179_AddTablasIdiomaseIdioma.cs" />
     <Compile Include="Migrations\201708291239179_AddTablasIdiomaseIdioma.Designer.cs">
       <DependentUpon>201708291239179_AddTablasIdiomaseIdioma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708311400336_CampoAbiertaenOfertaEmpleo.cs" />
+    <Compile Include="Migrations\201708311400336_CampoAbiertaenOfertaEmpleo.Designer.cs">
+      <DependentUpon>201708311400336_CampoAbiertaenOfertaEmpleo.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OfertaEmpleo.cs" />
@@ -119,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708291239179_AddTablasIdiomaseIdioma.resx">
       <DependentUpon>201708291239179_AddTablasIdiomaseIdioma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708311400336_CampoAbiertaenOfertaEmpleo.resx">
+      <DependentUpon>201708311400336_CampoAbiertaenOfertaEmpleo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

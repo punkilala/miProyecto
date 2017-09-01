@@ -1,10 +1,14 @@
 namespace Models
 {
+    using ClasesAnonimas;
+    using Helper;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity;
     using System.Data.Entity.Spatial;
+    using System.Linq;
 
     [Table("OfertaEmpleo")]
     public partial class OfertaEmpleo
@@ -43,6 +47,7 @@ namespace Models
         public string Nombre { get; set; }
 
         public DateTime Fecha { get; set; }
+        public bool  Abierta { get; set; }
 
         public virtual Categoria Categoria { get; set; }
 
@@ -50,5 +55,65 @@ namespace Models
         public virtual ICollection<Inscritos> Inscritos { get; set; }
 
         public virtual Usuario Usuario { get; set; }
+
+        // LOGICA DE NEGOCIO
+
+        public List<OfertaEmpleo> GetLista(Filtro filtro)
+        {
+            int usuario_id = SesionHelper.GetUser();
+            var lista = new List<OfertaEmpleo>();
+            try
+            {
+                using (var bbdd = new ProyectoContexto())
+                {
+                    lista = bbdd.OfertaEmpleo.Include("Inscritos").Where(oe => oe.Usuario_id == usuario_id).ToList();
+
+                    if (filtro.numeroOrderBy=="Desc") lista = lista.OrderByDescending(x => x.id).ToList();
+                    if (filtro.numeroOrderBy == "Asc") lista = lista.OrderBy(x => x.id).ToList();
+                    if (filtro.nombreOrderBy=="Desc") lista = lista.OrderByDescending(x => x.Nombre).ToList();
+                    if (filtro.nombreOrderBy == "Asc") lista = lista.OrderBy(x => x.Nombre).ToList();
+                    if (filtro.desdeOrderBy == "Desc") lista = lista.OrderByDescending(x => x.Fecha).ToList();
+                    if (filtro.desdeOrderBy == "Asc") lista = lista.OrderBy(x => x.Fecha).ToList();
+                    if (filtro.inscritosOrderBy == "Desc") lista = lista.OrderByDescending(x => x.Inscritos.Count()).ToList();
+                    if (filtro.inscritosOrderBy == "Asc") lista = lista.OrderBy(x => x.Inscritos.Count()).ToList();
+                    if (filtro.Estado=="false")
+                        lista = lista.Where(x => x.Abierta == false).ToList();
+                    else
+                        lista = lista.Where(x => x.Abierta == true).ToList();
+                    if (filtro.porNombre!= null)
+                        lista = lista.Where(x => x.Nombre.Contains(filtro.porNombre)).ToList();
+                    if (filtro.porTitulo != null)
+                    {
+                        int num;
+                        int.TryParse(filtro.porTitulo, out num);
+                        lista = lista.Where(x => x.id.Equals(num)).ToList();
+
+                    }
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                return lista;
+            }
+        }
+        public void CambiarEstado(int id)
+        {
+            try
+            {
+                using(var bbdd= new ProyectoContexto())
+                {
+                    var oferta = bbdd.OfertaEmpleo.Where(o => o.id == id).SingleOrDefault();
+                    oferta.Abierta= oferta.Abierta ? false : true;
+                    bbdd.Entry(oferta).State = EntityState.Modified;
+                    bbdd.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
     }
 }

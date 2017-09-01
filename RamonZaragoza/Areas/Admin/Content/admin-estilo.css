@@ -7,12 +7,26 @@
  .page-header{ margin-top: 0;}
  nav-tab {background-color: #CC1414;}
  thead{background-color: #e4e4e4;}
- .progress{margin-bottom: 0;}
+ .progress{
+     margin-bottom: 0;
+     height: 12px !important;
+     margin: 5px 0;
+ }
  .jumbotron{
      padding: 20px;
      margin-top:0;
  }
  h3{ font-family: 'Cabin', sans-serif; font-style:italic;}
+ .input-group{margin-bottom:10px;}
+
+ .mi-filtro{
+    padding: 10px;
+    background: #f6f6f6;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #818181;
+    margin-bottom: 20px;
+ }
+ .sup{margin-bottom:15px;}
 /* Menu Top*/
 
 

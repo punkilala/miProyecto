@@ -36,3 +36,4 @@ C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\Models\obj\Deb
 C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\Models\obj\Debug\Models.Migrations.EliminarTablaSocial.resources
 C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\Models\obj\Debug\Models.Migrations.AddCamposSociales.resources
 C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\Models\obj\Debug\Models.Migrations.AddTablasIdiomaseIdioma.resources
+C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\Models\obj\Debug\Models.Migrations.CampoAbiertaenOfertaEmpleo.resources

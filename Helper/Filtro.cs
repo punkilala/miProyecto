@@ -14,7 +14,11 @@ namespace Helper
         public string tituloOrderBy { get; set; }
         public string desdeOrderBy { get; set; }
         public string hastaOrderBy { get; set; }
+        public string numeroOrderBy { get; set; }
+        public string inscritosOrderBy { get; set; }
         public int Eliminar { get; set; }
         public int idUsuario { get; set; }
+        public string Estado { get; set; }
+        public int CambiarEstado { get; set; }
     }
 }

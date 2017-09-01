@@ -33,6 +33,7 @@ $(document).ready(function () {
     //escuchar  select
     $('body').on('change', 'select', function () {
         var form = $(this).closest('form');
+        $('#pagina').val('1');
         inicioAjax(form);
     });
 
@@ -54,7 +55,7 @@ $(document).ready(function () {
             var href = $(this).attr('href');
             if (href != undefined) {
                 url = href.split('&')
-                //para evitar que me cambie de pagina
+                //para evitar que me cambie de pagina por postback
                 $(this).attr('href', '#');
                 pagina = url[0].split('=');
                 //pagina donde quiero ir
@@ -86,7 +87,16 @@ $(document).ready(function () {
             QuitarOrdenacion();
             var form = $(this).closest('form');
             inicioAjax(form);
-        }   
+
+        // para la vista OfertaEmpleo
+        } else if ($(this).hasClass("cambiarEstado")) {
+            //obtener valor de la celda 0 de la fila seleccionada
+            id = $(this).parents("tr").find("td").eq(0).html();
+            $('#CambiarEstado').val(id);
+            var form = $(this).closest('form');
+            $(this).parents("tr").find("td").eq(4).html('<img src="../content/images/mini-load.gif"/>');
+            inicioAjax(form); 
+        }
     });
 
 });
@@ -112,7 +122,8 @@ var inicioAjax = function (form) {
             if (funcion != undefined) setTimeout(funcion, 0);
 
             //inicializar el detector de eliminar
-            if ($('#Eliminar').val() == 1) $('#Eliminar').val(0); 
+            if ($('#Eliminar').val() == 1) $('#Eliminar').val(0);
+            if ($('#CambiarEstado').val() > 0) $('#CambiarEstado').val(0);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(textStatus + ' ' + errorThrown);
