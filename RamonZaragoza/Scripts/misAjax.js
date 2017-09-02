@@ -72,7 +72,12 @@
     })
 })
 
+function onBegin() {
+    $('#btn-enviar').css('display', 'none');
+}
+
 function onSuccess(r) {
+    if ($('#btn-enviar') != undefined) $('#btn-enviar').css('display', 'initial');
     if (r.mensaje.length > 0) {
         if (r.respuesta) {
             var css = "alert-info";

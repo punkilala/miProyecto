@@ -21,6 +21,7 @@ namespace Models
 
         public int id { get; set; }
 
+        [Required]
         public int Usuario_id { get; set; }
 
         [Column(TypeName = "text")]
@@ -37,15 +38,20 @@ namespace Models
 
         public int Categoria_id { get; set; }
 
+        [Required]
         public int Vacantes { get; set; }
 
-        [Column(TypeName = "smallmoney")]
-        public decimal? Salario { get; set; }
+        public int Salario { get; set; }
+        public string  Pago { get; set; }
+        public string ModoPago { get; set; }
+
 
         [Required]
         [StringLength(100)]
         public string Nombre { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Fecha { get; set; }
         public bool  Abierta { get; set; }
 
@@ -66,7 +72,8 @@ namespace Models
             {
                 using (var bbdd = new ProyectoContexto())
                 {
-                    lista = bbdd.OfertaEmpleo.Include("Inscritos").Where(oe => oe.Usuario_id == usuario_id).ToList();
+                    lista = bbdd.OfertaEmpleo.Include("Inscritos").Where(oe => oe.Usuario_id == usuario_id)
+                        .OrderByDescending(oe=>oe.Fecha).ToList();
 
                     if (filtro.numeroOrderBy=="Desc") lista = lista.OrderByDescending(x => x.id).ToList();
                     if (filtro.numeroOrderBy == "Asc") lista = lista.OrderBy(x => x.id).ToList();
@@ -95,6 +102,52 @@ namespace Models
             catch (Exception ex)
             {
                 return lista;
+            }
+        }
+        public OfertaEmpleo GetOferta (int id)
+        {
+            int usuario_id = SesionHelper.GetUser();
+            var oferta = new OfertaEmpleo();
+            try
+            {
+                using (var bbdd= new ProyectoContexto())
+                {
+                    oferta = bbdd.OfertaEmpleo.Where(oe => oe.id == id).Where(oe => oe.Usuario_id == usuario_id).SingleOrDefault();
+                }
+                return oferta;
+            }
+            catch (Exception)
+            {
+
+                return oferta;
+            }
+        }
+        public bool SetOferta()
+        {
+            bool result = false;
+            try
+            {
+                using(var bbdd=new ProyectoContexto())
+                {
+                    if (this.id == 0)
+                    {
+                        bbdd.Entry(this).State = EntityState.Added;
+                    }
+                    else
+                    {
+                        var oe = bbdd.Entry(this);
+                        bbdd.Entry(this).State = EntityState.Modified;
+                        
+                    }
+                    bbdd.SaveChanges();
+                    result = true;
+                }
+                return result;
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
+            {
+
+                return false;
             }
         }
         public void CambiarEstado(int id)

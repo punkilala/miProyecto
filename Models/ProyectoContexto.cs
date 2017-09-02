@@ -95,10 +95,6 @@ namespace Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<OfertaEmpleo>()
-                .Property(e => e.Salario)
-                .HasPrecision(10, 4);
-
-            modelBuilder.Entity<OfertaEmpleo>()
                 .Property(e => e.Nombre)
                 .IsUnicode(false);
 

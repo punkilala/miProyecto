@@ -90,6 +90,10 @@
     <Compile Include="Migrations\201708311400336_CampoAbiertaenOfertaEmpleo.Designer.cs">
       <DependentUpon>201708311400336_CampoAbiertaenOfertaEmpleo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709021357100_modficaTablaOfertaEmpleo.cs" />
+    <Compile Include="Migrations\201709021357100_modficaTablaOfertaEmpleo.Designer.cs">
+      <DependentUpon>201709021357100_modficaTablaOfertaEmpleo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OfertaEmpleo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -127,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708311400336_CampoAbiertaenOfertaEmpleo.resx">
       <DependentUpon>201708311400336_CampoAbiertaenOfertaEmpleo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709021357100_modficaTablaOfertaEmpleo.resx">
+      <DependentUpon>201709021357100_modficaTablaOfertaEmpleo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

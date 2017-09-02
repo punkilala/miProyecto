@@ -6,13 +6,18 @@ using System.Web;
 using System.Web.Mvc;
 using PagedList;
 using Helper;
+using RamonZaragoza.Areas.Admin.Filters;
 
 namespace RamonZaragoza.Areas.Admin.Controllers.Empresa
 {
+    [ValidateInput(false)]
+    [Autenticado]
     public class OfertaEmpleoController : Controller
     {
         OfertaEmpleo mOferta = new OfertaEmpleo();
         Categoria mCategoria = new Categoria();
+        Estado mEstado = new Estado();
+        RespuestaServidor mRespuestaAjax;
         public ActionResult Index()
         {
             Session["menuActivo"] = 1;
@@ -36,22 +41,44 @@ namespace RamonZaragoza.Areas.Admin.Controllers.Empresa
             {
                 mOferta.id = 0;
                 mOferta.Usuario_id = SesionHelper.GetUser();
-                ViewBag.Title = "Agregar Oferta de empleo";
+                ViewBag.Title = "Nueva Oferta de empleo";
             }
             else
             {
-
+                ViewBag.Title = "Modificar Oferta";
+                mOferta = mOferta.GetOferta(id);
+                // Solo puedo leer mis ofertas
+                if (mOferta == null) return RedirectToAction("Index");
             }
-            ViewBag.Categoria_id = mCategoria.GetListado();
+            ViewBag.LPago = mEstado.GetPago();
+            ViewBag.LModoPago = mEstado.GetModoPago();
+            ViewBag.LCategoria= mCategoria.GetListado();
             return View(mOferta);
         }
         [HttpPost]
-        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Acciones (OfertaEmpleo modelo)
+        public JsonResult Acciones (OfertaEmpleo modelo)
         {
-            ViewBag.Categoria_id = mCategoria.GetListado();
-            return View();
+            mRespuestaAjax = new RespuestaServidor();    
+            if(ModelState.IsValid)
+            {
+                bool result = false;
+                result = modelo.SetOferta();
+                if (result)
+                {
+                    mRespuestaAjax.SetResponse(true, "Ok");
+                    mRespuestaAjax.href = Url.Action("");
+                }
+                else
+                {
+                    mRespuestaAjax.SetResponse(false, "Error de acceso a la Base de Datos");
+                }
+            }
+            else
+            {
+                mRespuestaAjax.SetResponse(false, "Los campos marcados con * son obligatorios");
+            }
+            return Json(mRespuestaAjax);
         }
     }
 }

@@ -39,6 +39,38 @@ namespace Models
                 return lista;
             }
         }
+        public List<Estado> GetPago()
+        {
+            var lista = new List<Estado>();
+            try
+            {
+                using(var bbdd=new ProyectoContexto())
+                {
+                    lista = bbdd.Estado.Where(e => e.Relacion == "Pago").ToList();
+                }
+                return lista;
+            }
+            catch (Exception)
+            {
+                return lista;
+            }
+        }
+        public List<Estado> GetModoPago()
+        {
+            var lista = new List<Estado>();
+            try
+            {
+                using (var bbdd = new ProyectoContexto())
+                {
+                    lista = bbdd.Estado.Where(e => e.Relacion == "ModoPago").ToList();
+                }
+                return lista;
+            }
+            catch (Exception)
+            {
+                return lista;
+            }
+        }
     }
 
 }

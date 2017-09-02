@@ -91,7 +91,7 @@ $(document).ready(function () {
         // para la vista OfertaEmpleo
         } else if ($(this).hasClass("cambiarEstado")) {
             //obtener valor de la celda 0 de la fila seleccionada
-            id = $(this).parents("tr").find("td").eq(0).html();
+            id = $(this).parents("tr").find("td").eq(0).text();
             $('#CambiarEstado').val(id);
             var form = $(this).closest('form');
             $(this).parents("tr").find("td").eq(4).html('<img src="../content/images/mini-load.gif"/>');
