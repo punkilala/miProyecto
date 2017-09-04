@@ -145,6 +145,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\InscritosController.cs" />
     <Compile Include="Areas\Admin\Controllers\OfertaEmpleoController.cs" />
     <Compile Include="Areas\Admin\Controllers\ErrorController.cs" />
     <Compile Include="Areas\Admin\Controllers\ExperienciaController.cs" />
@@ -273,6 +274,9 @@
     <Content Include="Areas\Admin\Views\OfertaEmpleo\Index.cshtml" />
     <Content Include="Areas\Admin\Views\OfertaEmpleo\_Listado.cshtml" />
     <Content Include="Areas\Admin\Views\OfertaEmpleo\Acciones.cshtml" />
+    <Content Include="Areas\Admin\Views\Inscritos\Oferta.cshtml" />
+    <Content Include="Areas\Admin\Views\Inscritos\_Listado.cshtml" />
+    <Content Include="Areas\Admin\Views\Inscritos\DatosUsuario.cshtml" />
     <None Include="Scripts\jquery-1.11.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.11.3.js" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />

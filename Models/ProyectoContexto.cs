@@ -66,9 +66,6 @@ namespace Models
                 .Property(e => e.Descripcion)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Inscritos>()
-                .Property(e => e.relacion)
-                .IsUnicode(false);
 
             modelBuilder.Entity<Mensaje>()
                 .Property(e => e.Remitente)

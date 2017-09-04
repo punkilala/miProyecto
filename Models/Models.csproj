@@ -54,7 +54,6 @@
   <ItemGroup>
     <Compile Include="Adjuntos.cs" />
     <Compile Include="Categoria.cs" />
-    <Compile Include="ClasesAnonimas\ListadoOfertas.cs" />
     <Compile Include="Conocimiento.cs" />
     <Compile Include="Estado.cs" />
     <Compile Include="Experiencia.cs" />
@@ -93,6 +92,14 @@
     <Compile Include="Migrations\201709021357100_modficaTablaOfertaEmpleo.cs" />
     <Compile Include="Migrations\201709021357100_modficaTablaOfertaEmpleo.Designer.cs">
       <DependentUpon>201709021357100_modficaTablaOfertaEmpleo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709031822060_CampoFecha.cs" />
+    <Compile Include="Migrations\201709031822060_CampoFecha.Designer.cs">
+      <DependentUpon>201709031822060_CampoFecha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709041511056_CambiarNombreEstadoTablaInscritos.cs" />
+    <Compile Include="Migrations\201709041511056_CambiarNombreEstadoTablaInscritos.Designer.cs">
+      <DependentUpon>201709041511056_CambiarNombreEstadoTablaInscritos.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OfertaEmpleo.cs" />
@@ -134,6 +141,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709021357100_modficaTablaOfertaEmpleo.resx">
       <DependentUpon>201709021357100_modficaTablaOfertaEmpleo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709031822060_CampoFecha.resx">
+      <DependentUpon>201709031822060_CampoFecha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709041511056_CambiarNombreEstadoTablaInscritos.resx">
+      <DependentUpon>201709041511056_CambiarNombreEstadoTablaInscritos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

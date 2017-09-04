@@ -1,6 +1,5 @@
 namespace Models
 {
-    using ClasesAnonimas;
     using Helper;
     using System;
     using System.Collections.Generic;

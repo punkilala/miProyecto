@@ -27,6 +27,10 @@
     margin-bottom: 20px;
  }
  .sup{margin-bottom:15px;}
+ .ficha span{
+     font-weight: bold;
+     color:gray;
+ }
 /* Menu Top*/
 
 

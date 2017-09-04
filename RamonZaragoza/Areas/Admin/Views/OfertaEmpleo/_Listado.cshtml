@@ -70,7 +70,16 @@
                         <td>@oe.Nombre</td>
                         <td class="text-center">@string.Format("{0:d}", oe.Fecha)</td>
                         <td class="text-center">@oe.Inscritos.Count()</td>
-                        <td><a href="@Url.Action("","Inscritos",new { id=oe.id})"><i class="fa fa-search fa-2x"></i></a></td>
+                        <td>
+                           @if (oe.Inscritos.Count() > 0)
+                           {
+                            <a href="@Url.Action("Oferta","Inscritos",new { id=oe.id})" title="Ver Inscritos"><i class="fa fa-search fa-2x"></i></a>
+                           }
+                           else
+                           {
+                               <i class="fa fa-search fa-2x" title="Ningun inscrito"></i>
+                           }
+                        </td>
                         <td class="text-center">
                             @if (oe.Abierta)
                             {

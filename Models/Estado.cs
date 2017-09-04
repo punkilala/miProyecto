@@ -71,6 +71,23 @@ namespace Models
                 return lista;
             }
         }
+        public List<Estado> GetEstadoInscrito()
+        {
+            var lista = new List<Estado>();
+            try
+            {
+                using (var bbdd= new ProyectoContexto())
+                {
+                    lista = bbdd.Estado.Where(e => e.Relacion == "inscrito").ToList();
+                }
+                return lista;
+            }
+            catch (Exception)
+            {
+
+                return lista;
+            }
+        }
     }
 
 }

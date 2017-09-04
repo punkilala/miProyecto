@@ -38,3 +38,5 @@ C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\Models\obj\Deb
 C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\Models\obj\Debug\Models.Migrations.AddTablasIdiomaseIdioma.resources
 C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\Models\obj\Debug\Models.Migrations.CampoAbiertaenOfertaEmpleo.resources
 C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\Models\obj\Debug\Models.Migrations.modficaTablaOfertaEmpleo.resources
+C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\Models\obj\Debug\Models.Migrations.CampoFecha.resources
+C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\Models\obj\Debug\Models.Migrations.CambiarNombreEstadoTablaInscritos.resources
