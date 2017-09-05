@@ -13,6 +13,7 @@ namespace RamonZaragoza.Areas.Admin.Controllers
         OfertaEmpleo mOferta = new OfertaEmpleo();
         Inscritos mInscritos = new Inscritos();
         Estado mEstado = new Estado();
+        InscritosHistorial mHistorial = new InscritosHistorial();
         public ActionResult Oferta(int id=0)
         {
             // Recordar a que oferta tengo que volver
@@ -49,6 +50,7 @@ namespace RamonZaragoza.Areas.Admin.Controllers
             {
                 // marcar leido
                 mInscritos.SetModifiEstado(inscrip, id, 5);
+                mHistorial.SetHistorial(id, Convert.ToInt32(Session["NumOferta"]), 32);
             }
             
             
@@ -64,10 +66,14 @@ namespace RamonZaragoza.Areas.Admin.Controllers
             mInscritos.SetModifiEstado(modelo.NumInscripcion, modelo.Usuario_id_D, modelo.estado_id);
             if (modelo.estado_id == 6)
             {
-                respuestaAjax = "Estado: <span class='badge' style='background:#343A40; color:white;'>Rechazado</span>"; 
+                respuestaAjax = "Estado: <span class='badge' style='background:#343A40; color:white;'>Rechazado</span>";
+                //actualizar historial
+                mHistorial.SetHistorial(modelo.Usuario_id_D, modelo.Oferta_id, 34);
             } else
             {
                 respuestaAjax = "Estado: <span class='badge' style='background:#28A745; color:white;'>Pre-Selec</span>";
+                //actualizar historial
+                mHistorial.SetHistorial(modelo.Usuario_id_D, modelo.Oferta_id, 33);
             }
             return Json(respuestaAjax);
 

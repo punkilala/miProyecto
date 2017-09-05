@@ -37,8 +37,9 @@ namespace Models
         public virtual Usuario Usuario1 { get; set; }
 
         public virtual OfertaEmpleo OfertaEmpleo { get; set; }
+        public virtual ICollection<InscritosHistorial> InscritosHistorial { get; set; }
 
-        //LOGICA NEGOCIO
+        //LOGICA NEGOCIO ROL EMPRESA
         public List<Inscritos> GetInscritos(int oferta_id, int estado)
         {
             var lista = new List<Inscritos>();
@@ -99,6 +100,31 @@ namespace Models
             {
 
                 return inscrito;
+            }
+        }
+
+        //LOGICA NEGOCIO PARA ROL USUARIO
+        public List<Inscritos> GetMisCandidaturas()
+        {
+            var lista = new List<Inscritos>();
+            int usuario_id = SesionHelper.GetUser();
+            try
+            {
+                using (var bbdd = new ProyectoContexto())
+                {
+                    lista = bbdd.Inscritos
+                        .Include("OfertaEmpleo")
+                        .Include("OfertaEmpleo.Inscritos")
+                        .Include("Usuario1")
+                        .Where(c => c.Usuario_id_D == usuario_id)
+                        .OrderByDescending(c => c.Fecha).ToList();
+                }
+                return lista;
+            }
+            catch (Exception)
+            {
+
+                return lista;
             }
         }
 

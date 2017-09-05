@@ -24,6 +24,7 @@ namespace Models
         public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<Idiomas> Idiomas { get; set; }
         public virtual DbSet<Idioma> Idioma { get; set; }
+        public virtual DbSet<InscritosHistorial> InscritosHistorial { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -56,7 +56,7 @@ namespace Models
 
         public virtual Categoria Categoria { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public DateTime? FechaGestion { get; set; }
         public virtual ICollection<Inscritos> Inscritos { get; set; }
 
         public virtual Usuario Usuario { get; set; }
@@ -112,6 +112,13 @@ namespace Models
                 using (var bbdd= new ProyectoContexto())
                 {
                     oferta = bbdd.OfertaEmpleo.Where(oe => oe.id == id).Where(oe => oe.Usuario_id == usuario_id).SingleOrDefault();
+                    //registrar la ultma vez que se entra a ver la oferta por parte de la empresa
+                    if (oferta != null)
+                    {
+                        oferta.FechaGestion = DateTime.Now;
+                        bbdd.Entry(oferta).State = EntityState.Modified;
+                        bbdd.SaveChanges();
+                    }
                 }
                 return oferta;
             }

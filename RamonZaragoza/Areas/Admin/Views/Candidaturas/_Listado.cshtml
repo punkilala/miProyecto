@@ -1,0 +1,26 @@
+﻿@model List<Models.Inscritos>
+
+<table class="table table-condensed table-hover table-responsive">
+    <thead>
+        <tr>
+            <th>Titulo</th>
+            <th>Empresa</th>
+            <th>Vacantes</th>
+            <th>Inscritos</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ca in Model)
+        {
+            <tr>
+                <td>@ca.OfertaEmpleo.Nombre</td>
+                <td>@ca.OfertaEmpleo.Usuario.Nombre</td>
+                <td>@ca.OfertaEmpleo.Vacantes</td>
+                <td>@ca.OfertaEmpleo.Inscritos.Count()</td>
+                <td>@ca.Fecha</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

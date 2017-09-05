@@ -60,6 +60,7 @@
     <Compile Include="Idioma.cs" />
     <Compile Include="Idiomas.cs" />
     <Compile Include="Inscritos.cs" />
+    <Compile Include="InscritosHistorial.cs" />
     <Compile Include="Mensaje.cs" />
     <Compile Include="Migrations\201708222005161_inicial.cs" />
     <Compile Include="Migrations\201708222005161_inicial.Designer.cs">
@@ -100,6 +101,14 @@
     <Compile Include="Migrations\201709041511056_CambiarNombreEstadoTablaInscritos.cs" />
     <Compile Include="Migrations\201709041511056_CambiarNombreEstadoTablaInscritos.Designer.cs">
       <DependentUpon>201709041511056_CambiarNombreEstadoTablaInscritos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709051614433_AddTablaInscritosHistorial.cs" />
+    <Compile Include="Migrations\201709051614433_AddTablaInscritosHistorial.Designer.cs">
+      <DependentUpon>201709051614433_AddTablaInscritosHistorial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709051644432_AddFechaGestionTablaOfertaEmpleo.cs" />
+    <Compile Include="Migrations\201709051644432_AddFechaGestionTablaOfertaEmpleo.Designer.cs">
+      <DependentUpon>201709051644432_AddFechaGestionTablaOfertaEmpleo.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OfertaEmpleo.cs" />
@@ -147,6 +156,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709041511056_CambiarNombreEstadoTablaInscritos.resx">
       <DependentUpon>201709041511056_CambiarNombreEstadoTablaInscritos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709051614433_AddTablaInscritosHistorial.resx">
+      <DependentUpon>201709051614433_AddTablaInscritosHistorial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709051644432_AddFechaGestionTablaOfertaEmpleo.resx">
+      <DependentUpon>201709051644432_AddFechaGestionTablaOfertaEmpleo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
