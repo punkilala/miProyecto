@@ -12,6 +12,7 @@ namespace RamonZaragoza.Areas.Admin.Controllers.Empresa
 {
     [ValidateInput(false)]
     [Autenticado]
+    [NoUsurio]
     public class OfertaEmpleoController : Controller
     {
         OfertaEmpleo mOferta = new OfertaEmpleo();

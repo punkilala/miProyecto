@@ -5,9 +5,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PagedList;
+using RamonZaragoza.Areas.Admin.Filters;
 
 namespace RamonZaragoza.Areas.Admin.Controllers
 {
+    [Autenticado]
+    [NoUsurio]
     public class InscritosController : Controller
     {
         OfertaEmpleo mOferta = new OfertaEmpleo();

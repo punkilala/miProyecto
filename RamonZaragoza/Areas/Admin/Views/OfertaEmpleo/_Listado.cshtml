@@ -56,9 +56,9 @@
                 <tr id="miTabla">
                     <th width="10%;" class="text-center"><a href="#" class="filtro" id="numeroOrder">Num. Oferta</a></th>
                     <th width="55%;"><a href="#" class="filtro" id="nombreOrder">Nombre</a></th>
-                    <th class="text-center"><a href="#" class="filtro" id="desdeOrder">Fecha</a></th>
-                    <th><a href="#" class="filtro" id="inscritosOrder">Inscritos</a></th>
+                    <th class="text-center"><a href="#" class="filtro" id="desdeOrder">Fecha</a></th>  
                     <th></th>
+                    <th><a href="#" class="filtro" id="inscritosOrder">Inscritos</a></th>
                     <th>Estado</th>
                 </tr>
             </thead>
@@ -68,8 +68,7 @@
                     <tr>
                         <td class="text-center"><a href="@Url.Action("Acciones","OfertaEmpleo", new { id = oe.id })"><b>@oe.id</b></a></td>
                         <td>@oe.Nombre</td>
-                        <td class="text-center">@string.Format("{0:d}", oe.Fecha)</td>
-                        <td class="text-center">@oe.Inscritos.Count()</td>
+                        <td class="text-center">@string.Format("{0:d}", oe.Fecha)</td>     
                         <td>
                            @if (oe.Inscritos.Count() > 0)
                            {
@@ -80,6 +79,7 @@
                                <i class="fa fa-search fa-2x" title="Ningun inscrito"></i>
                            }
                         </td>
+                        <td class="text-center">@oe.Inscritos.Count()</td>
                         <td class="text-center">
                             @if (oe.Abierta)
                             {

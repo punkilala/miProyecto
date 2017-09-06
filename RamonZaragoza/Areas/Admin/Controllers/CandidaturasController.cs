@@ -1,4 +1,6 @@
 ﻿using Models;
+using PagedList;
+using RamonZaragoza.Areas.Admin.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +9,8 @@ using System.Web.Mvc;
 
 namespace RamonZaragoza.Areas.Admin.Controllers
 {
+    [Autenticado]
+    [NoEmpresa]
     public class CandidaturasController : Controller
     {
         Inscritos mInscritos = new Inscritos();
@@ -17,9 +21,10 @@ namespace RamonZaragoza.Areas.Admin.Controllers
             Session["menuActivo"] = 6;
             return View();
         }
-        public ActionResult _Listado()
+        public ActionResult _Listado(int? pagina)
         {
-            return PartialView(mInscritos.GetMisCandidaturas());
+            int numPag = pagina ?? 1;
+            return PartialView(mInscritos.GetMisCandidaturas().ToPagedList(numPag,6));
         }
         public ActionResult Historial (int id)
         {

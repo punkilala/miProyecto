@@ -80,4 +80,23 @@ namespace RamonZaragoza.Areas.Admin.Filters
             }
         }
     }
+
+    //Denegar acceso a los controladores para el rol Usuario
+    public class NoUsurioAttribute : ActionFilterAttribute
+    {
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            base.OnActionExecuting(filterContext);
+
+            int rol = Convert.ToInt16(HttpContext.Current.Session["rol"]);
+            if (rol == 1)
+            {
+                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new
+                {
+                    controller = "Usuario",
+                    action = "Index"
+                }));
+            }
+        }
+    }
 }

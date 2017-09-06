@@ -166,6 +166,17 @@ namespace Models
                     oferta.Abierta= oferta.Abierta ? false : true;
                     bbdd.Entry(oferta).State = EntityState.Modified;
                     bbdd.SaveChanges();
+
+                    //actualizar InscritosHistorial
+                    //notificar a todos los inscritos que se ha cerrado el proceso de seleccion
+                    var lista = new List<Inscritos>();
+                    Inscritos inscritos = new Inscritos();
+                    lista = inscritos.GetInscritos(id);
+                    InscritosHistorial historial = new InscritosHistorial();
+                    foreach (var item in lista)
+                    {
+                        historial.SetHistorial(item.Usuario_id_D, item.Oferta_id, 31);
+                    }
                 }
             }
             catch (Exception ex)

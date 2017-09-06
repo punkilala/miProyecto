@@ -42,7 +42,7 @@ namespace Models
         
 
         //LOGICA NEGOCIO ROL EMPRESA
-        public List<Inscritos> GetInscritos(int oferta_id, int estado)
+        public List<Inscritos> GetInscritos(int oferta_id, int estado =0)
         {
             var lista = new List<Inscritos>();
             var empresa_id = SesionHelper.GetUser();
@@ -53,8 +53,11 @@ namespace Models
                     lista = bbdd.Inscritos.Include("Usuario")
                         .Where(i=>i.Oferta_id==oferta_id)
                         .Where(i=>i.Usuario_id_E==empresa_id)
-                        .Where(i=>i.estado_id==estado)
                         .ToList();
+                    if (estado > 0)
+                    {
+                        lista = lista.Where(i => i.estado_id == estado).ToList();
+                    }
                 }
                 return lista;
             }
