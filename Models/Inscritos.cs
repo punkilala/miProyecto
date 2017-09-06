@@ -37,7 +37,9 @@ namespace Models
         public virtual Usuario Usuario1 { get; set; }
 
         public virtual OfertaEmpleo OfertaEmpleo { get; set; }
+        public virtual Estado Estado { get; set; }
         public virtual ICollection<InscritosHistorial> InscritosHistorial { get; set; }
+        
 
         //LOGICA NEGOCIO ROL EMPRESA
         public List<Inscritos> GetInscritos(int oferta_id, int estado)
@@ -116,6 +118,7 @@ namespace Models
                         .Include("OfertaEmpleo")
                         .Include("OfertaEmpleo.Inscritos")
                         .Include("Usuario1")
+                        .Include("Estado")
                         .Where(c => c.Usuario_id_D == usuario_id)
                         .OrderByDescending(c => c.Fecha).ToList();
                 }

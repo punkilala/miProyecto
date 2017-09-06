@@ -9,4 +9,10 @@
     @Html.Action("_Listado")
 </div>
 
+<script>
+    $(document).ready(function () {
+        Colorea('@Session["menuActivo"]');
+    });
+</script>
+
 

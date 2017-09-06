@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Helper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -20,15 +21,16 @@ namespace Models
         [Index]
         public int Oferta_id { get; set; }
 
-        public int estado_id { get; set; }
+        public int EstadoId{ get; set; }
 
         [DataType(DataType.Date)]
         public DateTime Fecha { get; set; }
 
         public virtual Inscritos Inscritos { get; set; }
+        public virtual Estado Estado { get; set; }
 
         //LOGICA DE NEGOCIO
-        public void SetHistorial(int usuario_id, int oferta_id, int estado_id)
+        public void SetHistorial(int usuario_id, int oferta_id, int elEstado)
         {
             try
             {
@@ -37,7 +39,7 @@ namespace Models
                     var historial = new InscritosHistorial();
                     historial.Usuario_id_D = usuario_id;
                     historial.Oferta_id = oferta_id;
-                    historial.estado_id = estado_id;
+                    historial.EstadoId = elEstado;
                     historial.Fecha = DateTime.Now;
 
                     bbdd.Entry(historial).State = EntityState.Added;
@@ -48,6 +50,30 @@ namespace Models
             {
 
                 throw;
+            }
+        }
+        public List<InscritosHistorial> GetHistorial (int oferta_id)
+        {
+            int usuario_id = SesionHelper.GetUser();
+            var lista = new List<InscritosHistorial>();
+            try
+            {
+                using (var bbdd= new ProyectoContexto())
+                {
+                    lista = bbdd.InscritosHistorial
+                        .Include("Estado")
+                        .Include("Inscritos.OfertaEmpleo")
+                        .Where(h => h.Oferta_id == oferta_id)
+                        .Where(h => h.Usuario_id_D == usuario_id)
+                        .OrderByDescending(h=>h.Fecha)
+                        .ToList();
+                    return lista;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return lista;
             }
         }
     }

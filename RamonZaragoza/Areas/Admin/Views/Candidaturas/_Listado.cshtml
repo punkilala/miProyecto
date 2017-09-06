@@ -1,24 +1,43 @@
 ﻿@model List<Models.Inscritos>
 
+
 <table class="table table-condensed table-hover table-responsive">
     <thead>
         <tr>
-            <th>Titulo</th>
-            <th>Empresa</th>
-            <th>Vacantes</th>
-            <th>Inscritos</th>
-            <th>Fecha</th>
+            <th width="47%">Titulo</th>
+            <th width="20%;">Empresa</th>
+            <th class="text-center" width="10%">Vacantes</th>
+            <th class="text-center" width="10%">Inscritos</th>
+            <th class="text-center" width="12%;">F. Inscrito</th>
+            <th class="text-center" width="1%;">Estado</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var ca in Model)
         {
             <tr>
-                <td>@ca.OfertaEmpleo.Nombre</td>
+                <td>@Html.ActionLink(ca.OfertaEmpleo.Nombre,"Historial",new { id=ca.Oferta_id })</td>
                 <td>@ca.OfertaEmpleo.Usuario.Nombre</td>
-                <td>@ca.OfertaEmpleo.Vacantes</td>
-                <td>@ca.OfertaEmpleo.Inscritos.Count()</td>
-                <td>@ca.Fecha</td>
+                <td class="text-center">@ca.OfertaEmpleo.Vacantes</td>
+                <td class="text-center">@ca.OfertaEmpleo.Inscritos.Count()</td>
+                <td class="text-center">@string.Format("{0:d}", ca.Fecha)</td>
+                <td class="text-center">
+                    @switch (@ca.Estado.id)
+                    {
+                        case 4:
+                            <span class="badge" style="background:#DC3545; color:white;">@ca.Estado.Descripcion</span>
+                            break;
+                        case 5:
+                            <span class="badge" style="background:#17A2B8; color:white;">@ca.Estado.Descripcion</span>
+                            break;
+                        case 6:
+                            <span class="badge" style="background:#343A40; color:white;">@ca.Estado.Descripcion</span>
+                            break;
+                        case 7:
+                            <span class="badge" style="background:#28A745; color:white;">@ca.Estado.Descripcion</span>
+                            break;
+                    }
+                </td>
             </tr>
         }
     </tbody>

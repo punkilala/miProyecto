@@ -10,6 +10,11 @@ namespace Models
     [Table("Estado")]
     public partial class Estado
     {
+        public Estado()
+        {
+            Inscritos = new HashSet<Inscritos>();
+            InscritosHistorial = new HashSet<InscritosHistorial>();
+        }
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }
 
@@ -19,7 +24,10 @@ namespace Models
 
         [StringLength(50)]
         public string Relacion { get; set; }
-        
+
+        public ICollection<Inscritos> Inscritos { get; set; }
+        public ICollection<InscritosHistorial> InscritosHistorial{ get; set; }
+
         //LOGICA DE NEGOCIO
 
         public List<Estado> GetNiveles()

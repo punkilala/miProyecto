@@ -210,6 +210,8 @@ namespace Models
               .HasMany(e => e.Idioma)
               .WithRequired(e => e.Idiomas)
               .HasForeignKey(e => e.Idiomas_id);
+
+           
         }
     }
 }

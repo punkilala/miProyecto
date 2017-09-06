@@ -280,6 +280,7 @@
     <Content Include="Areas\Admin\Views\Inscritos\DatosUsuario.cshtml" />
     <Content Include="Areas\Admin\Views\Candidaturas\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Candidaturas\_Listado.cshtml" />
+    <Content Include="Areas\Admin\Views\Candidaturas\Historial.cshtml" />
     <None Include="Scripts\jquery-1.11.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.11.3.js" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />

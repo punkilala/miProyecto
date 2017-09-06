@@ -110,6 +110,18 @@
     <Compile Include="Migrations\201709051644432_AddFechaGestionTablaOfertaEmpleo.Designer.cs">
       <DependentUpon>201709051644432_AddFechaGestionTablaOfertaEmpleo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709051827295_AddRelacionEstadoInscritos.cs" />
+    <Compile Include="Migrations\201709051827295_AddRelacionEstadoInscritos.Designer.cs">
+      <DependentUpon>201709051827295_AddRelacionEstadoInscritos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709052215026_AddRelacionEstadoInscritosHistorial.cs" />
+    <Compile Include="Migrations\201709052215026_AddRelacionEstadoInscritosHistorial.Designer.cs">
+      <DependentUpon>201709052215026_AddRelacionEstadoInscritosHistorial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709060002150_CambioNombreEstadoIdTablaInscritosHistorial.cs" />
+    <Compile Include="Migrations\201709060002150_CambioNombreEstadoIdTablaInscritosHistorial.Designer.cs">
+      <DependentUpon>201709060002150_CambioNombreEstadoIdTablaInscritosHistorial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OfertaEmpleo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -162,6 +174,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709051644432_AddFechaGestionTablaOfertaEmpleo.resx">
       <DependentUpon>201709051644432_AddFechaGestionTablaOfertaEmpleo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709051827295_AddRelacionEstadoInscritos.resx">
+      <DependentUpon>201709051827295_AddRelacionEstadoInscritos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709052215026_AddRelacionEstadoInscritosHistorial.resx">
+      <DependentUpon>201709052215026_AddRelacionEstadoInscritosHistorial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709060002150_CambioNombreEstadoIdTablaInscritosHistorial.resx">
+      <DependentUpon>201709060002150_CambioNombreEstadoIdTablaInscritosHistorial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
