@@ -1,45 +1,46 @@
 ﻿@model List<Models.Inscritos>
 
+<div class="candidaturas">
+    @foreach (var ca in Model)
+    {
+        <div class="content-can">
+            <header>
+                <div class="titulo">
+                    @Html.ActionLink(ca.OfertaEmpleo.Nombre, "Historial", new { id = ca.Oferta_id })
+                </div>
+                <div class="hora">
+                    <i class="fa fa-clock-o"></i> @string.Format("{0:dd MMM yyyy}", ca.Fecha)
+                </div>
+            </header>
+            <div class="contenido">
+                <div class="titulo">
+                    @ca.OfertaEmpleo.Usuario.Nombre
+                </div>
+                <div class="datos">
+                    <span><i class="fa fa-cogs"></i> @ca.OfertaEmpleo.Categoria.nombre</span>
+                    <span>
+                        <i class="fa fa-user-circle-o">
+                        </i> @ca.OfertaEmpleo.Inscritos.Count() Inscritos
+                        ...para @ca.OfertaEmpleo.Vacantes Vacante(s)
+                        @switch (@ca.Estado.id)
+                        {
+                            case 4:
+                                <span style="color:#DC3545; float:right;"><i class="fa fa-eye-slash"></i> @ca.Estado.Descripcion</span>
+                                break;
+                            case 5:
+                                <span style="color:#17A2B8; float:right;"><i class="fa fa-eye"></i> @ca.Estado.Descripcion</span>
+                                break;
+                            case 6:
+                                <span style="color:#343A40; float:right;"><i class="fa fa-thumbs-down"></i> @ca.Estado.Descripcion</span>
+                                break;
+                            case 7:
+                                <span style="color:#28A745; float:right;"><i class="fa fa-thumbs-up"></i> @ca.Estado.Descripcion</span>
+                                break;
+                        }
+                    </span>
+                </div>
+            </div>
+        </div>
+    }
 
-<table class="table table-condensed table-hover table-responsive">
-    <thead>
-        <tr>
-            <th width="47%">Titulo</th>
-            <th width="20%;">Empresa</th>
-            <th class="text-center" width="10%">Vacantes</th>
-            <th class="text-center" width="10%">Inscritos</th>
-            <th class="text-center" width="12%;">F. Inscrito</th>
-            <th class="text-center" width="1%;">Estado</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var ca in Model)
-        {
-            <tr>
-                <td>@Html.ActionLink(ca.OfertaEmpleo.Nombre,"Historial",new { id=ca.Oferta_id })</td>
-                <td>@ca.OfertaEmpleo.Usuario.Nombre</td>
-                <td class="text-center">@ca.OfertaEmpleo.Vacantes</td>
-                <td class="text-center">@ca.OfertaEmpleo.Inscritos.Count()</td>
-                <td class="text-center">@string.Format("{0:d}", ca.Fecha)</td>
-                <td class="text-center">
-                    @switch (@ca.Estado.id)
-                    {
-                        case 4:
-                            <span class="badge" style="background:#DC3545; color:white;">@ca.Estado.Descripcion</span>
-                            break;
-                        case 5:
-                            <span class="badge" style="background:#17A2B8; color:white;">@ca.Estado.Descripcion</span>
-                            break;
-                        case 6:
-                            <span class="badge" style="background:#343A40; color:white;">@ca.Estado.Descripcion</span>
-                            break;
-                        case 7:
-                            <span class="badge" style="background:#28A745; color:white;">@ca.Estado.Descripcion</span>
-                            break;
-                    }
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-
+</div>

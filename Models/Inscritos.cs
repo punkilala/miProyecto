@@ -117,6 +117,7 @@ namespace Models
                     lista = bbdd.Inscritos
                         .Include("OfertaEmpleo")
                         .Include("OfertaEmpleo.Inscritos")
+                        .Include("OfertaEmpleo.Categoria")
                         .Include("Usuario1")
                         .Include("Estado")
                         .Where(c => c.Usuario_id_D == usuario_id)

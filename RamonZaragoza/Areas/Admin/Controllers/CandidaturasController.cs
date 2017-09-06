@@ -19,7 +19,6 @@ namespace RamonZaragoza.Areas.Admin.Controllers
         }
         public ActionResult _Listado()
         {
-            ViewBag.Estados = mEstado.GetEstadoInscrito();
             return PartialView(mInscritos.GetMisCandidaturas());
         }
         public ActionResult Historial (int id)
