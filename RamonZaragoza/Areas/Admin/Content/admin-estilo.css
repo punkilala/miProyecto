@@ -35,6 +35,9 @@
 
 
 .navbar-inverse{
+    position: fixed;
+    z-index: 999;
+    width: 100%;
     background-color:#ccc;
     border:0;
 }
@@ -246,9 +249,12 @@ header{
 }
 
 
- @media (min-width: 765px) {
+ @media (min-width: 768px) {
 
-
+    .miContent{
+        top: 70px;
+        left: 22%;
+    }
     nav.sidebar .navbar-nav > li{
       border-bottom: 1px #ccc solid;
       background-color: #6A8096;
@@ -312,13 +318,13 @@ header{
     }
 
     nav.sidebar{
-      width: 270px;
-      height: 580px;
-      margin-left: -160px;
-      float: left;
-      margin-bottom: 0px;
-      margin-top: -20px;
-      background-color:#6A8096;
+         width: 21%;
+        height: 600px;
+        float: left;
+        margin-bottom: 0px;
+        top: 50px;
+        background-color: #6A8096;
+        position: fixed;
     }
 
     nav.sidebar li {
@@ -334,17 +340,13 @@ header{
     }
   }
    
-  @media (min-width: 1000px) {
+  @media (min-width: 992px) {
 
     .main{
       width: calc(100% - 200px);
       margin-left: 200px;
     }
 
-    nav.sidebar{
-      margin-left: 0px;
-      float: left;
-    }
   }
   #user-pic{width:70px;}
 
@@ -370,4 +372,16 @@ header{
 @media (max-width: 767px) {
     .navbar-header{text-align:center;}
     .content-can {width: 95%;}
+    .navbar-inverse{
+        position:relative;
+    }
+    .navbar-default{
+        background-color:#6A8096 !important;
+        margin-top:-20px;
+    }
+    .navbar-default .navbar-nav > li > a {
+        color: #fff;
+    }
+    .navbar-toggle{background-color:ivory;}
+   
 }
