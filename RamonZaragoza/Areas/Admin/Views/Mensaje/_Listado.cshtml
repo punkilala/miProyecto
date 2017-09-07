@@ -83,17 +83,18 @@
           $("input:checkbox").prop('checked', $(this).prop("checked"));
     });
 
-    
+
     function ActualizaAlerta() {
         //actualizo la alerta en menu top de los mensajes sin leer si se borra alguno antes de leer
         var sesion = '@Session["MensajesSinLeer"]';
-        var alerta = $('#menu').find('#alerta');
-        if (sesion > 0) alerta.text("Mensajes(" + sesion + ")");
-        else {
-            alerta.text("Mensajes");
-            alerta.prop("style", null);
+        if (sesion > 0) {
+            $('#alerta').text(sesion);
+            $('#alertaTexto').text('Tiene ' +sesion +' mensaje(s) sin leer')
+        }else {
+            $('#alerta').text("");
+            $('#alertaTexto').text('No hay mensajes sin leer');
         }
-       
+
     }
 
 

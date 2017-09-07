@@ -322,6 +322,7 @@
     <Content Include="Views\Perfil\_MostrarCv.cshtml" />
     <Content Include="Views\Perfil\_MostrarIdiomas.cshtml" />
     <Content Include="Views\Perfil\PDF.cshtml" />
+    <Content Include="Views\Perfil\_EnviarMensaje.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Helper\Helper.csproj">
