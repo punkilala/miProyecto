@@ -20,9 +20,9 @@ namespace RamonZaragoza.Areas.Admin.Controllers
             Session["menuActivo"] = 7;
             return View();
         }
-        public ActionResult _Listado(Filtro filtro ,int[] idEliminar, int? pagina, int ? estado_id)
+        public PartialViewResult _Listado(int[] idEliminar, int? pagina, int ? estado_id)
         {
-            if (filtro.Eliminar == 1)
+            if (idEliminar != null)
             {
                 int queBorro = Convert.ToInt16(Session["EstadoMensajes"]);
                 bool result = true;
@@ -52,10 +52,6 @@ namespace RamonZaragoza.Areas.Admin.Controllers
         public ActionResult LeerMensaje(int id)
         {
             mMensajes = mMensajes.LeerMensaje(id);
-            if (mMensajes == null)
-            {
-                return RedirectToAction("index", "usuario");
-            }
             int queLeo = Convert.ToInt16(Session["EstadoMensajes"]);
             //queLeo=1 es mensaje nuevo
             if (queLeo==1) RestarMensajeSinLeer();

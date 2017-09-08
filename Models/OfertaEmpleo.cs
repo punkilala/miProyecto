@@ -87,7 +87,7 @@ namespace Models
                     else
                         lista = lista.Where(x => x.Abierta == true).ToList();
                     if (filtro.porNombre!= null)
-                        lista = lista.Where(x => x.Nombre.ToLower().Contains(filtro.porNombre.ToLower().Trim())).ToList();
+                        lista = lista.Where(x => x.Nombre.Contains(filtro.porNombre)).ToList();
                     if (filtro.porTitulo != null)
                     {
                         int num;

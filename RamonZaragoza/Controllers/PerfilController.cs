@@ -1,6 +1,5 @@
 ﻿using Helper;
 using Models;
-using RamonZaragoza.Areas.Admin.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +8,6 @@ using System.Web.Mvc;
 
 namespace RamonZaragoza.Controllers
 {
-    [Autenticado]
     public class PerfilController : Controller
     {
         Usuario mUsuario = new Usuario();
@@ -38,11 +36,6 @@ namespace RamonZaragoza.Controllers
         {
             return PartialView(mIdioma.GetIdiomas(id));
         }
-        public PartialViewResult _EnviarMensaje()
-        {
-            return PartialView(new Mensaje());
-        }
-        
 
         public ActionResult ExportaPdf(int id)
         {
