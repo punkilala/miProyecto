@@ -13,6 +13,12 @@ namespace Models
     [Table("Mensaje")]
     public partial class Mensaje
     {
+        public Mensaje()
+        {
+            Fecha = DateTime.Now;
+            Estado_id = 1;
+            relacion = "mensajes";
+        }
         public int id { get; set; }
 
         public int Usuario_id { get; set; }
@@ -67,16 +73,25 @@ namespace Models
         }
         public Mensaje LeerMensaje(int id)
         {
-            Mensaje mensaje=null;
+            Mensaje mensaje = null;
+            int usuario_id = SesionHelper.GetUser();
             try
             {
-                using(var bbdd= new ProyectoContexto())
+                using (var bbdd = new ProyectoContexto())
                 {
-                    mensaje = bbdd.Mensaje.Where(m => m.id == id).SingleOrDefault();
-                    //marcar como leido
-                    mensaje.Estado_id = 2;
-                    bbdd.Entry(mensaje).State = EntityState.Modified;
-                    bbdd.SaveChanges();
+                    mensaje = bbdd.Mensaje
+                        .Where(m => m.id == id)
+                        .Where(m => m.Usuario_id == usuario_id)
+                        .SingleOrDefault();
+                    // si mensaje es null, salta un excepcion y devuelve null  y es evaluada por el controlador
+                    //Origen.... Intento de leer mensajes de otros usuarios.
+                    if (mensaje.Estado_id == 1)
+                    {
+                        //marcar como leido
+                        mensaje.Estado_id = 2;
+                        bbdd.Entry(mensaje).Property(m => m.Estado_id).IsModified = true;
+                        bbdd.SaveChanges();
+                    }
 
                     return mensaje;
                 }
@@ -86,7 +101,7 @@ namespace Models
 
                 return mensaje;
             }
-        }     
+        }
         public bool EliminarMensaje(int id)
         {
             bool result = false;
@@ -122,6 +137,25 @@ namespace Models
             {
 
                 return result;
+            }
+            return result;
+        }
+        public bool SetMensaje()
+        {
+            bool result = false;
+            using (var bbdd = new ProyectoContexto())
+            {
+                try
+                {
+                    bbdd.Entry(this).State = EntityState.Added;
+                    bbdd.SaveChanges();
+                    result = true;
+                }
+                catch (Exception)
+                {
+
+                    return result;
+                }
             }
             return result;
         }

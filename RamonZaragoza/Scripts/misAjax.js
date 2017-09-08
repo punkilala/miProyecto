@@ -97,6 +97,11 @@ function onSuccess(r) {
         $('#cargando').css('display', "inline")
         window.location = r.href;
     }
+    //si hay algun form modal abierto lo cierro
+    if ($('#myModal').is(':visible')) {
+        $('#myModal').modal('hide')
+        $('.modal-backdrop').remove();
+    }
 }
 function CheckElementos() {
     if ($(".seleccion:checked").length == 0) {
