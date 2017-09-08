@@ -20,9 +20,9 @@ namespace RamonZaragoza.Areas.Admin.Controllers
             Session["menuActivo"] = 7;
             return View();
         }
-        public ActionResult _Listado(int[] idEliminar, int? pagina, int ? estado_id)
+        public ActionResult _Listado(Filtro filtro ,int[] idEliminar, int? pagina, int ? estado_id)
         {
-            if (idEliminar != null)
+            if (filtro.Eliminar == 1)
             {
                 int queBorro = Convert.ToInt16(Session["EstadoMensajes"]);
                 bool result = true;

@@ -42,24 +42,7 @@ namespace RamonZaragoza.Controllers
         {
             return PartialView(new Mensaje());
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public JsonResult _EnviarMensaje(Mensaje modelo)
-        {
-            bool result;
-            RespuestaServidor mRespuestaAjax = new RespuestaServidor(); 
-            //el binding me envia el id del usuario al que le envio el msg en el campo id
-            //lo paso al campo correcto en el modelo
-            modelo.Usuario_id = modelo.id;
-            modelo.id = 0;
-            if (ModelState.IsValid)
-            {
-                result = modelo.SetMensaje();
-                if (result) mRespuestaAjax.SetResponse(true, "Mensaje enviado");
-                else mRespuestaAjax.SetResponse(false, "Error Al enviar el mensaje");        
-            }
-            return Json(mRespuestaAjax);
-        }
+        
 
         public ActionResult ExportaPdf(int id)
         {
