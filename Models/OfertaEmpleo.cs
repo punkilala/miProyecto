@@ -87,7 +87,7 @@ namespace Models
                     else
                         lista = lista.Where(x => x.Abierta == true).ToList();
                     if (filtro.porNombre!= null)
-                        lista = lista.Where(x => x.Nombre.Contains(filtro.porNombre)).ToList();
+                        lista = lista.Where(x => x.Nombre.ToLower().Contains(filtro.porNombre.ToLower().Trim())).ToList();
                     if (filtro.porTitulo != null)
                     {
                         int num;
@@ -164,18 +164,18 @@ namespace Models
                 {
                     var oferta = bbdd.OfertaEmpleo.Where(o => o.id == id).SingleOrDefault();
                     oferta.Abierta= oferta.Abierta ? false : true;
-                    bbdd.Entry(oferta).State = EntityState.Modified;
+                    bbdd.Entry(oferta).Property(o => o.Abierta).IsModified = true;
                     bbdd.SaveChanges();
 
                     //actualizar InscritosHistorial
-                    //notificar a todos los inscritos que se ha cerrado el proceso de seleccion
+                    int estado = oferta.Abierta ? 35 : 31;
                     var lista = new List<Inscritos>();
                     Inscritos inscritos = new Inscritos();
                     lista = inscritos.GetInscritos(id);
                     InscritosHistorial historial = new InscritosHistorial();
                     foreach (var item in lista)
                     {
-                        historial.SetHistorial(item.Usuario_id_D, item.Oferta_id, 31);
+                        historial.SetHistorial(item.Usuario_id_D, item.Oferta_id, estado);
                     }
                 }
             }

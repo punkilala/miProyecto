@@ -24,6 +24,9 @@ namespace Models
             Mensaje = new HashSet<Mensaje>();
             OfertaEmpleo = new HashSet<OfertaEmpleo>();
             Idioma = new HashSet<Idioma>();
+
+            FNacimiento = new DateTime(2001,01,01);
+            Foto = "noFoto.jpg";
         }
 
         public int id { get; set; }
@@ -63,6 +66,7 @@ namespace Models
 
         [Required]
         [StringLength(100)]
+        [EmailAddress(ErrorMessage ="Dirección de correo no valida")]
         public string Email { get; set; }
 
         [Required]
@@ -280,6 +284,37 @@ namespace Models
                 return usuario;
             }
         }
+        public int SetNuevoUser()
+        {       
+            int result = -1;
 
+            try
+            {         
+                using (var bbdd = new ProyectoContexto())
+                {
+                    // Email no puede existir en la bbdd
+                    var usuario = bbdd.Usuario.Where(u => u.Email == this.Email);
+                    if (usuario.Count() > 0)
+                    {
+                        result = 0;
+                    }
+                    else
+                    {
+                        //dar de alta usuario nuevo
+                        this.Password = HashHelper.MD5(this.PassNuevo);
+                        this.PassActual = this.Password; //para que no de error de validacion
+                        bbdd.Entry(this).State = EntityState.Added; 
+                        bbdd.SaveChanges();
+                        result = 1;
+                    }
+                }
+                return result;
+               
+            }
+            catch (Exception)
+            {
+                return result;
+            }
+        }
     }
 }

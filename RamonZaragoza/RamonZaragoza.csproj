@@ -180,6 +180,9 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\carrusel\foto1.jpg" />
+    <Content Include="Content\images\carrusel\foto2.jpg" />
+    <Content Include="Content\images\carrusel\foto3.jpg" />
     <Content Include="Content\images\mini-load.gif" />
     <Content Include="Content\images\noAdjuntos.jpg" />
     <Content Include="Content\images\noFoto.jpg" />
@@ -323,6 +326,8 @@
     <Content Include="Views\Perfil\_MostrarIdiomas.cshtml" />
     <Content Include="Views\Perfil\PDF.cshtml" />
     <Content Include="Views\Perfil\_EnviarMensaje.cshtml" />
+    <Content Include="Views\Home\_Carrusel.cshtml" />
+    <Content Include="Views\Home\_Registro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Helper\Helper.csproj">

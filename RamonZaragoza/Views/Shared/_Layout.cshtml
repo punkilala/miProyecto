@@ -4,9 +4,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <title>@ViewBag.Title - ASP.NET MVC</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/site.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.11.3.min.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -25,19 +26,29 @@
                     <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
                     <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Registrarse", "Registro", "Home", new { data_toggle = "modal", data_target = "#myModal" })</li>
+                    <li>@Html.ActionLink("Iniciar Sesión", "Index", "Admin/Login")</li>
+                </ul>
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div id="page-contentido">
+            <div id="mensaje"></div>
         @RenderBody()
         <hr />
+
+        <!--FORMULARIO MODAL REGISTRO-->
+        @Html.Partial("_Registro", new Models.Usuario())
+
         <footer>
             <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET Layout principal</p>
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 </body>
 </html>

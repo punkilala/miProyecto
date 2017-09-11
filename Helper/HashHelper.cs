@@ -10,7 +10,7 @@ namespace Helper
     {
         public static string MD5(string word)
         {
-            //convierte string a md5
+            //convierte un string a md5
             MD5 md5 = MD5CryptoServiceProvider.Create();
             ASCIIEncoding encoding = new ASCIIEncoding();
             byte[] stream = null;

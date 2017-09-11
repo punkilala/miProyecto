@@ -1,24 +1,68 @@
-﻿body {
+﻿@import url('https://fonts.googleapis.com/css?family=Anton');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+@import url('https://fonts.googleapis.com/css?family=Patua+One');
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
+.page-contentido{width:100%;}
+.jumbotron{padding: 50px;}
+.jumbotron h1, .container h2 {font-family: 'Patua One', cursive;}
+.jumbotron h1 > span, .container h2 span{color:gray;}
+.jumbotron h1, .jumbotron p{text-align:center !important;}
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+/* Mensajes*/
+#mensaje{
+    position: fixed;
+    width: 50%;
+    top: 60px;
+    z-index: 9999;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+#mensaje .alert{
+    margin-bottom:0;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+/* Modal*/
+.modal-body{background-color: #efefef;}
+.modal-content{
+    width: 70%;
+    margin: 0 auto;
+}
+/*NavBar*/
+.navbar-inverse{
+    background-color:#d1d1d1 !important;
+    border-color:transparent;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
+    color: #505050;
 }
+
+/*Carrusel*/
+.carousel-caption h3{
+    font-size: 34px;
+    font-weight:bold;
+}
+.carousel-caption{
+    text-align:left;
+    top:20px;
+}
+.carousel-caption p {
+    line-height: 10px;
+    font-size: 20px;
+    font-style: italic;
+}
+
+@media screen and (max-width:657px)
+{
+    .carousel-caption p{display:none;}
+    .carousel-caption h2 {
+        font-size:20px;
+    }
+    .carousel-caption{margin-top:-45px;}
+}
+
