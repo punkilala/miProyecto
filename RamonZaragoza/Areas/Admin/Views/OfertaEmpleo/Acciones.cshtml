@@ -86,6 +86,12 @@
           </div>  
        </div>
    </div>
+    <div class="col-xs-12 col-sm-3">
+        <label>Localidad</label>
+        @Html.TextBoxFor(oe => oe.Localidad, new { @class = "form-control", placeholder = "" })
+        @Html.ValidationMessageFor(oe => oe.Localidad, "", new { @class = "label label-danger" })
+        <div id="slider-range-min" style="margin-top: 5px;"></div>
+    </div>
    <div class="row sup">
        <div class="col-xs-12">
            <div id="mensaje" class="col-xs-12 col-sm-8"></div>

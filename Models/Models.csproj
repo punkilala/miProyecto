@@ -122,6 +122,10 @@
     <Compile Include="Migrations\201709060002150_CambioNombreEstadoIdTablaInscritosHistorial.Designer.cs">
       <DependentUpon>201709060002150_CambioNombreEstadoIdTablaInscritosHistorial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709112042551_AddLocalidadEnTablaOfertaEmpleo.cs" />
+    <Compile Include="Migrations\201709112042551_AddLocalidadEnTablaOfertaEmpleo.Designer.cs">
+      <DependentUpon>201709112042551_AddLocalidadEnTablaOfertaEmpleo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OfertaEmpleo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -183,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709060002150_CambioNombreEstadoIdTablaInscritosHistorial.resx">
       <DependentUpon>201709060002150_CambioNombreEstadoIdTablaInscritosHistorial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709112042551_AddLocalidadEnTablaOfertaEmpleo.resx">
+      <DependentUpon>201709112042551_AddLocalidadEnTablaOfertaEmpleo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

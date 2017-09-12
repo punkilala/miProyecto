@@ -53,6 +53,9 @@ namespace Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Fecha { get; set; }
         public bool  Abierta { get; set; }
+        [Required]
+        [StringLength(30)]
+        public string Localidad { get; set; }
 
         public virtual Categoria Categoria { get; set; }
 
@@ -61,7 +64,7 @@ namespace Models
 
         public virtual Usuario Usuario { get; set; }
 
-        // LOGICA DE NEGOCIO
+        // LOGICA DE NEGOCIO BACK-END
 
         public List<OfertaEmpleo> GetLista(Filtro filtro)
         {
@@ -127,7 +130,7 @@ namespace Models
 
                 return oferta;
             }
-        }
+        }       
         public bool SetOferta()
         {
             bool result = false;
@@ -183,6 +186,56 @@ namespace Models
             {
 
                 throw;
+            }
+        }
+
+        // LOGICA DE NEGOCIO FRONT-END
+
+        /// <summary>
+        /// Funcion utilizada por el front-end para mostra el detalle de una oferta
+        /// </summary>
+        /// <param name="id">requiere el id de la oferta</param>
+        /// <returns>Devuelve el detalle de la oferta</returns>
+        public OfertaEmpleo GetOfertaDetalle(int id)
+        {
+            try
+            {
+                using (var bbdd = new ProyectoContexto())
+                {
+                    var detalle = bbdd.OfertaEmpleo
+                        .Include("Usuario")
+                        .Include("Inscritos")
+                        .Where(oe => oe.id == id)
+                        .SingleOrDefault();
+                    return detalle;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+        public List<OfertaEmpleo> GetUltimasOfertas(int cuantas)
+        {
+            var lista = new List<OfertaEmpleo>();
+            try
+            {
+                using (var bbdd = new ProyectoContexto())
+                {
+                    lista = bbdd.OfertaEmpleo
+                        .Include("Usuario")
+                        .Where(oe => oe.Abierta == true)
+                        .OrderByDescending(oe => oe.Fecha)
+                        .Take(cuantas)
+                        .ToList();
+                }
+                return lista;
+            }
+            catch (Exception)
+            {
+
+                return lista;
             }
         }
     }

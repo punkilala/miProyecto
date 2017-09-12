@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - ASP.NET MVC</title>
+    <link href="~/fonts/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/site.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-1.11.3.min.js"></script>
@@ -39,7 +40,7 @@
         <hr />
 
         <!--FORMULARIO MODAL REGISTRO-->
-        @Html.Partial("_Registro", new Models.Usuario())
+        @Html.Action("_Registro","Home","")
 
         <footer>
             <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET Layout principal</p>

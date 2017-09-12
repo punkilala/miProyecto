@@ -158,10 +158,12 @@
     <Compile Include="Areas\Admin\Controllers\UsuarioController.cs" />
     <Compile Include="Areas\Admin\Filters\AdminFilters.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OfertasController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\MisHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +187,7 @@
     <Content Include="Content\images\carrusel\foto3.jpg" />
     <Content Include="Content\images\mini-load.gif" />
     <Content Include="Content\images\noAdjuntos.jpg" />
+    <Content Include="Content\images\noDisponible.jpg" />
     <Content Include="Content\images\noFoto.jpg" />
     <Content Include="Content\images\noMensajes.jpg" />
     <Content Include="Content\PagedList.css" />
@@ -226,6 +229,8 @@
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\font-awesome.css" />
+    <Content Include="fonts\font-awesome.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -313,7 +318,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
@@ -327,7 +334,9 @@
     <Content Include="Views\Perfil\PDF.cshtml" />
     <Content Include="Views\Perfil\_EnviarMensaje.cshtml" />
     <Content Include="Views\Home\_Carrusel.cshtml" />
+    <Content Include="Views\Ofertas\Detalle.cshtml" />
     <Content Include="Views\Home\_Registro.cshtml" />
+    <Content Include="Views\Shared\_BreadCrumb.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Helper\Helper.csproj">

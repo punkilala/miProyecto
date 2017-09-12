@@ -11,10 +11,11 @@ namespace RamonZaragoza.Controllers
     public class HomeController : Controller
     {
         RespuestaServidor mRespuestaAjax;
-        Usuario mUsuario = new Usuario();
+        OfertaEmpleo mUltimasOfertas = new OfertaEmpleo();
+
         public ActionResult Index()
         {
-            return View();
+            return View(mUltimasOfertas.GetUltimasOfertas(4));
         }
 
         public ActionResult About()
@@ -26,12 +27,18 @@ namespace RamonZaragoza.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contacto";
 
             return View();
         }
 
+        public PartialViewResult _Registro()
+        {
+            return PartialView(new Usuario());
+        }
+        
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public JsonResult _Registro(Usuario modelo)
         {
             

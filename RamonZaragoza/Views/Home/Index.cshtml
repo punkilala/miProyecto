@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Models.OfertaEmpleo>
+@{
     ViewBag.Title = "Inicio";
 }
 
@@ -12,48 +13,39 @@
     </div>
 </div>
 
+<!--ULTIMAS OFERTAS-->
 <div class="container">
     <h2 class="page-header">Ultimas <span>Ofertas</span></h2>
     <div class="row">
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <img data-src="..." alt="...">
-                <div class="caption">
-                    <h3>Título de la imagen</h3>
-                    <p>...</p>
-                    <p>
-                        <a href="#" class="btn btn-primary" role="button">Botón</a>
-                        <a href="#" class="btn btn-default" role="button">Botón</a>
-                    </p>
+        @foreach (var oferta in Model)
+        {
+            <div id="ultimasOfertas" class="col-xs-12 col-md-3">
+                <div class="thumbnail">
+                    @if (oferta.Usuario.Foto == "noFoto.jpg")
+                    {
+                        <img src="../../Content/images/noDisponible.jpg" alt="@oferta.Usuario.Nombre" title="@oferta.Usuario.Nombre">
+                    }
+                    else
+                    {
+                        <img src="../../Uploads/@oferta.Usuario_id/FotoPerfil/@oferta.Usuario.Foto" title="@oferta.Usuario.Nombre">
+                    }
+                    <div class="caption">
+                        <h4>@oferta.Nombre</h4>
+                        <p class="titulo">@oferta.Usuario.Nombre.ToUpper()</p>
+                        <p>...</p>
+                        <p>@Html.CortarTexto(oferta.Descripcion,100)</p>
+                        <p class="text-right">
+                            <span>
+                                 <i class="fa fa-map-marker"> @oferta.Localidad</i>&nbsp;
+                                 <i class="fa fa-user-circle-o"> @oferta.Vacantes Vacante(s)</i>
+                            </span>
+                            <a href="~/Ofertas/detalle/@oferta.id" class="btn btn-primary btn-xs" title="Ver Oferta"><i class="fa fa-eye"></i></a>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <img data-src="..." alt="...">
-                <div class="caption">
-                    <h3>Título de la imagen</h3>
-                    <p>...</p>
-                    <p>
-                        <a href="#" class="btn btn-primary" role="button">Botón</a>
-                        <a href="#" class="btn btn-default" role="button">Botón</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <img data-src="..." alt="...">
-                <div class="caption">
-                    <h3>Título de la imagen</h3>
-                    <p>...</p>
-                    <p>
-                        <a href="#" class="btn btn-primary" role="button">Botón</a>
-                        <a href="#" class="btn btn-default" role="button">Botón</a>
-                    </p>
-                </div>
-            </div>
-        </div>
+        }
     </div>
 </div>
+<!--FIN ULTIMAS OFERTAS-->
 

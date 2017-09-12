@@ -1,6 +1,7 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Anton');
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 @import url('https://fonts.googleapis.com/css?family=Patua+One');
+@import url('../font-awesome.min.css');
 body {
     padding-top: 50px;
     padding-bottom: 20px;
@@ -57,6 +58,21 @@ body {
     font-style: italic;
 }
 
+/*Ultimas Ofertas*/
+#ultimasOfertas img{
+    max-width: 50%;
+    height: 100px;
+}
+#ultimasOfertas .titulo{
+    color:#adadad;
+    font-weight:bold;
+    line-height: 0;
+}
+#ultimasOfertas .caption span{
+    position: relative;
+    float: left;
+     color:#7b7b7b;
+}
 @media screen and (max-width:657px)
 {
     .carousel-caption p{display:none;}

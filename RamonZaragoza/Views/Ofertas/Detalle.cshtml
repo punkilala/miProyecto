@@ -1,0 +1,11 @@
+﻿@model Models.OfertaEmpleo
+@{
+    ViewBag.Title = Model.Nombre;
+}
+@Html.Partial("~/Views/Shared/_BreadCrumb.cshtml")
+<div class="container-fluid">
+    <h2 class="page-header">@ViewBag.Title</h2>
+    @Model.Inscritos.Count()
+</div>
+
+
