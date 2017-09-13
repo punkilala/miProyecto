@@ -8,8 +8,8 @@ body {
 }
 .page-contentido{width:100%;}
 .jumbotron{padding: 50px;}
-.jumbotron h1, .container h2 {font-family: 'Patua One', cursive;}
-.jumbotron h1 > span, .container h2 span{color:gray;}
+.jumbotron h1, .container h2, #ultimasOfertas h2{font-family: 'Patua One', cursive;}
+.jumbotron h1 > span, .container h2 span, #ultimasOfertas h2 span{color:gray;}
 .jumbotron h1, .jumbotron p{text-align:center !important;}
 
 /* Mensajes*/
@@ -66,13 +66,95 @@ body {
 #ultimasOfertas .titulo{
     color:#adadad;
     font-weight:bold;
-    line-height: 0;
+    margin-top: -10px;
 }
 #ultimasOfertas .caption span{
     position: relative;
     float: left;
      color:#7b7b7b;
 }
+
+/*Ofertas relacionadas*/
+.flotar-d{float:left;}
+
+/*Parallax*/
+#contenedor4 {
+  background: url("images/textura.jpg") fixed; 
+  background-size: cover;
+  padding: 50px 0 0;
+  overflow: hidden;
+  position: relative;
+  background-attachment: fixed;
+  height:200px;
+  }
+ 
+#contenedor4 h1{
+  position: relative;
+  top: 80px;
+  text-align: center;
+  color: #fff!important;
+}
+.sombra{
+    background-image: url(images/rejilla.png);
+    height: 200px;
+    margin-top: -69px;
+    z-index: 2;
+}
+/*BreadCrumb*/
+.BreadCrumb{
+    position: relative;
+    width: 30%;
+    bottom: 50px;
+    left: 5%;
+    padding: 10px;
+    background: #d2d2d2;
+    border-radius: 5px;
+}
+
+/*Detalle oferta*/
+.cab-detalle{
+    display:table;
+    width:100%;
+}
+.cab-titulo{
+    display:table-cell;
+    width:80%;
+}
+.cab-logo{
+    display:table-cell;
+}
+.cab-logo img{
+    width: 200px;
+    max-height: 130px;
+}
+.cab-datos .empresa{
+    color: #999;
+    font-weight: bold;
+    font-size: 1.4em;
+}
+.cab-datos .condiciones{
+    padding: 20px;
+    background-color: #e7e6e6;
+    border-radius: 10px;
+    font-size: 1.2em;
+    text-align:center;
+}
+.cab-datos .condiciones span {
+    margin-right:30px;   
+}
+.cab-descripcion{
+    margin-top: 40px;
+    border: 1px solid #d4d2d2;
+    border-radius: 10px;
+    padding: 20px;
+}
+.sp{top:30px;}
+.cab-descripcion label{font-size: 1.5em;}
+.cab-footer{margin-top:20px;}
+.cab-footer button{float:right;}
+.cab-footer .ft-inscp{font-size:1.4em;}
+
+
 @media screen and (max-width:657px)
 {
     .carousel-caption p{display:none;}
@@ -80,5 +162,21 @@ body {
         font-size:20px;
     }
     .carousel-caption{margin-top:-45px;}
+}
+@media screen and (max-width:991px){
+    .BreadCrumb {width:60%; }
+}
+@media screen and (max-width:768px){
+    .cab-detalle, .cab-titulo,.cab-logo{display: block}
+    .cab-titulo{width:100%; text-align:center;}
+    .cab-logo{width:50%;margin: 0 auto; text-align:center;}
+    .cab-datos .condiciones span {display:block;}
+}
+@media screen and (max-width:495px){
+    .BreadCrumb {width:90%; }
+    #contenedor4 h1{
+        top: 60px;
+        font-size: 20px;
+    }
 }
 

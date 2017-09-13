@@ -349,3 +349,8 @@ C:\Users\usuario\Downloads\miProyecto-a329ec1c94bee3c4bbd23e5cdbc977d4e3739828\m
 C:\Users\usuario\Downloads\miProyecto-a329ec1c94bee3c4bbd23e5cdbc977d4e3739828\miProyecto-a329ec1c94bee3c4bbd23e5cdbc977d4e3739828\RamonZaragoza\obj\Debug\RamonZaragoza.csprojResolveAssemblyReference.cache
 C:\Users\usuario\Downloads\miProyecto-a329ec1c94bee3c4bbd23e5cdbc977d4e3739828\miProyecto-a329ec1c94bee3c4bbd23e5cdbc977d4e3739828\RamonZaragoza\obj\Debug\RamonZaragoza.dll
 C:\Users\usuario\Downloads\miProyecto-a329ec1c94bee3c4bbd23e5cdbc977d4e3739828\miProyecto-a329ec1c94bee3c4bbd23e5cdbc977d4e3739828\RamonZaragoza\obj\Debug\RamonZaragoza.pdb
+C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\RamonZaragoza\bin\MvcSiteMapProvider.dll
+C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\RamonZaragoza\bin\MvcSiteMapProvider.WebActivator.dll
+C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\RamonZaragoza\bin\WebActivatorEx.dll
+C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\RamonZaragoza\bin\MvcSiteMapProvider.xml
+C:\Users\usuario\Documents\Visual Studio 2015\Projects\miProyecto\RamonZaragoza\bin\MvcSiteMapProvider.WebActivator.xml

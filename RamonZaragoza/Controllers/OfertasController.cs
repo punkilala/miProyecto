@@ -16,7 +16,9 @@ namespace RamonZaragoza.Controllers
         }
         public ActionResult Detalle (int id)
         {
-            return View(mOferta.GetOfertaDetalle(id));
+            var oferta = mOferta.GetOfertaDetalle(id);
+            ViewBag.OfertasRelacionadas = mOferta.GetOfertasRelacionadas(3, oferta.id, oferta.Categoria_id);
+            return View(oferta);
         }
     }
 }

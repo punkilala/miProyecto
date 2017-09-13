@@ -205,6 +205,7 @@ namespace Models
                     var detalle = bbdd.OfertaEmpleo
                         .Include("Usuario")
                         .Include("Inscritos")
+                        .Include("Categoria")
                         .Where(oe => oe.id == id)
                         .SingleOrDefault();
                     return detalle;
@@ -222,15 +223,46 @@ namespace Models
             try
             {
                 using (var bbdd = new ProyectoContexto())
-                {
+                {       
                     lista = bbdd.OfertaEmpleo
                         .Include("Usuario")
-                        .Where(oe => oe.Abierta == true)
-                        .OrderByDescending(oe => oe.Fecha)
+                        .Where(oe => oe.Abierta == true)  
+                        .OrderByDescending(oe=>oe.Fecha)
                         .Take(cuantas)
                         .ToList();
                 }
                 return lista;
+            }
+            catch (Exception)
+            {
+
+                return lista;
+            }
+        }
+        /// <summary>
+        /// Devolver ofertas relacionadas mediante su categoria en base a una oferta en concreto
+        /// </summary>
+        /// <param name="cuantas">Cuantas ofertas quieres que se devuelvan</param>
+        /// <param name="oferta_id"> La oferta en la que se basa la relacion, esta no se mostrara nunca</param>
+        /// <param name="categoria_id">La categoria en la que estan relacionadas</param>
+        /// <returns>Lista de ofertas</returns>
+        public List<OfertaEmpleo> GetOfertasRelacionadas(int cuantas, int oferta_id, int categoria_id)
+        {
+            var lista = new List<OfertaEmpleo>();
+            try
+            {
+                using (var bbdd= new ProyectoContexto())
+                {
+                    lista = bbdd.OfertaEmpleo
+                        .Include("Usuario")
+                        .Where(oe=>oe.id != oferta_id)
+                        .Where(oe=>oe.Categoria_id==categoria_id)
+                        .Where(oe=>oe.Abierta==true)
+                        .OrderByDescending(oe=>Guid.NewGuid())
+                        .Take(cuantas)
+                        .ToList();
+                    return lista;
+                }
             }
             catch (Exception)
             {

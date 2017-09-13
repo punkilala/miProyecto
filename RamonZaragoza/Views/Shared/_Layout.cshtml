@@ -1,7 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - ASP.NET MVC</title>
@@ -9,6 +8,7 @@
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/site.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-1.11.3.min.js"></script>
+    <link href="~/Content/animations.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -35,7 +35,27 @@
         </div>
     </div>
     <div id="page-contentido">
-            <div id="mensaje"></div>
+        <!--BREADCRUMB-->     
+        @{
+            var url = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+            url += "/" + HttpContext.Current.Request.RequestContext.RouteData.Values["action"];
+            if (url != "Home/Index")
+            {
+                    <div id="contenedor4">
+                        <div class="sombra animatedParent">
+                            <h1 class="animated growIn delay-500">@ViewBag.Title</h1>
+                        </div>
+                        <div class="BreadCrumb">
+                           <b>Esta usted.. </b> <i class="fa fa-home"></i>@Html.MvcSiteMap().SiteMapPath()
+                        </div>
+                    </div>
+                  
+            }
+        }
+
+        <!--MENSAJES AJAX-->
+        <div id="mensaje"></div>
+        <!--CUERPO-->
         @RenderBody()
         <hr />
 
@@ -43,11 +63,12 @@
         @Html.Action("_Registro","Home","")
 
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET Layout principal</p>
+            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET Layout principal</p>       
         </footer>
     </div>
 
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/css3-animate-it.js"></script>
 
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
