@@ -24,13 +24,24 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                    <li>@Html.ActionLink("Ofertas Empleo", "Index", "Ofertas")</li>
                     <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Registrarse", "Registro", "Home", new { data_toggle = "modal", data_target = "#myModal" })</li>
-                    <li>@Html.ActionLink("Iniciar Sesión", "Index", "Admin/Login")</li>
-                </ul>
+                @if (Session["rol"] != null && Request.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink(" Hola " + Session["nombre"], "Index", "Admin/usuario",null, new {@class= "fa fa-user"})</li>
+                        <li>@Html.ActionLink(" Cerrar Sesión", "Logout", "Admin/usuario", null, new { @class = "fa fa-sign-out" })</li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Registrarse", "Registro", "Home", new { data_toggle = "modal", data_target = "#myModal" })</li>
+                        <li>@Html.ActionLink("Iniciar Sesión", "Index", "Admin/Login")</li>
+                    </ul>
+                }
+                
             </div>
         </div>
     </div>

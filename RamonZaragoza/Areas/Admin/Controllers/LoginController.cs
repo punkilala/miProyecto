@@ -29,7 +29,7 @@ namespace RamonZaragoza.Areas.Admin.Controllers
             if (mUsuario != null)
             {
                 mResp.SetResponse(true, "Redirigiendo... espere por favor");
-                mResp.href = Url.Content("~/admin/usuario");
+                mResp.href = Url.Content("~/Home");
             }
             else
             {

@@ -17,6 +17,15 @@ namespace Helper
         }
         public static void DestroyUserSession()
         {
+            //destruir cookie
+            HttpCookie miCookie = new HttpCookie("ASP.NET_SessionId");
+            miCookie.Expires = DateTime.Now.AddDays(-1d);
+            HttpContext.Current.Response.Cookies.Add(miCookie);
+
+            //destruir variables de sesion
+            HttpContext.Current.Session.Clear();
+
+            // destruir autenticacion
             FormsAuthentication.SignOut();
         }
         public static int GetUser()
@@ -38,7 +47,7 @@ namespace Helper
             var cookie = FormsAuthentication.GetAuthCookie("usuario", persist);
 
             cookie.Name = FormsAuthentication.FormsCookieName;
-            cookie.Expires = DateTime.Now.AddMonths(3);
+            cookie.Expires = DateTime.Now.AddHours(1);
 
             var ticket = FormsAuthentication.Decrypt(cookie.Value);
             var newTicket = new FormsAuthenticationTicket(ticket.Version, ticket.Name, ticket.IssueDate, ticket.Expiration, ticket.IsPersistent, id);

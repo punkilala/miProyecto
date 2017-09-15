@@ -270,5 +270,28 @@ namespace Models
                 return lista;
             }
         }
+        public bool GetCiudadConOferta()
+        {
+            try
+            {
+                using (var bbdd =new ProyectoContexto())
+                {
+                    var listado = (from ciudades in bbdd.OfertaEmpleo
+                                  group ciudades by ciudades.Localidad
+                                  into grupo
+                                  select new
+                                  {
+                                      Ciudad = grupo.Key,
+                                      Cuenta = grupo.Select(x => x.Localidad).Count()
+                                  }).ToList();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

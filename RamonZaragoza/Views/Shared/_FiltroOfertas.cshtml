@@ -1,0 +1,41 @@
+﻿<nav>
+    <div>
+        <h4>Titulo <span>oferta</span> </h4>
+        @Html.TextBox("porNombre", null, new { @class = "form-control mi-input" })
+        <span class="input-group-btn">
+            <button id="btn-porNombre" class="btn btn-default btn-sm" type="button"><i class="fa fa-trash-o"></i></button>
+        </span>
+    </div>
+    <div class="radios">
+        <h4>Fecha <span>Publicación</span> </h4>
+        @Html.RadioButton("Fecha", "0", true) <span> Cualquier Fecha</span> <br />
+        @Html.RadioButton("Fecha", "1") Ultimas 24H <br />
+        @Html.RadioButton("Fecha", "1") Ultimos 7 días <br />
+        @Html.RadioButton("Fecha", "1") Ultim0s 15 días <br />
+    </div>
+    <div>
+        <h4>Ciudades</h4>
+        @ViewBag.Prueba
+    </div>
+
+    <a id="pull" href="#"><i class="fa fa-filter"> </i> Mostrar Filtro</a>
+</nav>
+
+<script>
+    $(function() {
+        var pull = $('#pull');
+        menu = $('nav div');
+        menuHeight = menu.height();
+
+        $(pull).on('click', function() {
+            menu.slideToggle();
+        });
+    });
+
+    $(window).resize(function(){
+        var w = $(window).width();
+        if(w > 320 && menu.is(':hidden')) {
+            menu.removeAttr('style');
+        }
+    });
+</script>

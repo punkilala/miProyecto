@@ -9,7 +9,13 @@
     <link href="~/Areas/Admin/Content/admin-estilo.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
 
-    <script src="~/Scripts/jquery-1.11.3.js"></script>
+    <script src="~/Scripts/jquery-1.11.3.js"></script> 
+
+    <script language="javascript" type="text/javascript">
+        //evitar que se vuelva atras en el navegador despues de hacer logout
+          javascript:window.history.forward(1);
+    </script>
+
 
 </head>
 <body>
@@ -33,6 +39,8 @@
 
         <script src="~/Scripts/jquery.validate.min.js"></script>
         <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    
 
         @RenderSection("scripts", required: false)
 </body>

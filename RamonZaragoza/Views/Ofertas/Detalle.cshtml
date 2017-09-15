@@ -27,7 +27,18 @@
                 <span><i class="fa fa-map-marker" aria-hidden="true"></i> @Model.Localidad</span>
                 <span><i class="fa fa-cogs" aria-hidden="true"></i> @Model.Categoria.nombre</span>
                 <span><i class="fa fa-user-circle-o" aria-hidden="true"></i> @Model.Vacantes Vacante(s)</span>
-                <span><i class="fa fa-money" aria-hidden="true"></i> @Model.Salario € @Model.ModoPago @Model.Pago</span>
+                <span>
+                    <i class="fa fa-money" aria-hidden="true"></i> 
+                    @if (Model.Salario > 0)
+                    {
+                       <span> @string.Format("{0:C0}", Model.Salario) @Model.ModoPago @Model.Pago</span>
+                    }
+                    else
+                    {
+                        <span> No especificado</span>
+                    }
+
+                </span>
             </div> 
         </div>
         <div class="cab-descripcion">
@@ -44,8 +55,36 @@
         </div>
         <div class="cab-footer">
             <div class="ft-inscp">
-                <i class="fa fa-pencil" aria-hidden="true"></i> @Model.Inscritos.Count() Inscritos
-                <button type="button" class="btn btn-success">Inscribirme</button>
+                <i class="fa fa-pencil" aria-hidden="true"></i> @Model.Inscritos.Count() Inscritos    
+                @{
+                    if (Session["rol"] != null && Request.IsAuthenticated)
+                    {
+                        int usuarioActivo = (Int32)ViewBag.UsuarioActivo;
+                        int rol;
+                        int.TryParse(Session["rol"].ToString(), out rol);
+                        if (rol == 1)
+                        {
+                            foreach (var item in Model.Inscritos)
+                            {
+                                if (usuarioActivo == item.Usuario_id_D)
+                                {
+                                    rol = 0;
+                                    break;
+                                }
+                            }
+                            if (rol == 0)
+                            {
+                                <span style="color:#449D44; float:right;">Usted está inscrito</span>
+                            }
+                            else
+                            {
+                                <button type="button" class="btn btn-success">Inscribirse</button>
+                            }
+                        }
+                    }
+                }
+
+
             </div>
         </div>
     </div>
