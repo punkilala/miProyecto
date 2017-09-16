@@ -3,6 +3,7 @@ var clase;
 var funcion;
 $(document).ready(function () {
 
+     /////////////////
     //escuchar botones
     $('body').on('click', 'button', function () {
         var url;
@@ -13,7 +14,7 @@ $(document).ready(function () {
 
         //si se pulso el boton para borrar algun registro
         if (boton == "btnEliminar") {
-            //comprobar si se seleccionaros registros
+            //comprobar si se seleccionaron registros
             if ($(".seleccion:checked").length == 0) {
                 alert('Debe seleccionar algún registro');
                 return false;
@@ -30,6 +31,7 @@ $(document).ready(function () {
         inicioAjax(form);
     });
 
+     /////////////////
     //escuchar  select
     $('body').on('change', 'select', function () {
         var form = $(this).closest('form');
@@ -37,17 +39,25 @@ $(document).ready(function () {
         inicioAjax(form);
     });
 
+     ///////////////
     //escuchar input
     $('body').on('change', 'input', function () {
        
         //evito que se envie  si se clickea los checkbox... estos van por el boton eliminar
         if ($(this).attr('name') == "idEliminar" || ($(this).attr('name') == "todo")) return false;
+
+        // para front Filtro-Salario --- si filtro salario =0 no ajax
+        if ($(this).attr('id') == "porNombre") {
+            if ($('#Salario').val() == 0) return false;
+        }
+
         var form = $(this).closest('form');
         inicioAjax(form);
     });
 
+     //////////////////////////////////////////////////////////////////////
     //escuchar enlaces solo envio por ajax las ordenaciones y la paginacion
-    $('body').on('click', 'a', function () {;
+    $('body').on('click', 'a', function () {
         //es paginacion
         //la paginacion su ul tiene una clase llamada pagination
         var ul = $(this).closest('ul');
@@ -99,12 +109,19 @@ $(document).ready(function () {
         }
     });
 
+    ///////////////////////////
+    //Para Front Filtro Salario
+    $('#filtro-Salario').mouseup(function () {
+        var form = $(this).closest('form');
+        inicioAjax(form);
+    });
+
 });
 
 var inicioAjax = function (form) {
 
     // Creo un div que bloqueara todo el formulario
-    var block = $('<div class="block-loading" />');
+    var block = $('<div class="block-porAjax" />');
     form.prepend(block)
     url = form.attr('action');
 

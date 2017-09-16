@@ -195,6 +195,7 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\big-ajax-front.gif" />
     <Content Include="Content\images\carrusel\foto1.jpg" />
     <Content Include="Content\images\carrusel\foto2.jpg" />
     <Content Include="Content\images\carrusel\foto3.jpg" />
@@ -368,6 +369,7 @@
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
     <Content Include="Views\Ofertas\Index.cshtml" />
     <Content Include="Views\Shared\_FiltroOfertas.cshtml" />
+    <Content Include="Views\Ofertas\_Listado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Helper\Helper.csproj">

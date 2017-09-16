@@ -2,14 +2,24 @@
 @{
     ViewBag.Title = "Ofertas de Empleo";
 }
-<div class="container-fluid cero-padding">
-    <!--Filtro-->
-   <div class="col-xs-12 col-sm-3 cero-padding"> 
-       @Html.Partial("_FiltroOfertas")
-   </div>
-    <!--Cuerpo-->
-    <div class="col-xs-12 col-sm-8 sp"></div>
-</div>
+<!--FORMULARIO OFERTAS--> 
+@using (Html.BeginForm("_Listado", "Ofertas", FormMethod.Post, new { id = "adminForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.Hidden("pagina", "")
+    <div class="container-fluid cero-padding">   
+        <!--Filtro-->
+        <div class="col-xs-12 col-sm-3 cero-padding">
+            @Html.Partial("_FiltroOfertas")
+        </div>
+        <!--Cuerpo-->
+        <div id="parcial" class="col-xs-12 col-sm-9 sp cuerpo-oferta">
+            @Html.Action("_Listado")
+        </div>  
+    </div>
+}
+<!--FIN FORMULARIO OFERTAS-->
+<script src="~/Scripts/paginacion.js"></script>
 
 
 

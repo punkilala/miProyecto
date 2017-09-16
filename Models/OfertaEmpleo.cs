@@ -1,5 +1,6 @@
 namespace Models
 {
+    using Anonimas;
     using Helper;
     using System;
     using System.Collections.Generic;
@@ -191,6 +192,41 @@ namespace Models
 
         // LOGICA DE NEGOCIO FRONT-END
 
+        public List<OfertaEmpleo> GetOfertasAbiertas(Filtro filtro = null)
+        {
+            var lista = new List<OfertaEmpleo>();
+            try
+            {
+                using (var bbdd= new ProyectoContexto())
+                {
+                    lista = bbdd.OfertaEmpleo
+                        .Include("Usuario")
+                        .Include("Inscritos")
+                        .Include("Categoria")
+                        .Where(oe=>oe.Abierta == true)
+                        .OrderByDescending(oe=>oe.Fecha)
+                        .ToList();
+
+                    //filtros 
+                    if (filtro.porTitulo != null) lista = lista.Where(oe => oe.Nombre.ToLower().Contains(filtro.porTitulo.ToLower().Trim())).ToList();
+                    if (filtro.porFecha > 0) lista = lista.Where(oe => oe.Fecha >= DateTime.Today.AddDays(-filtro.porFecha)).ToList();
+                    if (filtro.porCiudad != null) lista = lista.Where(oe => oe.Localidad == filtro.porCiudad).ToList();
+                    if (filtro.porCategoria > 0) lista = lista.Where(oe => oe.Categoria_id == filtro.porCategoria).ToList();
+                    if (filtro.Salario > 0)
+                    {
+                        lista = lista.Where(oe => oe.Salario >= filtro.Salario).ToList();
+                        lista = lista.Where(oe => oe.Pago == filtro.porNombre).ToList();
+                    }
+                    return lista;
+                }
+            }
+            catch (Exception)
+            {
+
+                return lista;
+            }
+        }
+
         /// <summary>
         /// Funcion utilizada por el front-end para mostra el detalle de una oferta
         /// </summary>
@@ -270,22 +306,23 @@ namespace Models
                 return lista;
             }
         }
-        public bool GetCiudadConOferta()
+        public List<CiudadesConOferta> GetCiudadConOferta()
         {
             try
             {
                 using (var bbdd =new ProyectoContexto())
                 {
-                    var listado = (from ciudades in bbdd.OfertaEmpleo
-                                  group ciudades by ciudades.Localidad
-                                  into grupo
-                                  select new
-                                  {
-                                      Ciudad = grupo.Key,
-                                      Cuenta = grupo.Select(x => x.Localidad).Count()
-                                  }).ToList();
+                   var  lista= (from ciudades in bbdd.OfertaEmpleo
+                                where ciudades.Abierta == true
+                                group ciudades by ciudades.Localidad
+                                into grupo
+                                select new CiudadesConOferta()
+                                {
+                                    Ciudad = grupo.Key,
+                                    Cuenta = grupo.Select(x => x.Localidad).Count()
+                                }).ToList();
+                    return lista;
                 }
-                return true;
             }
             catch (Exception)
             {

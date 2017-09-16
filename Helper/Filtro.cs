@@ -10,6 +10,10 @@ namespace Helper
     {
         public string porNombre { get; set; }
         public string porTitulo { get; set; }
+        public int porFecha { get; set; }
+        public string porCiudad { get; set; }
+        public int porCategoria { get; set; }
+        public int Salario { get; set; }
         public string nombreOrderBy { get; set; }
         public string tituloOrderBy { get; set; }
         public string desdeOrderBy { get; set; }

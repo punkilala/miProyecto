@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adjuntos.cs" />
+    <Compile Include="Anonimas\CiudadesConOferta.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="Conocimiento.cs" />
     <Compile Include="Estado.cs" />

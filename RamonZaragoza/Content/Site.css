@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 @import url('https://fonts.googleapis.com/css?family=Patua+One');
 @import url('../font-awesome.min.css');
+/*varios*/
 body {
     padding-top: 50px;
     padding-bottom: 20px;
@@ -12,6 +13,15 @@ body {
 .jumbotron h1 > span, .container h2 span, #ultimasOfertas h2 span, nav h4 span{color:gray;}
 .jumbotron h1, .jumbotron p{text-align:center !important;}
 .cero-padding{padding:0 !important;}
+form{position:relative;}
+.block-porAjax {
+	z-index:99999;
+	background: url(../content/images/big-ajax-front.gif) #ddd center center no-repeat;
+	position: absolute;
+	width:100%;
+    height:100%;
+	opacity:0.4;
+}
 
 /* Mensajes*/
 #mensaje{
@@ -64,7 +74,7 @@ body {
     max-width: 50%;
     height: 100px;
 }
-#ultimasOfertas .titulo{
+#ultimasOfertas .titulo, .content-oferta .caption .titulo{
     color:#adadad;
     font-weight:bold;
     margin-top: -10px;
@@ -124,9 +134,9 @@ body {
 .cab-logo{
     display:table-cell;
 }
-.cab-logo img{
-    max-width: 200px;
-    max-height: 130px;
+.cab-logo img, .img-cuerpoOferta{
+    max-width: 200px !important;
+    max-height: 130px !important;
 }
 .cab-datos .empresa{
     color: #999;
@@ -167,8 +177,36 @@ nav .mi-input{
     margin-right:4px;
 }
 nav h4{font-weight:bold;font-size: 14px;}
-nav input{margin-left:10px !important;}
+nav input, nav select, #slider-range-min{margin-left:10px !important;}
+#Salario{
+    width: 50px;
+    border: 0;
+    background: transparent;
+    text-align: right;
+}
+#slider-range-min{width:150px;}
+.content-oferta{
+    width:85%;
+    margin:0 auto;
+}
+/*Cuerpo ofertas*/
+.cuerpo-oferta .page-header{margin:0 0 20px;}
+.content-oferta .thumbnail {overflow:hidden;}
+.content-oferta .footer-izq{
+    float:right;
+}
+.content-oferta .footer-der{
+    float:left;
+}
+.img-cuerpoOferta{
+    width: 200px !important;
+    height: 130px !important;
+}
+.footer-izq i, .footer-der i{color:gray;
+}
+.footer-izq a i{color:white;}
 
+/*RESPONSIVE*/
 @media screen and (max-width:657px)
 {
     .carousel-caption p{display:none;}
@@ -185,7 +223,7 @@ nav input{margin-left:10px !important;}
     .cab-titulo{width:100%; text-align:center;}
     .cab-logo{width:50%;margin: 0 auto; text-align:center;}
     .cab-datos .condiciones span {display:block;}
-
+    .content-oferta {width: 100%;}
     /*filtro responsive*/
 
     nav div {
@@ -201,7 +239,7 @@ nav input{margin-left:10px !important;}
 @media screen and (max-width:495px){
     .BreadCrumb {width:90%; }
     #contenedor4 h1{
-        top: 60px;
+        top: 40px;
         font-size: 20px;
     }
 }
