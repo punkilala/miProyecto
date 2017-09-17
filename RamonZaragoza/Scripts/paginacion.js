@@ -3,6 +3,10 @@ var clase;
 var funcion;
 $(document).ready(function () {
 
+    //quiero ejecutar una funcion cuando acabe ajax
+    if ($('#EjecutarFuncion') != undefined) {
+        funcion = $('#EjecutarFuncion').val();
+    }
      /////////////////
     //escuchar botones
     $('body').on('click', 'button', function () {

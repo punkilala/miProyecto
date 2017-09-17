@@ -41,7 +41,15 @@
 
 
 <script>
-
+    $(document).ready(function () {
+        // comprobar escala
+        var pago = $("input[name=porNombre]:checked");
+        if (pago.val() == "Anual") {
+            EscalaAnual();
+        } else {
+            EscanaMensual();
+        }
+    });
     //filtro responsive
     $(function() {
         var pull = $('#pull');
@@ -60,8 +68,19 @@
         }
     });
 
-    //Escala Salario por defecto
-    $(function () {
+    // Cambio Escala Salario
+    $('body').on('change', 'input', function () {
+        if ($(this).attr('id') == "porNombre") {
+            var pago = $(this).val();
+            if (pago == "Mensual") {
+                EscanaMensual();
+            } else {
+                EscalaAnual();
+            }
+        }
+    });
+
+    function EscalaAnual() {
         var valorInicioal = $('#Salario').val();
         $("#slider-range-min").slider({
             range: "min",
@@ -73,45 +92,22 @@
                 $("#Salario").val(ui.value);
             }
         });
-    });
-
-    // Cambio Escala Salario
-    $('body').on('change', 'input', function () {
-        if ($(this).attr('id') == "porNombre") {
-            var salario = $('#Salario').val();
-            var pago = $(this).val();
-            //escala para Pago mensual
-            if (pago == "Mensual") {
-                if (salario > 6000) { $('#Salario').val(6000) };
-                    var valorInicioal = $('#Salario').val();
-                    $("#slider-range-min").slider({
-                        range: "min",
-                        value: valorInicioal,
-                        min: 0,
-                        max: 6000,
-                        step: 100,
-                        slide: function (event, ui) {
-                            $("#Salario").val(ui.value);
-                        }
-                    });
-            } else {
-                //escala para Pago Anual
-                var valorInicioal = $('#Salario').val();
-                $("#slider-range-min").slider({
-                    range: "min",
-                    value: valorInicioal,
-                    min: 0,
-                    max: 60000,
-                    step: 500,
-                    slide: function (event, ui) {
-                        $("#Salario").val(ui.value);
-                    }
-                });
-
+    }
+    function EscanaMensual() {
+        var salario = $('#Salario').val();
+        if (salario > 6000) { $('#Salario').val(6000) };
+        var valorInicioal = $('#Salario').val();
+        $("#slider-range-min").slider({
+            range: "min",
+            value: valorInicioal,
+            min: 0,
+            max: 6000,
+            step: 50,
+            slide: function (event, ui) {
+                $("#Salario").val(ui.value);
             }
-        }
-
-    });
+        });
+    }
 </script>
 <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
 <script src="~/Scripts/jquery-ui-1.11.3.js"></script>

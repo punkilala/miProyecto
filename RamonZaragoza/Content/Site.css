@@ -169,7 +169,10 @@ form{position:relative;}
 a#pull {
     display: none;
 }
-nav { background: #f6f3f3; padding: 10px 20px;}
+#filtro{
+    background: #f6f3f3;
+}
+nav {padding: 10px 20px;}
 nav .mi-input{
     width: 70%;
     height: 30px;
@@ -225,7 +228,7 @@ nav input, nav select, #slider-range-min{margin-left:10px !important;}
     .cab-datos .condiciones span {display:block;}
     .content-oferta {width: 100%;}
     /*filtro responsive*/
-
+    #filtro{height:auto !important;}
     nav div {
         display: none;
         height: auto;
