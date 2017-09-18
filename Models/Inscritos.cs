@@ -11,6 +11,11 @@ namespace Models
 
     public partial class Inscritos
     {
+        public Inscritos()
+        {
+            Fecha = DateTime.Now;
+            estado_id = 4;
+        }
         public int Usuario_id_E { get; set; }
 
         [Key]
@@ -27,6 +32,7 @@ namespace Models
         [DataType(DataType.Date)]
         public DateTime Fecha { get; set; }
 
+        [ForeignKey("Estado")]
         public int estado_id{ get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -56,7 +62,7 @@ namespace Models
                         .ToList();
                     if (estado > 0)
                     {
-                        lista = lista.Where(i => i.estado_id == estado).ToList();
+                       lista = lista.Where(i => i.estado_id == estado).ToList();
                     }
                 }
                 return lista;
@@ -132,6 +138,29 @@ namespace Models
             {
 
                 return lista;
+            }
+        }
+        /// <summary>
+        /// Inscribir un Candidato a una oferta
+        /// </summary>
+        /// <returns>True si se ha podido inscribir, false si no se ha podido inscribirse</returns>
+        public bool SetMiInscripcion()
+        {
+            bool result = false;
+            try
+            {
+                using(var bbdd=new ProyectoContexto())
+                {
+                    bbdd.Entry(this).State = EntityState.Added;
+                    bbdd.SaveChanges();
+                    result = true;
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+
+                return result;
             }
         }
 

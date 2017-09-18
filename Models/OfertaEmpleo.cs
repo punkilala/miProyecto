@@ -183,7 +183,7 @@ namespace Models
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw;

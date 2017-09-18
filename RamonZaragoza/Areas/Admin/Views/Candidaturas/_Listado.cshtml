@@ -8,9 +8,9 @@
     <div class="candidaturas">
         @foreach (var ca in Model)
         {
-            <div class="content-can">
+            <div class="content-can" @if (ca.OfertaEmpleo.Abierta == false) { <text> style="background-color:#f3f3f3"</text>} >
                 <header>
-                    <div class="titulo">
+                    <div class="titulo" @if (ca.OfertaEmpleo.Abierta == false) { <text> style="text-decoration:line-through"</text>}>
                         @Html.ActionLink(ca.OfertaEmpleo.Nombre, "Historial", new { id = ca.Oferta_id })
                     </div>
                     <div class="hora">
@@ -52,7 +52,7 @@
                         }
                     </div>
                 </div>
-            </div>
+            </div>   
         }
 
     </div>

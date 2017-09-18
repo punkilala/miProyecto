@@ -13,6 +13,11 @@ namespace Models
     [Table("InscritosHistorial")]
     public partial class InscritosHistorial
     {
+        public InscritosHistorial()
+        {
+            Fecha = DateTime.Now;
+            EstadoId = 30;
+        }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
@@ -40,7 +45,6 @@ namespace Models
                     historial.Usuario_id_D = usuario_id;
                     historial.Oferta_id = oferta_id;
                     historial.EstadoId = elEstado;
-                    historial.Fecha = DateTime.Now;
 
                     bbdd.Entry(historial).State = EntityState.Added;
                     bbdd.SaveChanges();

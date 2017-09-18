@@ -127,6 +127,14 @@
     <Compile Include="Migrations\201709112042551_AddLocalidadEnTablaOfertaEmpleo.Designer.cs">
       <DependentUpon>201709112042551_AddLocalidadEnTablaOfertaEmpleo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709181446529_Borrar-estado_idTablaInscritos-paraRepararError.cs" />
+    <Compile Include="Migrations\201709181446529_Borrar-estado_idTablaInscritos-paraRepararError.Designer.cs">
+      <DependentUpon>201709181446529_Borrar-estado_idTablaInscritos-paraRepararError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709181451506_Reestablacer-estado_id-tablaIncritos-yCrearForeignKey.cs" />
+    <Compile Include="Migrations\201709181451506_Reestablacer-estado_id-tablaIncritos-yCrearForeignKey.Designer.cs">
+      <DependentUpon>201709181451506_Reestablacer-estado_id-tablaIncritos-yCrearForeignKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OfertaEmpleo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -191,6 +199,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709112042551_AddLocalidadEnTablaOfertaEmpleo.resx">
       <DependentUpon>201709112042551_AddLocalidadEnTablaOfertaEmpleo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709181446529_Borrar-estado_idTablaInscritos-paraRepararError.resx">
+      <DependentUpon>201709181446529_Borrar-estado_idTablaInscritos-paraRepararError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709181451506_Reestablacer-estado_id-tablaIncritos-yCrearForeignKey.resx">
+      <DependentUpon>201709181451506_Reestablacer-estado_id-tablaIncritos-yCrearForeignKey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

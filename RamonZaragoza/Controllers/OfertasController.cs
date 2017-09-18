@@ -42,5 +42,24 @@ namespace RamonZaragoza.Controllers
             ViewBag.OfertasRelacionadas = mOferta.GetOfertasRelacionadas(3, oferta.id, oferta.Categoria_id);
             return View(oferta);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult  Detalle (Inscritos modelo)
+        {
+            bool result;
+            RespuestaServidor mRespuestaAjax = new RespuestaServidor();
+            mRespuestaAjax.SetResponse(true, "<span style='color:#449D44; float:right;'>Usted está inscrito</span>");
+            result = modelo.SetMiInscripcion();
+            if (result)
+            {
+                InscritosHistorial historial = new InscritosHistorial();
+                historial.SetHistorial(modelo.Usuario_id_D, modelo.Oferta_id, 30);
+            }
+            else
+            {
+                mRespuestaAjax.SetResponse(false, "<span style='color:#9C3334; float:right;'>Error en inscripción</span>");
+            }
+            return Json(mRespuestaAjax);
+        }
     }
 }

@@ -55,7 +55,7 @@
         </div>
         <div class="cab-footer">
             <div class="ft-inscp">
-                <i class="fa fa-pencil" aria-hidden="true"></i> @Model.Inscritos.Count() Inscritos    
+                <i class="fa fa-pencil" aria-hidden="true"></i> <span id="numInscritos">@Model.Inscritos.Count()</span> Inscritos    
                 @{
                     if (Session["rol"] != null && Request.IsAuthenticated)
                     {
@@ -78,7 +78,24 @@
                             }
                             else
                             {
-                                <button type="button" class="btn btn-success">Inscribirse</button>
+                                using (Ajax.BeginForm("Detalle", new AjaxOptions
+                                {
+                                    HttpMethod = "POST",
+                                    Confirm="¿Esta seguro que se quiere inscribir en: "+Model.Nombre+"?",
+                                    LoadingElementId = "cargando",
+                                    OnBegin = "onBegin",
+                                    OnSuccess = "onInscrito"
+                                }))
+                                {
+                                    @Html.AntiForgeryToken()   
+                                    @Html.Hidden("Usuario_id_E",Model.Usuario_id)  
+                                    @Html.Hidden("Usuario_id_D",usuarioActivo )
+                                    @Html.Hidden("Oferta_id", Model.id)
+                                    <div id="inscrito">
+                                        <img id="cargando" style="display:none; float:right;" src="../../Content/images/ajax-loader.gif" />
+                                        <button id="btn-enviar" type="submit" class="btn btn-success">Inscribirse</button>
+                                    </div>
+                                }
                             }
                         }
                     }
@@ -125,5 +142,17 @@
     </div>
     
 </div>
+
+<script>
+    function onInscrito(r) {
+        if (r.respuesta) {
+            var num = parseInt($('#numInscritos').text());
+            num++;
+            $('#numInscritos').text(num);
+        }
+        $('#inscrito').html(r.mensaje);
+    }
+</script>
+
 
 
