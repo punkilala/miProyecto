@@ -67,7 +67,7 @@
                 {
                     <tr>
                         <td class="text-center"><a href="@Url.Action("Acciones","OfertaEmpleo", new { id = oe.id })"><b>@oe.id</b></a></td>
-                        <td>@oe.Nombre</td>
+                        <td>@Html.ActionLink(oe.Nombre,"Detalle",new {area="", controller="Ofertas",id= oe.id},new { target = "_blank" })</td>
                         <td class="text-center">@string.Format("{0:d}", oe.Fecha)</td>     
                         <td>
                            @if (oe.Inscritos.Count() > 0)

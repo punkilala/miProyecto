@@ -1,4 +1,5 @@
-﻿using Helper;
+﻿
+using Helper;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -18,17 +19,15 @@ namespace RamonZaragoza.Controllers
             return View(mUltimasOfertas.GetUltimasOfertas(4));
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Contacto";
 
+            return View();
+        }
+        public ActionResult Sumario()
+        {
             return View();
         }
 

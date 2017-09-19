@@ -31,6 +31,8 @@ namespace RamonZaragoza.Areas.Admin.Controllers
             }
             ViewBag.Estado = oferta.Abierta;
             ViewBag.Nombre = oferta.Nombre;
+            //pasar valor si voy a vista DatosUsuario
+            TempData["Nombre"] = oferta.Nombre;
             return View();
         }
         public ActionResult _Listado(int id, int? pagina, int? displayNum, int? estado_id )

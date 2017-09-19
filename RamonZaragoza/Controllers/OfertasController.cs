@@ -38,6 +38,9 @@ namespace RamonZaragoza.Controllers
         public ActionResult Detalle (int id)
         {
             var oferta = mOferta.GetOfertaDetalle(id);
+            // solo ofertas abiertas
+            if (oferta.Abierta == false) return RedirectToAction("Index", "Home");
+
             ViewBag.UsuarioActivo = SesionHelper.GetUser();
             ViewBag.OfertasRelacionadas = mOferta.GetOfertasRelacionadas(3, oferta.id, oferta.Categoria_id);
             return View(oferta);

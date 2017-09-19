@@ -85,8 +85,11 @@
         </div>
     </div>
 }
-<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
-<script>
+<div class="container">
+    <span style="color:gray"><b>Oferta: </b>@TempData["Nombre"]</span>
+</div>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script>
     $(document).ready(function () {
         Colorea('@Session["menuActivo"]');
         $('#btn-pres').click(function () {
@@ -96,5 +99,4 @@
             $('#estado_id').val(6)
         });
         })
-</script>
-
+    </script>

@@ -10,7 +10,7 @@ body {
 .page-contentido{width:100%;}
 .jumbotron{padding: 50px;}
 .jumbotron h1, .container h2, #ultimasOfertas h2{font-family: 'Patua One', cursive;}
-.jumbotron h1 > span, .container h2 span, #ultimasOfertas h2 span, nav h4 span{color:gray;}
+.jumbotron h1 > span, .container h2 span, #ultimasOfertas h2 span, nav h4 span, h2 span{color:gray;}
 .jumbotron h1, .jumbotron p{text-align:center !important;}
 .cero-padding{padding:0 !important;}
 form{position:relative;}
@@ -211,6 +211,46 @@ nav input, nav select, #slider-range-min{margin-left:10px !important;}
 .footer-izq i, .footer-der i{color:gray;
 }
 .footer-izq a i{color:white;}
+
+/*Footer*/
+footer{
+    position: relative;
+    top: 40px;
+    bottom:20px;
+    padding: 40px;
+    overflow:hidden;
+    background-color:#535353;
+    color: white;
+}
+footer .btn{
+    border-radius:50%;
+    width: 40px;
+    height: 40px;
+}
+
+footer i{
+    position:relative;
+    bottom: 1px;
+    right: 5px;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+footer i:hover{
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
+footer a{margin-left: 5px;}
+footer .fa-facebook-official{color:#1534ba;}
+footer .fa-twitter{color:#1574ba;}
+footer .fa-linkedin-square{color:#0077B5;}
+footer .fa-youtube{color:#FF0000}
+
 
 /*RESPONSIVE*/
 @media screen and (max-width:657px)

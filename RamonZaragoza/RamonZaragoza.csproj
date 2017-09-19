@@ -346,7 +346,6 @@
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutPerfil.cshtml" />
@@ -370,6 +369,7 @@
     <Content Include="Views\Ofertas\Index.cshtml" />
     <Content Include="Views\Shared\_FiltroOfertas.cshtml" />
     <Content Include="Views\Ofertas\_Listado.cshtml" />
+    <Content Include="Views\Home\Sumario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Helper\Helper.csproj">

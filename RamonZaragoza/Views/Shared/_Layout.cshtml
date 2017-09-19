@@ -12,19 +12,20 @@
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nombre de aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("LOGOTIPO", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
                     <li>@Html.ActionLink("Ofertas Empleo", "Index", "Ofertas")</li>
+                    <li>@Html.ActionLink("Sumario", "Sumario", "Home")</li>
                     <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                 </ul>
                 @if (Session["rol"] != null && Request.IsAuthenticated)
@@ -68,15 +69,39 @@
         <div id="mensaje"></div>
         <!--CUERPO-->
         @RenderBody()
-        <hr />
 
         <!--FORMULARIO MODAL REGISTRO-->
         @Html.Action("_Registro","Home","")
 
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET Layout principal</p>       
-        </footer>
+        
     </div>
+    <footer>
+        <div class="col-xs-12 col-sm-3 text-center">
+            <p>&copy; 2017-2018 - Proyecto Modulo DAW</p>
+            <p>Ramon Zaragoza</p>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-sm-offset-6 text-center">            
+            <a class="btn btn-default"href="https://es-es.facebook.com/" target="_blank">
+                <i class="fa fa-facebook-official fa-2x"></i>
+            </a>
+
+            <a class="btn btn-default" href="https://twitter.com/" target="_blank">
+                <i class="fa fa-twitter fa-2x"></i>
+            </a>
+
+            <a class="btn btn-default" href="https://www.linkedin.com/" target="_blank">
+                <i class="fa fa-linkedin-square fa-2x"></i>
+            </a>
+
+            <a class="btn btn-default" href="https://www.youtube.com/" target="_blank">
+                <i class="fa fa-youtube fa-2x"></i>
+            </a> 
+        </div>
+        <div class="col-xs-12 text-center">
+           <hr />
+            <b>ASP.NET MVC Entity Framework Code First</b>
+        </div>
+    </footer>
 
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/css3-animate-it.js"></script>

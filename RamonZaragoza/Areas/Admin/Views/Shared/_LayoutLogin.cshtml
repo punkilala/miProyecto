@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="noCuenta">
-            <p>¿Todavía no tiene una cuenta? <a href="@Url.Content("~/home")">Registrarse</a></p>
+            <p>¿Todavía no tiene una cuenta? @Html.ActionLink("Registrarse","Index",new { area="", controller="Home"})</p>
         </div>
     </div>
 
