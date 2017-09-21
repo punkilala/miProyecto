@@ -145,8 +145,9 @@ body{
     font-size:0.6em;
     font-weight:normal;
     color:#444;}
-.lista .lista-descripcion{text-align:justify;}
-
+.lista .lista-descripcion{
+    text-align:justify;
+}
 #adjuntos li{
     overflow: hidden;
     margin-bottom: 5px;

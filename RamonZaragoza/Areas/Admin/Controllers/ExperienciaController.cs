@@ -50,6 +50,7 @@ namespace RamonZaragoza.Areas.Admin.Controllers
 
             return PartialView();
         }
+        [ValidateInput(false)]
         public ActionResult Acciones(byte tipo, int id = 0)
         {
             if (id == 0) //nuevo registro
@@ -65,9 +66,11 @@ namespace RamonZaragoza.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public JsonResult Agregar(Experiencia modelo)
         {
             mRespuestaAjax = new RespuestaServidor();
+            mRespuestaAjax.mensaje = "El campo Descripción es requerido";
             if (ModelState.IsValid)
             {
                 int result = DateTime.Compare(modelo.Desde, modelo.Hasta);

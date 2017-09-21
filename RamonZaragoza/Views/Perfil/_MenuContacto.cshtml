@@ -9,9 +9,12 @@
                 <button class="btn btn-primary" onclick="window.print();">
                     <i class="fa fa-print"></i> <span class="hidden-xs hidden-sm">Imprimir</span>
                 </button>
-                <button class="btn btn-default" data-toggle="modal" data-target="#myModal">
-                    <i class="fa fa-envelope-o"></i> <span class="hidden-xs hidden-sm">Contactar</span>
-                </button>
+                @if (Model.id != ViewBag.UsuarioActual)
+                {
+                    <button class="btn btn-default" data-toggle="modal" data-target="#myModal">
+                        <i class="fa fa-envelope-o"></i> <span class="hidden-xs hidden-sm">Contactar</span>
+                    </button>
+                }
                 @if (Model.Facebook != null)
                 {  <a title="Facebook" href="@Model.Facebook" target="_blank" class="btn btn-default"><i class="fa fa-facebook-official"></i></a>}
                 @if (Model.Twitter != null)

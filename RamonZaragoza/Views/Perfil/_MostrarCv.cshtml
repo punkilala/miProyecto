@@ -20,7 +20,7 @@
                 <span class="lista-cabecera-subtitulos">@e.Titulo</span>
             </div>
             <div class="lista-descripcion">
-                <p>@e.Descripcion</p>
+                <p>@Html.Raw(e.Descripcion)</p>
             </div>
         </div>
     }
@@ -46,7 +46,7 @@
                 </span>
             </div>
             <div class="lista-descripcion">
-                <p>@e.Descripcion</p>
+                <p>@Html.Raw(e.Descripcion)</p>
             </div>
         </div>
     }

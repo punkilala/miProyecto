@@ -26,6 +26,7 @@ namespace RamonZaragoza.Controllers
         }
         public PartialViewResult _MenuContacto(int id)
         {
+            ViewBag.UsuarioActual = SesionHelper.GetUser();
             return PartialView(mUsuario.GetDatosPersonales(id));
         }
         public PartialViewResult _MostrarCv(int id)
