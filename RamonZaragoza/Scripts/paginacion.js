@@ -10,6 +10,9 @@ $(document).ready(function () {
      /////////////////
     //escuchar botones
     $('body').on('click', 'button', function () {
+        var form = $(this).closest('form');
+        if (form.attr('id') == "adminRegistro") return;
+
         var url;
         var boton = $(this).attr('id');
 
@@ -31,22 +34,26 @@ $(document).ready(function () {
             var elInput = $(this).attr('id').substring(4);
             $('#' + elInput).val('');
         }
-        var form = $(this).closest('form');
-        inicioAjax(form);
+              inicioAjax(form);
     });
 
      /////////////////
     //escuchar  select
     $('body').on('change', 'select', function () {
         var form = $(this).closest('form');
-        $('#pagina').val('1');
-        inicioAjax(form);
+        //es el select del formulario registro
+        if (form.attr('id') != "adminRegistro") {
+            $('#pagina').val('1');
+            inicioAjax(form);
+        }
+ 
     });
 
      ///////////////
     //escuchar input
     $('body').on('change', 'input', function () {
-       
+        var form = $(this).closest('form');
+        if (form.attr('id') == "adminRegistro") return;
         //evito que se envie  si se clickea los checkbox... estos van por el boton eliminar
         if ($(this).attr('name') == "idEliminar" || ($(this).attr('name') == "todo")) return false;
 
@@ -55,13 +62,14 @@ $(document).ready(function () {
             if ($('#Salario').val() == 0) return false;
         }
 
-        var form = $(this).closest('form');
         inicioAjax(form);
     });
 
      //////////////////////////////////////////////////////////////////////
     //escuchar enlaces solo envio por ajax las ordenaciones y la paginacion
     $('body').on('click', 'a', function () {
+        var form = $(this).closest('form');
+        if (form.attr('id') == "adminRegistro") return;
         //es paginacion
         //la paginacion su ul tiene una clase llamada pagination
         var ul = $(this).closest('ul');
@@ -74,7 +82,6 @@ $(document).ready(function () {
                 pagina = url[0].split('=');
                 //pagina donde quiero ir
                 $('#pagina').val(pagina[1]);
-                var form = $(this).closest('form');
                 inicioAjax(form);
             }
         } else if ($(this).hasClass("filtro")) {
@@ -99,7 +106,6 @@ $(document).ready(function () {
             }
 
             QuitarOrdenacion();
-            var form = $(this).closest('form');
             inicioAjax(form);
 
         // para la vista OfertaEmpleo

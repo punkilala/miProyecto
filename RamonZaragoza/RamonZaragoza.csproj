@@ -357,7 +357,7 @@
     <Content Include="Views\Perfil\_EnviarMensaje.cshtml" />
     <Content Include="Views\Home\_Carrusel.cshtml" />
     <Content Include="Views\Ofertas\Detalle.cshtml" />
-    <Content Include="Views\Home\_Registro.cshtml" />
+    <Content Include="Views\Shared\_Registro.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModelList.cshtml" />
@@ -370,6 +370,7 @@
     <Content Include="Views\Shared\_FiltroOfertas.cshtml" />
     <Content Include="Views\Ofertas\_Listado.cshtml" />
     <Content Include="Views\Home\Sumario.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Helper\Helper.csproj">

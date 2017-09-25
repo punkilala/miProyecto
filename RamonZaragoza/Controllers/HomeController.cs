@@ -29,12 +29,7 @@ namespace RamonZaragoza.Controllers
         public ActionResult Sumario()
         {
             return View();
-        }
-
-        public PartialViewResult _Registro()
-        {
-            return PartialView(new Usuario());
-        }
+        } 
         
         [HttpPost]
         [ValidateAntiForgeryToken]

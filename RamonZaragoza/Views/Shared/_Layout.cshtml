@@ -38,7 +38,7 @@
                 else
                 {
                     <ul class="nav navbar-nav navbar-right">
-                        <li>@Html.ActionLink("Registrarse", "Registro", "Home", new { data_toggle = "modal", data_target = "#myModal" })</li>
+                        <li>@Html.ActionLink("Registrarse","",null, new {href="#", data_toggle="modal", data_target="#myModal" })</li>
                         <li>@Html.ActionLink("Iniciar Sesión", "Index", "Admin/Login")</li>
                     </ul>
                 }
@@ -71,37 +71,13 @@
         @RenderBody()
 
         <!--FORMULARIO MODAL REGISTRO-->
-        @Html.Action("_Registro","Home","")
+        @Html.Partial("~/Views/Shared/_Registro.cshtml", new Models.Usuario())
 
         
     </div>
-    <footer>
-        <div class="col-xs-12 col-sm-3 text-center">
-            <p>&copy; 2017-2018 - Proyecto Modulo DAW</p>
-            <p>Ramon Zaragoza</p>
-        </div>
-        <div class="col-xs-12 col-sm-3 col-sm-offset-6 text-center">            
-            <a class="btn btn-default"href="https://es-es.facebook.com/" target="_blank">
-                <i class="fa fa-facebook-official fa-2x"></i>
-            </a>
-
-            <a class="btn btn-default" href="https://twitter.com/" target="_blank">
-                <i class="fa fa-twitter fa-2x"></i>
-            </a>
-
-            <a class="btn btn-default" href="https://www.linkedin.com/" target="_blank">
-                <i class="fa fa-linkedin-square fa-2x"></i>
-            </a>
-
-            <a class="btn btn-default" href="https://www.youtube.com/" target="_blank">
-                <i class="fa fa-youtube fa-2x"></i>
-            </a> 
-        </div>
-        <div class="col-xs-12 text-center">
-           <hr />
-            <b>ASP.NET MVC Entity Framework Code First</b>
-        </div>
-    </footer>
+    
+    <!--FOOTER-->
+    @Html.Partial("_Footer")
 
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/css3-animate-it.js"></script>
