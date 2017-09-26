@@ -97,8 +97,9 @@
     </div>
 
     <div class="well well-sm col-xs-12">
-        <div id="mensaje" class="col-xs-10"></div>
-        <div class="col-xs-2 text-right">
+        <div id="mensaje" class="col-xs-12 col-sm-8"></div>
+        <div class="col-xs-12 col-sm-4 text-right">
+            @Html.ActionLink("Volver", "Index", "Experiencia", new { Tipo=Model.Tipo}, new { @class = "btn btn-default" })
             <img id="cargando" src="~/Content/images/ajax-loader.gif" style="display:none;" />
             <button id="btnGuardar" class="btn btn-primary" type="submit">Guardar</button>
         </div>

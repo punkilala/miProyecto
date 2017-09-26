@@ -96,6 +96,7 @@
        <div class="col-xs-12">
            <div id="mensaje" class="col-xs-12 col-sm-8"></div>
            <div class="col-xs-12 col-sm-4 text-right">
+               @Html.ActionLink("Volver", "Index",null, new { @class = "btn btn-default" })
                <img id="cargando" style="display:none;" src="~/Content/images/ajax-loader.gif" />
                <button id="btn-enviar" type="submit" class="btn btn-primary">Enviar</button>
            </div>

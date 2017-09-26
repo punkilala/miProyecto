@@ -1,6 +1,7 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Anton');
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 @import url('https://fonts.googleapis.com/css?family=Patua+One');
+@import url('https://fonts.googleapis.com/css?family=Bitter');
 @import url('../font-awesome.min.css');
 /*varios*/
 body {
@@ -68,7 +69,46 @@ form{position:relative;}
     font-size: 20px;
     font-style: italic;
 }
-
+/*Banner Home*/
+.banner{
+    padding:0;
+    background-color:#f6f6f6;
+}
+.banner .row{margin-right: 0;}
+.banner img{
+    width:100%;
+    min-height: 500px;
+}
+.banner .banner-left{padding-right:0;}
+.banner .banner-right{
+    position: absolute;
+    left: 50%;
+    padding: 65px;
+}
+.banner-right h2 {
+    font-family: 'Bitter', serif;
+    color: dimgray;
+    font-size: 24px;
+    margin-bottom:20px;
+}
+.banner-right .subTitle{
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 70%;
+    margin-bottom: 20px;
+}
+.banner-right .content{
+    font-size: 18px;
+    font-weight: 300;
+    color: #777;
+    line-height: 1.7778;
+    margin-bottom: 20px;
+}
+.banner-right .iconos{
+    text-align:center;
+}
+.banner-right .iconos p{font-size:16px;}
+.banner-right .iconos i{color:#5c5c8f;}
 /*Ultimas Ofertas*/
 #ultimasOfertas img{
     max-width: 50%;
@@ -253,7 +293,19 @@ footer .fa-youtube{color:#FF0000}
 
 
 /*RESPONSIVE*/
+@media screen and (max-width:992px) 
+{
+    .banner .banner-right {
+        position: static;
+    }
+
+    .banner img {
+          min-height: 0;
+          max-height: 300px;
+    }
+}
 @media screen and (max-width:657px)
+
 {
     .carousel-caption p{display:none;}
     .carousel-caption h2 {
@@ -281,6 +333,9 @@ footer .fa-youtube{color:#FF0000}
         display: block;
         margin-top:10px;
     }
+    .banner .banner-right {
+        padding: 30px 40px;
+    }
 }
 @media screen and (max-width:495px){
     .BreadCrumb {width:90%; }
@@ -289,5 +344,12 @@ footer .fa-youtube{color:#FF0000}
         font-size: 20px;
     }
     #inscrito{margin-top: 0 !important;}
+    .banner-right h2 {
+    font-size: 18px;
+    }
+    .banner-right .subTitle{
+        font-size: 22px;
+        line-height: 90%;
+    }
 }
 

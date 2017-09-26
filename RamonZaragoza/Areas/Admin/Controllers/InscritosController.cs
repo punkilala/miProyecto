@@ -46,7 +46,9 @@ namespace RamonZaragoza.Areas.Admin.Controllers
             Session["EstadoFiltro"] = estado;
 
             ViewBag.LEstado = mEstado.GetEstadoInscrito();
-            return PartialView(mInscritos.GetInscritos(id, estado).ToPagedList(numPag,numReg));
+            var lista = mInscritos.GetInscritos(id, estado);
+            ViewBag.Cuenta = lista.Count();
+            return PartialView(lista.ToPagedList(numPag,numReg));
         }
         public ActionResult DatosUsuario(int id, Int64 inscrip, int estado)
         {

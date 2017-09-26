@@ -9,7 +9,7 @@
     <div class="jumbotron">
         <h1>ASP.NET <span>MVC</span></h1>
         <p class="lead">Visita la lista de Ofertas de empleo disponibles</p>
-        <p><a href="~/admin/login" class="btn btn-primary btn-lg">Ver Ofertas &raquo;</a></p>
+        <p>@Html.ActionLink("Ver Ofertas >>","Index","Ofertas",null, new {@class= "btn btn-primary btn-lg" })</p>
     </div>
 </div>
 
@@ -48,4 +48,7 @@
     </div>
 </div>
 <!--FIN ULTIMAS OFERTAS-->
+<!--BANNER-->
+@Html.Partial("_Banner")
+<!--BANNER-->
 

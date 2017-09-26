@@ -8,6 +8,9 @@
 @using (Html.BeginForm("_Listado", "Inscritos", FormMethod.Post, new { id = "adminForm" }))
 {
     @Html.Hidden("pagina","")
+    <div class="col-xs-12 col-sm-9">
+        <h4>Núm. Candidatos: @ViewBag.Cuenta</h4>
+    </div>
     <div class="col-xs-12 col-sm-3 pull-right">
         @Html.DropDownList("estado_id", new SelectList(ViewBag.LEstado, "id", "Descripcion"), new { @class = "form-control" });
     </div>
@@ -71,6 +74,9 @@
                    {
                        pagina = page
                    }))
+            </div>
+            <div class="col-xs-12 text-right">
+                @Html.ActionLink("Volver","Index", "OfertaEmpleo",null, new { @class="btn btn-default"})
             </div>
         </div>
     </div>
