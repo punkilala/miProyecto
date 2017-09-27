@@ -151,7 +151,7 @@ namespace Models
                     bbdd.SaveChanges();
                     result = true;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
 
                     return result;

@@ -114,7 +114,7 @@ $(document).ready(function () {
             id = $(this).parents("tr").find("td").eq(0).text();
             $('#CambiarEstado').val(id);
             var form = $(this).closest('form');
-            $(this).parents("tr").find("td").eq(4).html('<img src="../content/images/mini-load.gif"/>');
+            $(this).parents("tr").find("td").eq(5).html('<img src="../content/images/mini-load.gif"/>');
             inicioAjax(form); 
         }
     });

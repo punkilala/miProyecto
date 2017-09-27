@@ -278,6 +278,8 @@ namespace Models
                         .Include("Experiencia")
                         .Include("Conocimiento")
                         .Include("Adjuntos")
+                        .Include("Idioma")
+                        .Include("Idioma.Idiomas")
                         .Where(u => u.id == id).SingleOrDefault();
                     return usuario;
                 }

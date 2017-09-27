@@ -33,21 +33,13 @@ namespace RamonZaragoza.Controllers
             {
                 return Content("<script>window.close();</script>");
             }
-            return View(usuario);
-        }
-        public PartialViewResult _MenuContacto(int id)
-        {
             ViewBag.UsuarioActual = SesionHelper.GetUser();
-            return PartialView(mUsuario.GetDatosPersonales(id));
+            return View(usuario);
         }
         public PartialViewResult _MostrarCv(int id)
         {
             return PartialView(mUsuario.GetDatosCv(id));
-        }
-        public PartialViewResult _MostrarIdiomas (int id)
-        {
-            return PartialView(mIdioma.GetIdiomas(id));
-        }
+        }    
         public PartialViewResult _EnviarMensaje()
         {
             return PartialView(new Mensaje());

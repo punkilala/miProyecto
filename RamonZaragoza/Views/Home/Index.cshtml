@@ -23,11 +23,17 @@
                 <div class="thumbnail">
                     @if (oferta.Usuario.Foto == "noFoto.jpg")
                     {
-                        <img src="../../Content/images/noDisponible.jpg" alt="@oferta.Usuario.Nombre" title="@oferta.Usuario.Nombre">
+                        <a href="~/Perfil/index/@oferta.Usuario_id" target="_blank">
+                            <img src="../../Content/images/noDisponible.jpg" 
+                                 alt="@oferta.Usuario.Nombre" title="Ver perfil de @oferta.Usuario.Nombre">
+                        </a>
                     }
                     else
                     {
-                        <img src="../../Uploads/@oferta.Usuario_id/FotoPerfil/@oferta.Usuario.Foto" title="@oferta.Usuario.Nombre">
+                        <a href="~/Perfil/index/@oferta.Usuario_id" target="_blank">
+                            <img src="../../Uploads/@oferta.Usuario_id/FotoPerfil/@oferta.Usuario.Foto" 
+                                 title="Ver perfil de @oferta.Usuario.Nombre">
+                        </a>
                     }
                     <div class="caption">
                         <h4>@oferta.Nombre</h4>

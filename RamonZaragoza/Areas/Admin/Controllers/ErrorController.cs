@@ -24,7 +24,7 @@ namespace RamonZaragoza.Areas.Admin.Controllers
 
                 default:
                     ViewBag.titulo = "Página no encontrada";
-                    ViewBag.Descripcion = "No modifiques las url,s";
+                    ViewBag.Descripcion = "No Puede realizar esta acción";
                     break;
             }
             ViewBag.Error = error;

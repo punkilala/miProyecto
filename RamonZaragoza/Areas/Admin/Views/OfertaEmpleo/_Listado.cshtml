@@ -70,32 +70,26 @@
                         <td>@Html.ActionLink(oe.Nombre,"Detalle",new {area="", controller="Ofertas",id= oe.id},new { target = "_blank" })</td>
                         <td class="text-center">@string.Format("{0:d}", oe.Fecha)</td>     
                         <td>
-                           @{
-                               bool sinLeer = false;
-                               if (oe.Inscritos.Count() > 0)
+                               @if (oe.Inscritos.Count() > 0)
                                {
-                                   foreach (var x in oe.Inscritos)
+                                   if (oe.Inscritos.Where(x => x.estado_id == 4).Count() > 0)
                                    {
-                                       if (x.estado_id == 4)
-                                       {
-                                           sinLeer = true;
-                                           break;
-                                       }
-                                   }
-                                   if (sinLeer)
-                                   {
-                                     <a href="@Url.Action("Oferta","Inscritos",new { id=oe.id})" title="Tiene Inscritos sin leer"><i class="fa fa-search fa-2x" style="color:indianred"></i></a>
+                                      <a href="@Url.Action("Oferta","Inscritos",new { id=oe.id})" title="Tiene Inscritos sin leer">
+                                        <i class="fa fa-search fa-2x" style="color:indianred"></i>
+                                      </a>
                                    }
                                    else
                                    {
-                                      <a href="@Url.Action("Oferta","Inscritos",new { id=oe.id})" title="Ver Inscritos"><i class="fa fa-search fa-2x"></i></a>
+                                      <a href="@Url.Action("Oferta","Inscritos",new { id=oe.id})" title="Ver Inscritos">
+                                          <i class="fa fa-search fa-2x"></i>
+                                      </a>
                                    }
                                }
                                else
                                {
-                                <i class="fa fa-search fa-2x" title="Ningun inscrito"></i>
+                                 <i class="fa fa-search fa-2x" title="Ningun inscrito"></i>
                                }
-                        }
+                                
                         </td>
                         <td class="text-center">@oe.Inscritos.Count()</td>
                         <td class="text-center">

@@ -23,7 +23,7 @@
     @Html.HiddenFor(i=>i.estado_id)
     @Html.HiddenFor(i=>i.Oferta_id)
     <div class="col-xs-12 text-right">
-        <a href="@Url.Content("~/Perfil/Usuario/"+Model.Usuario_id_D)" target="_blank" title="Ver Perfil" class="btn btn-primary btn-xs"><i class="fa fa-address-book-o"></i></a>
+        <a href="@Url.Content("~/Perfil/Index/"+Model.Usuario_id_D)" target="_blank" title="Ver Perfil" class="btn btn-primary btn-xs"><i class="fa fa-address-book-o"></i></a>
         <button id="btn-pres" type="submit" class="btn btn-success btn-xs" title="Pre-Seleccionar Candidato"><i class="fa fa-thumbs-o-up"></i></button>
         <button id="btn-rech" type="submit" class="btn btn-success btn-xs" title="Rechazar Candidato" style="background:#343A40"><i class="fa fa-thumbs-o-down"></i></button>
     </div>
