@@ -8,6 +8,7 @@
 <script src="~/Scripts/jquery-ui-1.11.3.js"></script>
 <script src="~/Scripts/jquery.ui.datepicker-es.js"></script>
 <script src="~/Scripts/jquery.maskedinput.js"></script>
+<script src="http://cdn.tinymce.com/4.4/tinymce.min.js"></script>
 
     <h3 class="page-header"><i class="fa fa-info-circle"> </i><b> Acerca</b> de mí</h3>
 
@@ -28,7 +29,7 @@
                 <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab"><i class="fa fa-info-circle"> Información</i></a></li>
                 <li role="presentation"><a href="#ubicacion" aria-controls="ubicacion" role="tab" data-toggle="tab"><i class="fa fa-map-marker"> Ubicación</i></a></li>
                 <li role="presentation"><a href="#contacto" aria-controls="contacto" role="tab" data-toggle="tab"><i class="fa fa-address-book"></i> Contacto</a></li>
-                <li role="presentation"><a href="#social" aria-controls="social" role="tab" data-toggle="tab"><i class="fa fa-podcast"></i> Social</a></li>
+                <li role="presentation"><a href="#social" aria-controls="social" role="tab" data-toggle="tab"><i class="fa fa-podcast"></i> Social</a></li>   
             </ul>
 
             <div class="tab-content">
@@ -63,18 +64,24 @@
                     }
                     <div class="form-group">
                         @if (ViewBag.Rol == 1)
-                         { <label>Fecha de Nacimiento *</label>}
+                        {
+                            <label>Fecha de Nacimiento *</label>
+                            @Html.EditorFor(u => u.FNacimiento, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ingrese fecha nacimiento" } })
+                            @Html.ValidationMessageFor(u => u.FNacimiento, "", new { @class = "label label-danger" })
+                        }
                         else
-                           { <label>Fecha Constitucion *</label>}
-                        @Html.EditorFor(u => u.FNacimiento, new { htmlAttributes = new { @class = "form-control", @placeholder="Ingrese fecha nacimiento" } })
-                        @Html.ValidationMessageFor(u => u.FNacimiento, "", new { @class = "label label-danger" })
+                        {
+                            <label>Hablar Sobre la Empresa</label>
+                            @Html.TextAreaFor(u => u.InfoGeneral, new { @class = "form-control", @placeholder = "Hable sobre la empresa" })
+                            @Html.ValidationMessageFor(u => u.InfoGeneral, "", new { @class = "label label-danger" })
+                        }
                     </div>
                 </div>
                 <!-- TAB  UBICACION -->
                 <div role="tabpanel" class="tab-pane" id="ubicacion">
                     <div class="form-group">
                         <label>dirección</label>
-                        @Html.TextAreaFor(u => u.Direccion, new { @class = "form-control", @placeholder = "Ingrese su dirección" })
+                        @Html.TextBoxFor(u => u.Direccion, new { @class = "form-control", @placeholder = "Ingrese su dirección" })
                         @Html.ValidationMessageFor(u=>u.Direccion,"", new { @class = "label label-danger " })
                     </div>
                     <div class="form-group">
@@ -128,6 +135,19 @@
                 </div>
                 <!-- TAB  Social -->
                 <div role="tabpanel" class="tab-pane" id="social">
+                    @if (Session["rol"].ToString() == "2")
+                    {
+                        <div class="form-group">
+                            <label>Web</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-podcast"></i>
+                                </span>
+                                @Html.TextBoxFor(u => u.Web, new { @class = "form-control", @placeholder = "Ingrese la Url de su Web" })
+                                @Html.ValidationMessageFor(u => u.Web, "", new { @class = "label label-danger" })
+                            </div>
+                        </div>
+                    }
                     <div class="form-group">
                         <label>Facebook</label>
                         <div class="input-group">
@@ -207,6 +227,16 @@
                 ok = false;
             }
             return ok;
+        });
+
+        tinyMCE.init({
+            // General options
+            mode: "textareas",
+            theme: "modern",
+            height: 150,
+            plugins: "advlist",
+            advlist_bullet_styles: "square",
+            plugins: "hr",
         });
     </script>
  }

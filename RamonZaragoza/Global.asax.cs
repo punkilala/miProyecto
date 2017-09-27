@@ -21,7 +21,7 @@ namespace RamonZaragoza
         }
         protected void Application_Error(object sender, EventArgs e)
         {
-            /*  Exception exception = Server.GetLastError();
+              /*Exception exception = Server.GetLastError();
               Response.Clear();
 
               HttpException httpException = exception as HttpException;

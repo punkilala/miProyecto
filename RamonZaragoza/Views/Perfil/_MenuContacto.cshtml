@@ -9,7 +9,7 @@
                 <button class="btn btn-primary" onclick="window.print();">
                     <i class="fa fa-print"></i> <span class="hidden-xs hidden-sm">Imprimir</span>
                 </button>
-                @if (Model.id != ViewBag.UsuarioActual)
+                @if (Model.id != ViewBag.UsuarioActual && Request.IsAuthenticated)
                 {
                     <button class="btn btn-default" data-toggle="modal" data-target="#myModal">
                         <i class="fa fa-envelope-o"></i> <span class="hidden-xs hidden-sm">Contactar</span>
@@ -28,4 +28,7 @@
 </div>
 
  <!--VISTA ENVIAR MENSAJES-->
-@Html.Action("_EnviarMensaje")
+@if (Request.IsAuthenticated)
+{
+    @Html.Action("_EnviarMensaje")
+}

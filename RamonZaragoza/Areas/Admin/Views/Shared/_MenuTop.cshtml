@@ -77,7 +77,7 @@
                                 </p>
                                 <div class="divider">
                                 </div>
-                                <a href="~/perfil/Usuario/@ViewBag.idUsuario" target="_blank" class="btn btn-primary btn-sm active">Ver Perfil</a>
+                                @Html.ActionLink("Ver Perfil","Index", new { area="", controller = "Perfil", id= ViewBag.idUsuario }, new { @class= "btn btn-primary btn-sm active", target="_blank" })
                             </div>
                         </div>
                     </div>

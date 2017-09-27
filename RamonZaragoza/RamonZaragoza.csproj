@@ -350,7 +350,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutPerfil.cshtml" />
-    <Content Include="Views\Perfil\Usuario.cshtml" />
+    <Content Include="Views\Perfil\Index.cshtml" />
     <Content Include="Views\Perfil\_MenuContacto.cshtml" />
     <Content Include="Views\Perfil\_MostrarCv.cshtml" />
     <Content Include="Views\Perfil\_MostrarIdiomas.cshtml" />

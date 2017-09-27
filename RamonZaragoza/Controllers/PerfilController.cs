@@ -1,5 +1,6 @@
 ﻿using Helper;
 using Models;
+using RamonZaragoza.Areas.Admin.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,22 +8,32 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace RamonZaragoza.Controllers
-{
+{   
     public class PerfilController : Controller
     {
         Usuario mUsuario = new Usuario();
         Idioma mIdioma = new Idioma();
-        public ActionResult Usuario(int id)
+
+        public ActionResult Index(int id)
         {
+           
+            var usuario = mUsuario.GetDatosPersonales(id);
+
             if (Convert.ToInt16(Session["Rol"]) == 1)
             {
-                //el usuario activo solo puede ver su perfil;
-                if (id != SesionHelper.GetUser())
+                //Un Candidato solo puede ver su perfil o un perfil de empresa;
+                if (id != SesionHelper.GetUser() && usuario.Rol_id==1)
                 {
                     return Content("<script>window.close();</script>");
                 }
             }
-            return View(mUsuario.GetDatosPersonales(id));
+
+            //Si no estas autenticado solo se puede ver el perfil de las empresas
+            if (SesionHelper.GetUser() == 0 && usuario.Rol_id==1)
+            {
+                return Content("<script>window.close();</script>");
+            }
+            return View(usuario);
         }
         public PartialViewResult _MenuContacto(int id)
         {

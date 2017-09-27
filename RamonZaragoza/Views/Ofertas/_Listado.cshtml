@@ -11,11 +11,15 @@
         <div class="thumbnail">
             @if (rel.Usuario.Foto == "noFoto.jpg")
             {
-                <img class="flotar-d img-cuerpoOferta" src="../../Content/images/noDisponible.jpg" alt="rel.Usuario.Nombre" title="@rel.Usuario.Nombre">
+                <a href="~/perfil/index/@rel.Usuario_id" target="_blank">
+                    <img class="flotar-d img-cuerpoOferta" src="../../Content/images/noDisponible.jpg" alt="rel.Usuario.Nombre" title="Ver Perfil de @rel.Usuario.Nombre">
+                </a>
             }
             else
             {
-                <img class="flotar-d img-cuerpoOferta" src="../../Uploads/@rel.Usuario_id/FotoPerfil/@rel.Usuario.Foto" title="@rel.Usuario.Nombre">
+                <a href="~/perfil/index/@rel.Usuario_id" target="_blank">
+                    <img class="flotar-d img-cuerpoOferta" src="../../Uploads/@rel.Usuario_id/FotoPerfil/@rel.Usuario.Foto" title="Ver Perfil de @rel.Usuario.Nombre">
+                </a>        
             }
             <div class="caption">
                 <h4>@rel.Nombre</h4>

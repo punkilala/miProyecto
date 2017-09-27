@@ -11,12 +11,17 @@
             <div class="cab-logo">
                 @if (Model.Usuario.Foto == "noFoto.jpg")
                 {
-                    <img src="~/Content/images/noFoto.jpg" alt="@Model.Usuario.Nombre" title="@Model.Usuario.Nombre" />
+                    <a href="~/perfil/index/@Model.Usuario_id" target="_blank">
+                        <img src="~/Content/images/noFoto.jpg" alt="@Model.Usuario.Nombre" 
+                             title="Ver perfil de @Model.Usuario.Nombre" />
+                    </a>
                 }
                 else
                 {
-                    <img src="~/Uploads/@Model.Usuario.id/FotoPerfil/@Model.Usuario.Foto" 
-                            alt="@Model.Usuario.Nombre" title="@Model.Usuario.Nombre" />
+                    <a href="~/perfil/index/@Model.Usuario_id" target="_blank">
+                        <img src="~/Uploads/@Model.Usuario.id/FotoPerfil/@Model.Usuario.Foto"
+                             alt="@Model.Usuario.Nombre" title="@Model.Usuario.Nombre" />
+                    </a>   
                 }
             </div>
         </div>
@@ -114,11 +119,17 @@
                 <div class="thumbnail">
                     @if (rel.Usuario.Foto == "noFoto.jpg")
                     {
-                        <img class="flotar-d" src="../../Content/images/noDisponible.jpg" alt="rel.Usuario.Nombre" title="@rel.Usuario.Nombre">
+                         <a href="~/perfil/index/@rel.Usuario_id" target="_blank">
+                             <img class="flotar-d" src="../../Content/images/noDisponible.jpg" 
+                                  alt="@rel.Usuario.Nombre" title="@rel.Usuario.Nombre">
+                         </a>
                     }
                     else
                     {
-                        <img class="flotar-d" src="../../Uploads/@rel.Usuario_id/FotoPerfil/@rel.Usuario.Foto" title="@rel.Usuario.Nombre">
+                        <a href="~/perfil/index/@rel.Usuario_id" target="_blank">
+                            <img class="flotar-d" src="../../Uploads/@rel.Usuario_id/FotoPerfil/@rel.Usuario.Foto" 
+                                 title="@rel.Usuario.Nombre">
+                        </a>   
                     }
                     <div class="caption">
                         <h4>@rel.Nombre</h4>

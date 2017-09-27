@@ -48,7 +48,7 @@ namespace RamonZaragoza.Areas.Admin.Controllers
             SesionHelper.DestroyUserSession();
             return Redirect("~/");
         }
-
+        [ValidateInput(false)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public JsonResult GuardarUsuario(Usuario modelo)

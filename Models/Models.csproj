@@ -135,6 +135,10 @@
     <Compile Include="Migrations\201709181451506_Reestablacer-estado_id-tablaIncritos-yCrearForeignKey.Designer.cs">
       <DependentUpon>201709181451506_Reestablacer-estado_id-tablaIncritos-yCrearForeignKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709271140115_AddCampoWebyInfoGeneralTablaUsuario.cs" />
+    <Compile Include="Migrations\201709271140115_AddCampoWebyInfoGeneralTablaUsuario.Designer.cs">
+      <DependentUpon>201709271140115_AddCampoWebyInfoGeneralTablaUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OfertaEmpleo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -205,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709181451506_Reestablacer-estado_id-tablaIncritos-yCrearForeignKey.resx">
       <DependentUpon>201709181451506_Reestablacer-estado_id-tablaIncritos-yCrearForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709271140115_AddCampoWebyInfoGeneralTablaUsuario.resx">
+      <DependentUpon>201709271140115_AddCampoWebyInfoGeneralTablaUsuario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

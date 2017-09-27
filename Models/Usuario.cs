@@ -81,6 +81,10 @@ namespace Models
         public string Facebook { get; set; }
         public string Twitter { get; set; }
         public string Linkedin { get; set; }
+        public string Web { get; set; }
+
+        [Column(TypeName = "text")]
+        public string InfoGeneral { get; set; }
 
         [NotMapped]
         [Required(ErrorMessage = "El campo es requerido")]
